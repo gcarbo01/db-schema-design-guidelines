@@ -94,7 +94,7 @@ https://vertabelo.com/blog/primary-key/
 **Introduction** <br>
 It is the design for a well-constructed Primary Key. It is called UUID or GUID type. <br>
 It is also known as “UniqueIdentifier”. This key also fits into the category of the surrogate artificial Key.
-This is an Internet Engineering Task Force (IETF), an international standard managed by a specification that, at the time of writing this document, was in version 4.122.
+This is an Internet Engineering Task Force (IETF), an international standard managed by a specification that, at the time of writing this document, the latest version is rfc4122 v4.122.
 The purpose of this key is to have an identification that brings some indirection to relationships among entities and makes refactoring, migrations, re-building, and re-indexing of microservices databases easier.  <br>
 This field has to be configured as "Unique" in the table definition.  <br>
 Using this key to all tables on microservices allows refactoring and migrating data without having to worry about the physical and business keys, which you do not control.<br>
