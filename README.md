@@ -146,7 +146,7 @@ A library to generate the unique IDs <br>
 https://www.npmjs.com/package/uuid <br>
 **Surrogate key** <br>
 Surrogate Key pattern <br>
-https://en.wikipedia.org/wiki/Surrogate_key
+https://en.wikipedia.org/wiki/Surrogate_key <br>
 **UUId - MongoDB implementation** <br>
 This was introduced in the MongoDB implementation <br>
 https://www.mongodb.com/docs/manual/reference/method/ObjectId/  <br>
