@@ -19,16 +19,18 @@ Architects can benefit from database SQL schema and data modelling guidance from
 Standardization of data modelling: Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
 **Improved Data Quality** <br>
  Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability. <br>
-Scalability: Best practices in data modeling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
-Efficient Data Retrieval: Logical and physical data modeling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
+**Scalability** <br> 
+Best practices in data modeling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
+**Efficient Data Retrieval** <br>
+Logical and physical data modeling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
 **Easier Maintenance** <br>
 Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
 Enhanced Security: Data modeling guidelines incorporate security measures, ensuring the protection of sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
-Listed below are tools and capabilities in no particular order. Do your research. Most of these tools are open-sourced and may flourish or die without notice. <br>
-Each tool may be applicable for one or more capabilities. So they are tagged by "Category".
+Listed below are tools and capabilities in no particular order. Do your research. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. <br>
+Each of the capabilities may apply to one or more Category. So they are tagged by "Category".
 <br>
 <br>
 <br>
