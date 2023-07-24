@@ -17,12 +17,18 @@ The list is not the full list of guidelines but a collection of best practices t
 **Architecture Governance** <br>
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 Standardization of data modelling: Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
-Improved Data Quality: Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability.
+**Improved Data Quality** <br>
+ Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability. <br>
 Scalability: Best practices in data modeling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
 Efficient Data Retrieval: Logical and physical data modeling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
-Easier Maintenance: Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
+**Easier Maintenance** <br>
+Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
 Enhanced Security: Data modeling guidelines incorporate security measures, ensuring the protection of sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
-Alignment with Business Goals: Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
+**Alignment with Business Goals** <br>
+Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
+## Capabilities
+Listed below are tools and capabilities in no particular order. Do your research. Most of these tools are open-sourced and may flourish or die without notice. <br>
+Each tool may be applicable for one or more capabilities. So they are tagged by "Category".
 <br>
 <br>
 <br>
@@ -46,12 +52,11 @@ To be included in the CI-CD pipeline
 ## Comments
 It helps you write good SQL and catch errors and bad SQL before it hits your database. <br>
 In addition, if the project contains “.sql” files, it is recommended to incorporate a SQL Linter into the CI-CD pipeline.  <br>
-For example: <br>
+For example:
 ## Resources
 **SQL Fluff	Source code quality	SQL linter** <br>
 Source code linter specialising in SQL statements.	SQL Linter <br>
 https://docs.sqlfluff.com/en/stable/ <br> 
-<br>
 **SQL Lint	Source code quality	SQL Linter**<br>
 Source code linter specialising in SQL statements.	SQL Linter  <br>
 https://github.com/joereynolds/sql-lint
