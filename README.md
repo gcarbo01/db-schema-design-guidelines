@@ -128,8 +128,7 @@ So, by adopting this convention, each of these columns will have its unique name
 <br>
 **Time-creation awareness** <br>
 This was introduced in the MongoDB implementation.<br>
-This implementation caters to the Id to be sortable by time-creation using: <br> 
-``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
+This implementation caters to the Id to be sortable by time-creation using: ``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
 For more information, see MongoDB Object id implementation references.<br>
 <br>
