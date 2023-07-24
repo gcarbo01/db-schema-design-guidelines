@@ -85,7 +85,7 @@ https://vertabelo.com/blog/primary-key/
 # Unique Id – GUID or UUID or GUID
 ## Category
 ## Comments
-**Introduction**
+**Introduction** <br>
 It is the design for a well-constructed Primary Key. It is called UUID or GUID type. <br>
 It is also known as “UniqueIdentifier”. This key also fits into the category of the surrogate artificial Key.
 This is an Internet Engineering Task Force (IETF), an international standard managed by a specification that, at the time of writing this document, was in version 4.122.
@@ -97,16 +97,16 @@ So microservices can generate this key and provide it to other microservices for
 If we need to re-build the DB, the database engine may assign a different one if we were using the physical key auto-generated sequential. But with this unique key will be the same, and your relationships across multiple DBs, the integrity of the overall system will remain intact. <br>
 Business keys could be better, too, for other reasons. Law changes and regulations can badly affect systems based on an external business key we do not have any control over.  <br>
 As this type of id is to identify a row in the database, this pattern also applies to foreign keys.  
-## Resources
-UUID V4 Random Generation standard <br>
-Abstract: UUID V4 Random Generation. Version 4 generates a Unique ID based on random number generation. … Version 4 is also commonly referred to as a GUID. While a GUID doesn’t follow the same specification as UUIDs, it is the same basic format.<br>
+## References
+**UUID V4 Random Generation standard** <br>
+UUID V4 Random Generation. Version 4 generates a Unique ID based on random number generation. … Version 4 is also commonly referred to as a GUID. While a GUID doesn’t follow the same specification as UUIDs, it is the same basic format.<br>
 https://datatracker.ietf.org/doc/html/rfc4122  <br> 
-Wikipedia GUID <br>
+**Wikipedia GUID** <br>
 https://en.wikipedia.org/wiki/Universally_unique_identifier <br>
-JS UUID library <br>
+**JS UUID library** <br>
 A library to generate the unique IDs <br>
 https://www.npmjs.com/package/uuid <br>
-UUId - MongoDB implementation <br>
+**UUId - MongoDB implementation** <br>
 This was introduced in the MongoDB implementation <br>
 https://www.mongodb.com/docs/manual/reference/method/ObjectId/  
 <br>
