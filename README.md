@@ -12,8 +12,7 @@ Database SQL schema design and data modelling guidelines
 ### Summary
 This document lists different patterns for logical and physical data modelling. <br>
 The list is not the full list of guidelines but a collection of best practices to be considered when producing logical, physical data models and avoiding re-work or technical debt. 
-
-###Architecture Governance
+### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 **Standardization of data modelling** <br> 
 Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
@@ -25,7 +24,8 @@ Best practices in data modeling cater to scalability, allowing data structures t
 Logical and physical data modeling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
 **Easier Maintenance** <br>
 Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
-Enhanced Security: Data modeling guidelines incorporate security measures, ensuring the protection of sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
+**Enhanced Security** <br>
+Data modeling guidelines incorporate security measures, ensuring the protection of sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
