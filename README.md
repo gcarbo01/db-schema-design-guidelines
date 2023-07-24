@@ -108,8 +108,8 @@ As this type of id is to identify a row in the database, this pattern also appli
 The format of this key is of the format: ``NNNNN-NNNNN-NNNNN-NNNNN``  <br>
 Where ``‘N’`` is Alphanumeric:``[0-9] | [A-Z] | [a-z]`` <br>
 Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
-For more information, see surrogate Key pattern references.
-**Schema Field definition** ``
+For more information, see surrogate Key pattern references.<br>
+**Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
 <br>
