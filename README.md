@@ -111,7 +111,7 @@ Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
 For more information, see surrogate Key pattern references.
 **Schema Field definition** ``
 The convention for this field can be: <br>
-``Varchar (50) - ``primary Key``. <br>
+``Varchar (50)`` - ``primary Key``. <br>
 <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
