@@ -118,7 +118,7 @@ The convention for this field can be: <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example:<br>
-<code style="color : blue">Contract</code> (table name) + <code style="color : blue">Id</code> = <code style="color : blue">ContractId</code> <br>
+$${\color{blue}Contract}$$ (table name) + $${\color{blue}Id}$$ = $${\color{blue}ContractId}$$
 <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
