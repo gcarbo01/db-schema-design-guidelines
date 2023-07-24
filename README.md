@@ -14,6 +14,7 @@ This document lists different patterns for logical and physical data modelling. 
 The list is not the full list of guidelines but a collection of best practices to be considered when producing logical, physical data models and avoiding re-work or technical debt. 
 ### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
+<br>
 **Standardization of data modelling** <br> 
 Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
 <br>
