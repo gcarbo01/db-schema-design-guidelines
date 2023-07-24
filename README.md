@@ -109,6 +109,7 @@ The format of this key is of the format: ``NNNNN-NNNNN-NNNNN-NNNNN``  <br>
 Where ``‘N’`` is Alphanumeric:``[0-9] | [A-Z] | [a-z]`` <br>
 Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
 For more information, see surrogate Key pattern references.<br>
+ <br>
 **Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
@@ -139,14 +140,18 @@ In the case of needing a centralised service to generate Ids, there may be a nee
 **UUID V4 Random Generation standard** <br>
 UUID V4 Random Generation. Version 4 generates a Unique ID based on random number generation. … Version 4 is also commonly referred to as a GUID. While a GUID doesn’t follow the same specification as UUIDs, it is the same basic format.<br>
 https://datatracker.ietf.org/doc/html/rfc4122  <br> 
+ <br>
 **Wikipedia GUID** <br>
 https://en.wikipedia.org/wiki/Universally_unique_identifier <br>
+ <br>
 **JS UUID library** <br>
 A library to generate the unique IDs <br>
 https://www.npmjs.com/package/uuid <br>
+ <br>
 **Surrogate key** <br>
 Surrogate Key pattern <br>
 https://en.wikipedia.org/wiki/Surrogate_key <br>
+ <br>
 **UUId - MongoDB implementation** <br>
 This was introduced in the MongoDB implementation <br>
 https://www.mongodb.com/docs/manual/reference/method/ObjectId/  <br>
