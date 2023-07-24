@@ -29,7 +29,7 @@ Data modeling guidelines incorporate security measures, ensuring the protection 
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
-Listed below are tools and capabilities in no particular order. Do your research. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. <br>
+Listed below are capabilities in no particular order. Do your research. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. <br>
 Each of the capabilities may apply to one or more Category. So they are tagged by "Category".
 <br>
 <br>
