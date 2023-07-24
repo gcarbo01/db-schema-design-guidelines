@@ -16,7 +16,8 @@ The list is not the full list of guidelines but a collection of best practices t
 <br>
 **Architecture Governance** <br>
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
-Standardization of data modelling: Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
+**Standardization of data modelling** <br> 
+Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
 **Improved Data Quality** <br>
  Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability. <br>
 **Scalability** <br> 
