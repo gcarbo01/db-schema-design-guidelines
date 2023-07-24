@@ -72,8 +72,10 @@ There are several theories about the design of primary keys. The discussion abou
 Firstly, avoid multi-column primary keys. These can introduce complexity and make it difficult to query.  <br>
 Secondly, the design of the primary key high-performance systems is different from enterprise platforms.  <br>
 So, in most cases, for enterprise applications, we advise using a surrogate primary key of the type GUID. Although these are not human-friendly, in most scenarios are better than other options, such as Natural Keys, Business keys, and also auto-generated sequential integers.  <br>
-Also, avoid other bad options such as simple Date-time or composed keys, for example: (``FirstName-LastName-City-TimeStamp``, or ``Product-ProductPart-ProductCode``, etc. <br>
-If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. See the Custom Human Readable id, and Mnemotechnical hash id sections of this document.  <br>
+Also, avoid other bad options such as simple Date-time or composed keys, for example: <br>
+``FirstName-LastName-City-TimeStamp``, or <br>
+``Product-ProductPart-ProductCode``, etc. <br>
+If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. See the Custom Human Readable id and Mnemotechnical hash id sections of this document.  <br>
 This category of IDs must also be considered if the system will be implementing APIs. The Restful API URLs are assumed to be used by humans. <br>
 ## References:
 https://vertabelo.com/blog/primary-key/ 
