@@ -19,18 +19,18 @@ Guidelines and standard SQL schema designs ensure consistency and standardizatio
 **Improved Data Quality** <br>
  Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability. <br>
 **Scalability** <br> 
-Best practices in data modeling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
+Best practices in data modelling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
 **Efficient Data Retrieval** <br>
-Logical and physical data modeling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
+Logical and physical data modelling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
 **Easier Maintenance** <br>
 Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
 **Enhanced Security** <br>
-Data modeling guidelines incorporate security measures, ensuring the protection of sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
+Data modelling guidelines incorporate security measures, protecting sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
 **Alignment with Business Goals** <br>
-Architects align the data model with business goals and requirements, crucial for delivering valuable insights and supporting decision-making processes.  
+Architects align the data model with business goals and requirements, which is crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
 Listed below are capabilities in no particular order. Do your research. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. <br>
-Each of the capabilities may apply to one or more Category. So they are tagged by "Category".
+Each of the capabilities may apply to one or more Categories. So they are tagged by "Category".
 <br>
 <br>
 <br>
@@ -98,32 +98,32 @@ If we need to re-build the DB, the database engine may assign a different one if
 Business keys could be better, too, for other reasons. Law changes and regulations can badly affect systems based on an external business key we do not have any control over.  <br>
 As this type of id is to identify a row in the database, this pattern also applies to foreign keys.  
 **Format** <br>
-The format of this key is of the format: ''NNNNN-NNNNN-NNNNN-NNNNN''  <br>
-Where ''‘N’'' is Alphanumeric:'' [0-9] | [A-Z] | [a-z] '' <br>
-Example: ''A2eXh-HBwHj-Gd04t-zezmP-ojU65'' <br>
+The format of this key is of the format: ``NNNNN-NNNNN-NNNNN-NNNNN``  <br>
+Where ``‘N’`` is Alphanumeric:``[0-9] | [A-Z] | [a-z]`` <br>
+Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
 For more information, see surrogate Key pattern references.
 **Schema Field definition** <br>
 The convention for this field can be: <br>
-''Varchar (50)'' - '' primary Key''. <br>
+``Varchar (50) - ``primary Key``. <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
-''<The same name used on the table> + “Id” '' <br>
+``<The same name used on the table>`` + ``“Id”`` <br>
 For example:<br>
-<code style="color : blue">Contract</code> (table name) + <code style="color : blue">Id</code> = <code style="color : blue">''ContractId''</code> <br>
+<code style="color : blue">Contract</code> (table name) + <code style="color : blue">Id</code> = <code style="color : blue">``ContractId``</code> <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
-For example, if the unique identifiers of each table are only ''Id'', a select query will bring all columns names of both tables, but they would have indistinguishable names; both will be ''Id''.  <br>
+For example, if the unique identifiers of each table are only ``Id``, a select query will bring all columns names of both tables, but they would have indistinguishable names; both will be ``Id``.  <br>
 So, by adopting this convention, each of these columns will have its unique name. <br>
 **Time-creation awareness** <br>
 This was introduced in the MongoDB implementation.<br>
 This implementation caters to the Id to be sortable by time-creation using: <br> 
-''ObjectId.getTimestamp()'', which returns the timestamp portion of the object as a Date.<br>
+``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
 For more information, see MongoDB Object id implementation references.<br>
 **Centralised service - IDs generation** <br>
 This can be done by a dedicated API that creates an Id. <br>
 For example, Twitter’s Snowflake implements a  Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs. 
-In the case of needing a centralised service to generate Ids, there maybe a need to be highly performant and available. Or generate Ids in batches and use a buffer using a Cache platform. <br>
+In the case of needing a centralised service to generate Ids, there may be a need to be highly performant and available. Or generate Ids in batches and use a buffer using a Cache platform. <br>
 ## References
 **UUID V4 Random Generation standard** <br>
 UUID V4 Random Generation. Version 4 generates a Unique ID based on random number generation. … Version 4 is also commonly referred to as a GUID. While a GUID doesn’t follow the same specification as UUIDs, it is the same basic format.<br>
