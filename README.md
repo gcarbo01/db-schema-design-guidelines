@@ -1,6 +1,6 @@
 # db-schema-design-guidelines
 Database SQL schema design and data modelling guidelines
-#1.SQL Styling 
+# 1.SQL Styling 
 ## Category
 ## Comments
 It is strongly recommended to read, understand and incorporate SQL Styling standards. <br>
@@ -15,7 +15,7 @@ https://docs.telemetry.mozilla.org/concepts/sql_style.html
 <br>
 <br>
 <br>
-#1.SQL Linter – CI-CD pipeline
+# 1.SQL Linter – CI-CD pipeline
 ## Category
 ## Comments
 It helps you write good SQL and catch errors and bad SQL before it hits your database
