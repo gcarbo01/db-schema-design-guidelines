@@ -6,8 +6,8 @@ Database SQL schema design and data modelling guidelines
   <source media="(prefers-color-scheme: light)" srcset="./images/db-schema-design-guidelines.jpg">
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="./images/db-schema-design-guidelines.jpg">
 </picture>
-<br>
-<br>
+
+
 ## Intro
 ### Summary
 This document lists different patterns for logical and physical data modelling. <br>
