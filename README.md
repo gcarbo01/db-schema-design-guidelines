@@ -16,16 +16,22 @@ The list is not the full list of guidelines but a collection of best practices t
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 **Standardization of data modelling** <br> 
 Guidelines and standard SQL schema designs ensure consistency and standardization across projects, fostering a unified data architecture and facilitating collaboration. <br>
+<br>
 **Improved Data Quality** <br>
  Following guidelines leads to data normalization, validation, and integrity, improving data quality, reducing inconsistencies, and enhancing data reliability. <br>
+ <br>
 **Scalability** <br> 
 Best practices in data modelling cater to scalability, allowing data structures to accommodate growth and business changes without major restructuring or performance issues. <br>
+<br>
 **Efficient Data Retrieval** <br>
 Logical and physical data modelling patterns optimize data storage and retrieval, leveraging techniques like indexing and columnar storage to boost system performance.  <br>
+<br>
 **Easier Maintenance** <br>
 Well-designed data models ease database schema maintenance, minimizing schema changes and avoiding technical debt.  <br>
+<br>
 **Enhanced Security** <br>
 Data modelling guidelines incorporate security measures, protecting sensitive data, compliance with privacy regulations, and safeguarding organizational data.  <br>
+<br>
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, which is crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
@@ -97,29 +103,34 @@ So microservices can generate this key and provide it to other microservices for
 If we need to re-build the DB, the database engine may assign a different one if we were using the physical key auto-generated sequential. But with this unique key will be the same, and your relationships across multiple DBs, the integrity of the overall system will remain intact. <br>
 Business keys could be better, too, for other reasons. Law changes and regulations can badly affect systems based on an external business key we do not have any control over.  <br>
 As this type of id is to identify a row in the database, this pattern also applies to foreign keys.  
+<br>
 **Format** <br>
 The format of this key is of the format: ``NNNNN-NNNNN-NNNNN-NNNNN``  <br>
 Where ``‘N’`` is Alphanumeric:``[0-9] | [A-Z] | [a-z]`` <br>
 Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
 For more information, see surrogate Key pattern references.
-**Schema Field definition** <br>
+**Schema Field definition** ``
 The convention for this field can be: <br>
 ``Varchar (50) - ``primary Key``. <br>
+<br>
 **Naming Convention** <br>
 The name of the field should be: <br>
-``<The same name used on the table>`` + ``“Id”`` <br>
+``<The same name used on the table>`` + ``'Id'`` <br>
 For example:<br>
-<code style="color : blue">Contract</code> (table name) + <code style="color : blue">Id</code> = <code style="color : blue">``ContractId``</code> <br>
+<code style="color : blue">Contract</code> (table name) + <code style="color : blue">Id</code> = <code style="color : blue">ContractId</code> <br>
+<br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
 For example, if the unique identifiers of each table are only ``Id``, a select query will bring all columns names of both tables, but they would have indistinguishable names; both will be ``Id``.  <br>
 So, by adopting this convention, each of these columns will have its unique name. <br>
+<br>
 **Time-creation awareness** <br>
 This was introduced in the MongoDB implementation.<br>
 This implementation caters to the Id to be sortable by time-creation using: <br> 
 ``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
 For more information, see MongoDB Object id implementation references.<br>
+<br>
 **Centralised service - IDs generation** <br>
 This can be done by a dedicated API that creates an Id. <br>
 For example, Twitter’s Snowflake implements a  Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs. 
