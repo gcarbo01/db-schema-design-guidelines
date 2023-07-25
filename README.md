@@ -449,7 +449,7 @@ These types of IDs have similarities with the Resource-Id and the Short UUID.exa
 For example: <br>
 From: /system/customer/``3m-australia-pty-ltd``<br>
 To:    /system/customer/``3m-australia-pty-ltd-01``<br>
-. Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property of ``Unique``.<br>
+. Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property ``Unique``.<br>
 ## References
 <br> <br> <br> 
 
