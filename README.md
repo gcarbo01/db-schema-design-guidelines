@@ -1,12 +1,7 @@
 # db-schema-design-guidelines
 Database SQL schema design and data modelling guidelines
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./images/db-schema-design-guidelines.jpg">
-  <source media="(prefers-color-scheme: light)" srcset="./images/db-schema-design-guidelines.jpg">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="./images/db-schema-design-guidelines.jpg">
-</picture>
-
+<img src="./images/db-schema-design-guidelines.jpg" align="center" width=100% height=100%>
 
 ## Intro
 ### Summary
@@ -115,16 +110,16 @@ For more information, see surrogate Key pattern references.<br>
 **Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
-<img src="./images/PrimaryKeydefinition1.jpg" width=100% height=100%>
+<img src="./images/PrimaryKeydefinition1.jpg" width=40% height=40%>
 <br>
 ``Unique``<br>
-<img src="./images/PrimaryKeydefinition2.jpg" width=100% height=100%>
+<img src="./images/PrimaryKeydefinition2.jpg" width=40% height=40%>
 <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
-<img src="./images/PrimaryKeydefinition3.jpg" width=100% height=100%>
+<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
 <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
