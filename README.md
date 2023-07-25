@@ -379,4 +379,53 @@ Other microservices and systems that store references to these business entities
 This type of Ids have similarities with the Custom Human-readable Id. <br>
 ## References
 <br> <br> <br> 
+# Mnemotechnical hash ids
+## Category
+## Description
+Also, there is another interesting library that generates hash ids from text. The hash id has a mnemotechnical relationship with the original (the same way custom car plates are designed). These are implemented by Hash Id org.<br>
+### Example
+<br>
+| #	| Original  | Hashed |
+| --- | --- | --- |
+|1|		Nano-ID	|N``4``n``0``-1D|
+|2|		Separators|	``53``p``4``r``470``r``5``|
+|3|		Read-more|	R``34``d-m``0``r3|
+|4|		small-open-source-library|	``5``m``411``-``0``p3n-``50``urc``3``-``11``br``4``ry|
+|5|		brute-force-attack|	bru``73``-f``0``rc``3``-``4774``ck|
+|6|		StackOverflow|	``574``ck``0``v``3``rf``10``w|
+<br>
+### Caution about possible Collisions
+. The generation of shorter ids could lead to more probability of collisions. <br>
+. So there should be a logic that catches possible collisions and try to generate a new short id. <br>
+. This must be implemented in a separate field from the Primary Key Long UUIDs; in this case, the field should have the SQL property of Unique.<br>
+<br>
+### Scenarios
+This type of Ids has similarities with <br>
+. Custom Human-readable Id <br>
+. Resource Id <br>
+ <br>
+They can be adopted for Restful APIs as Resource ids. For example: <br>
+From this type of ids:<br>
+/customer/``Contoso``/account/``npb5YA4Dep3yMqAP7rRN``<br>
+<br>
+Transformed to:<br>
+/customer/``C0n7050``/account/``npb5Y44D3p3yMq4P7rRN``
+<br>
+### Randomness and Uniqueness
+If extra randomness is required, each letter transformation can also be transformed randomly.  <br>
+This is the case when these types of hash-ids are used for resource ids; the field must be marked as Unique. This can bring a problem when using soft-delete, and then a new record is created with the same resource ids that already exist, but it is only soft-deleted in the table. To circumvent this problem, the hash id function can be extended and randomised for each letter. <br>
+For example, consider applying the transformation from uppercase to lowercase or vice versa in all letters and randomly apply the transformation pattern from a letter to numbers. <br>
+So, if the same name is to be created again in the database to avoid collision (because of the Unique property of the field), it will generate one of the possible variations of the hashed name. <br>
+For example: <br>
+| Variation #	| Original  | Hashed |
+| --- | --- | --- |
+|1| Contoso | C``0``n``7050`` |
+|2| Contoso | ``c0``n``7``o``5``o |
+|3| Contoso | Co``N7O5``o |
+|4| Contoso | ``c``o``N``to``S0`` |
+
+## References
+Hash Id Organisation <br>
+https://hashids.org/
+<br> <br> <br> 
 --End of the File--
