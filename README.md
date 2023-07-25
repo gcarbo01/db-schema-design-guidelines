@@ -187,4 +187,25 @@ Back-Office:   ``bao_7e4df0ad-9e0d-47e9-8604-293480da3301`` <br>
 <br>
 <br>
 <br>
+# Unique Id – Self-generated sequential id
+## Category
+## Description
+This is a type of property that can be assigned to fields that make them auto-incremental.  Generally, when used on tables, this field type is used intentionally as a Primary Key. 
+However, the advice is not to use this practice. <br>
+The reason for this is that this auto-generated number is the physical row in the table and may interfere with the refactoring and migration of data in microservices. <br>
+It has been observed that the database engine can automatically create a field called “id” when creating the table and set it as Primary Key. This may happen if the script that creates the table does not have an explicit Primary Key. So, the database engine creates a default one, auto incremental.  <br>
+But we expect this not to happen if a Primary Key is specified explicitly. <br>
+<br>
+<img src="./images/auto-incremental-id.jpg" align="center" width=50% height=50%>
+ <br>
+**Caution**<br>
+Sequential integer IDs are considered a vulnerability. It leaves the system wide open to enumeration attacks, where it becomes trivially easy for malicious actors to guess IDs that they should not be able to since your IDs are sequential.
+## Resources
+ 
+
+
+<br>
+<br>
+<br>
+
 --End of File--
