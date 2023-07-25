@@ -10,8 +10,8 @@ Database SQL schema design and data modelling guidelines
 
 ## Intro
 ### Summary
-This document lists different patterns for logical and physical data modelling. <br>
-The list is not the full list of guidelines but a collection of best practices to be considered when producing logical, physical data models and avoiding re-work or technical debt. 
+This document lists different patterns for logical and physical data modelling. It can read as a cookbook for good data modelling and SQL schema design. <br>
+Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint, this is because it is most likely to be used by those trying to instrument governance over development groups.
 ### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 <br>
@@ -36,7 +36,9 @@ Data modelling guidelines incorporate security measures, protecting sensitive da
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, which is crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
-Listed below are capabilities in no particular order. Do your research. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. <br>
+I've listed the capabilities in no particular order. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. 
+## Use
+After reading any of the capabilities, I recommend doing your own research. If you have comments or disagree, or find gaps, pls reach out, collaborators are welcome to the project.<br>
 Each of the capabilities may apply to one or more Categories. So they are tagged by "Category".
 <br>
 <br>
@@ -45,7 +47,7 @@ Each of the capabilities may apply to one or more Categories. So they are tagged
 ## Category
 ## Comments
 It is strongly recommended to read, understand and incorporate SQL Styling standards. <br>
-## Resources
+## Description
 GitLab SQL Styling best practices <br>
 https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/  <br>
 SQL Style Guide- (by Simon Holywell) <br>
@@ -62,7 +64,7 @@ To be included in the CI-CD pipeline
 It helps you write good SQL and catch errors and bad SQL before it hits your database. <br>
 In addition, if the project contains “.sql” files, it is recommended to incorporate a SQL Linter into the CI-CD pipeline.  <br>
 For example:
-## Resources
+## Description
 **SQL Fluff	Source code quality	SQL linter** <br>
 Source code linter specialising in SQL statements.	SQL Linter <br>
 https://docs.sqlfluff.com/en/stable/ <br> 
