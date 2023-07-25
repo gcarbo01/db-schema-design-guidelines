@@ -336,7 +336,7 @@ Business Entities designed to be exposed through restful API should have a human
 Therefore, they will be used for bookmarking a business entity in a browser.  <br>
 So that when the user clicks the bookmark, an application will open the resource and display it accordingly. The scenario is when someone needs to send the link to an invoice; then, it can copy and paste the invoice URL and send it to a client.  <br>
 For example: <br>
-/myapplication.com/customer/``customer_resource-Id``/account/``account_resource-Id``/ <br>
+/myapplication.com/customer/``<customer_resource-Id>``/account/``<account_resource-Id>``/ <br>
  <br>
 ### Requirements
 This resource-Id can be designed in multiple ways. These resource Ids are going to be exposed to end users, including developers; the only real requirements for this resource-Id are: <br>
