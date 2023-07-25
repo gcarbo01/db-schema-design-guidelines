@@ -184,9 +184,6 @@ Mobile:        ``mob_c6c043e1-59f7-45eb-b372-9bf252552117`` <br>
 ATM:           ``atm_6b2c9ab6-c1b3-469f-beda-a170465fe8d2`` <br>
 Back-Office:   ``bao_7e4df0ad-9e0d-47e9-8604-293480da3301`` <br>
 ## References
-<br>
-<br>
-<br>
 # Unique Id – Self-generated sequential id
 ## Category
 ## Description
@@ -196,7 +193,7 @@ The reason for this is that this auto-generated number is the physical row in th
 It has been observed that the database engine can automatically create a field called “id” when creating the table and set it as Primary Key. This may happen if the script that creates the table does not have an explicit Primary Key. So, the database engine creates a default one, auto incremental.  <br>
 But we expect this not to happen if a Primary Key is specified explicitly. <br>
 <br>
-<img src="./images/auto-incremental-id.jpg" align="center" width=50% height=50%>
+<img src="./images/auto-incremental-id.jpg" align="center" width=60% height=60%>
  <br>
 **Caution**<br>
 Sequential integer IDs are considered a vulnerability. It leaves the system wide open to enumeration attacks, where it becomes trivially easy for malicious actors to guess IDs that they should not be able to since your IDs are sequential.
