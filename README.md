@@ -6,7 +6,8 @@ Database SQL schema design and data modelling guidelines
 ## Intro
 ### Summary
 This document lists different patterns for logical and physical data modelling. It can read as a cookbook for good data modelling and SQL schema design. <br>
-Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint because it is most likely to be used by those trying to instrument governance over development groups.
+Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say it is the most comprehensive list of guidance I know. <br>
+So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. <br> The subjects have a heavy enterprise and solution architecture and design viewpoint because it is most likely used by those trying to instrument governance over development groups.
 ### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 <br>
@@ -31,10 +32,13 @@ Data modelling guidelines incorporate security measures, protecting sensitive da
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, which is crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
-I've listed the capabilities in no particular order. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. 
+I've listed the capabilities in no particular order. <br> It is important how to read them; the capabilities may overlap, or some of them are subspecialisation of others. Some of them are complimentary. So, I organise them into topics or subjects that, in most cases, can be read independently and also implemented independently, with obvious exception of course.
+Lastly, it is important to note that most of these capabilities provide some references to websites, tools and libraries. Most of them are open-sourced. These may flourish or die without notice. 
 ## Use
 After reading any of the capabilities, I recommend doing your own research. Please let me know if you have comments, disagree, or find gaps. Collaborators are welcome to the project.<br>
 Each of the capabilities may apply to one or more Categories. So they are tagged by "Category".
+## Disclaimer
+There are lots of original material on this page. However, I have read and collected information from other places too. In most cases, I summarised and wrapped the information with my flavour. In these cases, I kept the links to the original sources as much as possible for reference if I missed some. My apologies. It is not my intention to take credit for other people's work.
 <br>
 <br>
 <br>
