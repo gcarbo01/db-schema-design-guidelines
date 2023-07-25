@@ -263,8 +263,7 @@ A system keeping information about the entities mastered in CRMs,  <br>
 ### Example of an implementation
 #### Physical design
 <br>
-<img src="./images/Identification-pattern-physical.jpg" align="center" width=100% height=100%> 
-<br>
+<img src="./images/Identification-pattern-physical.jpg" align="center" width=100% height=100%> <br><br>
 
 | #	| Column  Name	| Description |
 | --- | --- | --- |
