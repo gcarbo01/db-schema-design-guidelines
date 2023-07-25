@@ -6,7 +6,7 @@ Database SQL schema design and data modelling guidelines
 ## Intro
 ### Summary
 This document lists different patterns for logical and physical data modelling. It can read as a cookbook for good data modelling and SQL schema design. <br>
-Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint, this is because it is most likely to be used by those trying to instrument governance over development groups.
+Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint; this is because it is most likely to be used by those trying to instrument governance over development groups.
 ### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 <br>
@@ -33,7 +33,7 @@ Architects align the data model with business goals and requirements, which is c
 ## Capabilities
 I've listed the capabilities in no particular order. Most of these capabilities provide some references to tools and libraries. Most of them are open-sourced. These may flourish or die without notice. 
 ## Use
-After reading any of the capabilities, I recommend doing your own research. If you have comments or disagree, or find gaps, pls reach out, collaborators are welcome to the project.<br>
+After reading any of the capabilities, I recommend doing your own research. Please let me know if you have comments, disagree, or find gaps. Collaborators are welcome to the project.<br>
 Each of the capabilities may apply to one or more Categories. So they are tagged by "Category".
 <br>
 <br>
@@ -73,12 +73,12 @@ https://github.com/joereynolds/sql-lint
 ## Category
 ## Description
 There are several theories about the design of primary keys. The discussion about the primary key can be of various kinds. <br>
-Firstly, avoid multi-column primary keys. These can introduce complexity and make it difficult to query.  <br>
-Secondly, the design of the primary key high-performance systems is different from enterprise platforms.  <br>
-So, in most cases, for enterprise applications, we advise using a surrogate primary key of the type GUID. Although these are not human-friendly, in most scenarios are better than other options, such as Natural Keys, Business keys, and also auto-generated sequential integers.  <br>
+First, please avoid multi-column primary keys. These can introduce complexity and make it difficult to query.  <br>
+Secondly, the primary key for high-performance systems' design differs from enterprise platforms.  <br>
+So, in most cases, we advise using a surrogate primary key of the type GUID for enterprise applications. Although these are not human-friendly, most scenarios are better than other options, such as Natural Keys, Business keys, and auto-generated sequential integers.  <br>
 Also, avoid other bad options such as simple Date-time or composed keys, for example: <br>
 ``FirstName-LastName-City-TimeStamp``, or ``Product-ProductPart-ProductCode``, etc. <br>
-If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. See the Custom Human Readable id and Mnemotechnical hash id sections of this document.  <br>
+If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. Please take a look at this document's Custom Human Readable id and Mnemotechnical hash id sections.  <br>
 This category of IDs must also be considered if the system will be implementing APIs. The Restful API URLs are assumed to be used by humans. <br>
 ## References
 https://vertabelo.com/blog/primary-key/ 
@@ -94,10 +94,10 @@ It is also known as “UniqueIdentifier”. This key also fits into the category
 This is an Internet Engineering Task Force (IETF), an international standard managed by a specification that, at the time of writing this document, the latest version is rfc4122 v4.122.
 The purpose of this key is to have an identification that brings some indirection to relationships among entities and makes refactoring, migrations, re-building, and re-indexing of microservices databases easier.  <br>
 This field has to be configured as "Unique" in the table definition.  <br>
-Using this key to all tables on microservices allows refactoring and migrating data without having to worry about the physical and business keys, which you do not control.<br>
+Using this key to all tables on microservices allows refactoring and migrating data without worrying about the physical and business keys you do not control.<br>
 Since our system is not based on a single relational database, we must have a strategy for these "soft foreign keys" across microservices. <br>
 So microservices can generate this key and provide it to other microservices for reference. <br>
-If we need to re-build the DB, the database engine may assign a different one if we were using the physical key auto-generated sequential. But with this unique key will be the same, and your relationships across multiple DBs, the integrity of the overall system will remain intact. <br>
+If we need to re-build the DB, the database engine may assign a different one if we use the physical key auto-generated sequential. But with this unique key will be the same, and your relationships across multiple DBs, the integrity of the overall system will remain intact. <br>
 Business keys could be better, too, for other reasons. Law changes and regulations can badly affect systems based on an external business key we do not have any control over.  <br>
 As this type of id is to identify a row in the database, this pattern also applies to foreign keys.  
 <br>
@@ -135,7 +135,7 @@ So, by adopting this convention, each of these columns will have its unique name
 This was introduced in the MongoDB implementation.<br>
 This implementation caters to the Id to be sortable by time-creation using: ``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
-For more information, see MongoDB Object id implementation references.<br>
+If you would like more information, you can see MongoDB Object id implementation references.<br>
 <br>
 ### Centralised service - IDs generation
 This can be done by a dedicated API that creates an Id. <br>
@@ -170,9 +170,9 @@ This pattern adds a determined prefix to a specific business object id. This is 
 ### Case 1 – Object Type
 This is the case when it is required to identify the object type id by only observing the UUID. And, with the UUID alone, this is not enough.  <br>
 For example: <br>
-Customer ID (``cus_``) is used as the prefix of the UUID for Customer entities. <br>
+For Customer ID (``cus_``) is used as the prefix of the UUID for Customer entities. <br>
 So, a customer UUId will look like this:  ``cus_A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
-Account ID (``acct_``) is used as a prefix in the UUID for Accounts entities. <br>
+For Account ID (``acct_``) is used as a prefix in the UUID for Accounts entities. <br>
 So, an account UUId will look like this:  ``acct_3133a6ba-4392-4223-b678-84b6c044e5bf`` <br>
 ### Case 2 – Object Creator
 This is the case when it is required to identify the creator of the entity. In this case, multiple systems can create objects of the same type, and it is required that the creator of the object instance is identified easily by only observing the UUID. And, with the UUID alone, this is not enough. <br>
@@ -184,9 +184,7 @@ Mobile:        ``mob_c6c043e1-59f7-45eb-b372-9bf252552117`` <br>
 ATM:           ``atm_6b2c9ab6-c1b3-469f-beda-a170465fe8d2`` <br>
 Back-Office:   ``bao_7e4df0ad-9e0d-47e9-8604-293480da3301`` <br>
 ## References
-  <br>
-  <br>
-    
+  <br> <br>  <br>   
 # Unique Id – Self-generated sequential id
 ## Category
 ## Description
@@ -200,12 +198,93 @@ But we expect this not to happen if a Primary Key is specified explicitly. <br>
  <br>
 **Caution**<br>
 Sequential integer IDs are considered a vulnerability. It leaves the system wide open to enumeration attacks, where it becomes trivially easy for malicious actors to guess IDs that they should not be able to since your IDs are sequential.
-## Resources
- 
-
-
+## References
+ <br> <br><br>
+# Business Keys
+## Category
+## Description
+Other variations for Business keys are artificial identifiers assigned to identify a business entity uniquely. <br>
+They are, in most cases, they have the property of being humanly readable. <br>
+Natural Keys and Business keys could be alike. <br>
+For example:   <br>
+. “Asset Number”  <br>
+. “Invoice number” <br>
+Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
+. ``NOT NULL``
+. ``UNIQUE``
+So, please use these accordingly.
+# Natural Keys
+## Category
+## Description
+They are natural attributes of entities that are used in the real world.  Natural Keys and Business keys could be alike. <br>
+Because they are: <br>
+1. Unique  <br>
+2. Mandatory  <br>
+3. Immutable  <br>
+For example: <br>  
+. “ABN” (Australian Business Number) <br>
+   Australia Business Registry generates these identifiers, which are used for Business Organisations.  <br>
+. "Employee number" <br>
+   The HR system generates this <br>
+Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
+. ``NOT NULL``
+. ``UNIQUE``
+So, please use these accordingly.
+## References
+<br> <br><br>
 <br>
 <br>
 <br>
+# Identification pattern
+This pattern is one of the most popular when dealing with entities that can have multiple identifiers from multiple sources. So, it is one of the most important patterns to be considered and adopted.
+## Category
+## Description 
+Given a business entity table, the pattern consists in creating a separate table called ``Identification``related to a business entity table. One-to-Many relationship. <br>
+It is used to signify that a business entity is stored locally, but it is a copy.  <br>
+The Identification table keeps other identifiers of the business entities and metadata about the identification itself. For example: <br>
+. The original name of the Key. <br>
+. The Value of the Key  <br>
+. The origin application. <br>
+About the possible scenarios where extra identifiers are needed to be placed in the Identification table:	<br>
+. In the scenario where the system stores a copy of an object or business entity that is not mastered in this platform.	So the original identifier is preserved.<br>
+. In the scenario where more than one identifier for an object is needed, the identifiers are placed separately in a different table. <br>
+. In the scenario where extra identification of an object is needed, it must be kept in the original format and consist of a composed key with more than one field.<br>
+. In the scenario where the old identifiers of objects must be preserved after migrating to a new system. 	<br>
+	<br>
+So, in conclusion, this pattern is useful when it is required a system keeping information about how an object is identified in another system. <br>
+In the case of implementing an eco-system with multiple microservices, and they are all considered within the boundaries of the same system, this pattern is not required. Just use the Unique Identifier directly. <br>
+However, the following scenarios can be useful: <br>
+A system keeping information about the entities mastered in CRMs,  <br>
+.	MS D365 (ERP) <br>
+. Zoho CRM (Presales) <br>
+. etc <br>
+### Logical modelling
+<br> <img src="./images/Identification-pattern-logical.jpg" align="center" width=60% height=60%> <br>
+### Example of an implementation
+### Logical modelling
+<br>
+<img src="./images/Identification-pattern-physical.jpg" align="center" width=60% height=60%> 
+<br>
 
+| #	| Column  Name	| Description |
+| --- | --- | --- |
+|1|		IdentificationId |	Business id. Unique identifier |
+|2|		originApplicationId	| Application id. Application mastering this business entity. This is a soft link, not a foreign key.|
+|3|		Name |	Name of the attribute as it is known in the origin application.|
+|4|		Value |	Value of the attribute. |
+ <br>
+**Example 1**
+An account is an object that is mastered in Dynamics. But a copy is kept in a microservice. 
+Therefore, the Dynamic primary identifier for the account object is preserved on a separate table from the Account table.
+<br> <img src="./images/Identification-pattern-instance1.jpg" align="center" width=60% height=60%> <br>
+**Example 2** <br>
+In this hypothetical scenario, the data team want to migrate data. In inserting data, new primary keys are generated, but the data team wants to preserve the Ids used on the old system.  <br>
+Therefore, these legacy identifiers are preserved separately from the Asset table. <br>
+<br> <img src="./images/Identification-pattern-instance2.jpg" align="center" width=60% height=60%> <br>
+**Example 3** <br>
+In this hypothetical scenario, some customers send us information about Assets. These are attributes that they use as identifiers. Our customers want to use these details to find an Asset in our applications using their attributes on our web page.  <br>
+Therefore, these external identifiers are preserved separately from the Asset table. <br>
+If you would like more information, you can see the External Identifier pattern in this document. <br>
+## References
+<br> <br><br>
 --End of File--
