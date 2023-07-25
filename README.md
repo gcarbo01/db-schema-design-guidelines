@@ -110,10 +110,12 @@ For more information, see surrogate Key pattern references.<br>
 **Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
+<br>
 <img src="./images/PrimaryKeydefinition1.jpg" width=60% height=60%>
 <br>
 <br>
 ``Unique``<br>
+<br>
 <img src="./images/PrimaryKeydefinition2.jpg" width=60% height=60%>
 <br>
 <br>
@@ -121,6 +123,7 @@ The convention for this field can be: <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
+<br>
 <img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
 <br>
 **Unique Identifier – Suffix**  <br>
