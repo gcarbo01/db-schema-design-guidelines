@@ -388,7 +388,12 @@ Also, there is another interesting library that generates hash ids from text. Th
 
 | #	| Original  | Hashed |
 | --- | --- | --- |
-|1|		Nano-ID	|N**4**n**0**-1D|
+|1|		Nano-ID	|N``4``n``0``-1D|
+|2|		Separators|	``53``p``4``r``470``r``5``|
+|3|		Read-more|	R``34``d-m``0``r3|
+|4|		small-open-source-library|	``5``m``411``-``0``p3n-``50``urc``3``-``11``br``4``ry|
+|5|		brute-force-attack|	bru``73``-f``0``rc``3``-``4774``ck|
+|6|		StackOverflow|	``574``ck``0``v``3``rf``10``w|
 
 <br>
 ### Caution about possible Collisions
@@ -417,7 +422,10 @@ For example: <br>
 
 | Variation #	| Original  | Hashed |
 | --- | --- | --- |
-|1| Contoso | C**0**n**7050** |
+|1| Contoso | C``0``n``7050`` |
+|2| Contoso | ``c0``n``7``o``5``o |
+|3| Contoso | Co``N7O5``o |
+|4| Contoso | ``c``o``N``to``S0`` |
 
 
 ## References
