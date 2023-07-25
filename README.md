@@ -271,7 +271,7 @@ A system keeping information about the entities mastered in CRMs,  <br>
 |2|		originApplicationId	| Application id. Application mastering this business entity. This is a soft link, not a foreign key.|
 |3|		Name |	Name of the attribute as it is known in the origin application.|
 |4|		Value |	Value of the attribute. |
- <br><br>
+ 
 ### Hypothetical example scenarios
 #### Example 1
 An account is an object that is mastered in Dynamics. But a copy is kept in a microservice. 
