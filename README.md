@@ -1,7 +1,7 @@
 # db-schema-design-guidelines
 Database SQL schema design and data modelling guidelines
 
-<img src="./images/db-schema-design-guidelines.jpg" align="center" width=100% height=100%>
+<img src="./images/db-schema-design-guidelines.jpg" align="center" width=50% height=50%>
 
 ## Intro
 ### Summary
@@ -110,16 +110,16 @@ For more information, see surrogate Key pattern references.<br>
 **Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
-<img src="./images/PrimaryKeydefinition1.jpg" width=40% height=40%>
+<img src="./images/PrimaryKeydefinition1.jpg" width=60% height=60%>
 <br>
 ``Unique``<br>
-<img src="./images/PrimaryKeydefinition2.jpg" width=40% height=40%>
+<img src="./images/PrimaryKeydefinition2.jpg" width=60% height=60%>
 <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
-<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
+<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=25%>
 <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
