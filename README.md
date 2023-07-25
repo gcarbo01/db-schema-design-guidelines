@@ -306,7 +306,7 @@ The following diagram represents when the company merges the records, which does
 ### Sample Scenario 2
 The diagram below represents the anti-pattern when external identifiers are embedded in the main business entity table. <br>
 Instance diagram - Individual - driver's license - embedded. <br>
-<br><img src="./images/External-identifier3.jpg" align="center" width=70% height=70%> <br> <br> 
+<br><img src="./images/External-identifier3.jpg" align="center" width=50% height=50%> <br> <br> 
 The diagram below represents the correct pattern when external identifiers are stored in a separate table from the main business entity table. <br>
 Instance diagram - Individual - driver's license - as Identification table apart.<br> 
 <br><img src="./images/External-identifier4.jpg" align="center" width=70% height=70%> <br> <br> 
@@ -336,7 +336,7 @@ Business Entities designed to be exposed through restful API should have a human
 Therefore, they will be used for bookmarking a business entity in a browser.  <br>
 So that when the user clicks the bookmark, an application will open the resource and display it accordingly. The scenario is when someone needs to send the link to an invoice; then, it can copy and paste the invoice URL and send it to a client.  <br>
 For example: <br>
-https://myapplication.com/customer/``<customer_resource-Id>``/account/``<account_resource-Id>``/ <br>
+https://myapplication.com/customer/``customer_resource-Id``/account/``account_resource-Id``/ <br>
  <br>
 ### Requirements
 This resource-Id can be designed in multiple ways. These resource Ids are going to be exposed to end users, including developers; the only real requirements for this resource-Id are: <br>
@@ -367,14 +367,14 @@ That will be of the format (3m-australia-pty-ltd): <br>
 . /customer/``3m-4u57r4114-p7y-17D``/account/``4cc-80929C`` <br>
 Using Mnemotechnical hash ids is possible because they are relatively short And human-friendly. <br>
  <br>
-**SQL design** <br>
+##### SQL design
 . Field name: ``resourceId`` or ``resourceUUID``  <br>
 . The SQL field will be ``varchar (50)``  <br>
 . It will be a type of ``Unique`` field.  <br>
 . It should be indexed because it will be used in “SQL ``where`` statements.”  <br>
 . The resourceId field will not be used for foreign keys. <br>
  <br>
-**For eventual consistency scenarios** <br>
+##### For eventual consistency scenarios
 Other microservices and systems that store references to these business entities that contain resourceId should not store or refer to entities by using this resourceId but use the GUID instead. <br>
 This type of Ids have similarities with the Custom Human-readable Id. <br>
 ## References
