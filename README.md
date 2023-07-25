@@ -163,4 +163,28 @@ https://www.mongodb.com/docs/manual/reference/method/ObjectId/  <br>
 <br>
 <br>
 <br>
+# Unique Id – Prefix
+## Category
+## Description
+This pattern adds a determined prefix to a specific business object id. This is required in some business scenarios.
+### Case 1 – Object Creator
+It is required to identify the creator of the entity. In this case, multiple systems can create objects of the same type, and it is required that the creator of the object instance is identified easily by only observing the UUID. And, with the UUID alone, this is not enough. <br>
+For example: <br>
+Customer ID (``cus_``) is used as the prefix of the UUID for Customer entities. <br>
+So, a customer UUId will look like this:  ``cus_A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
+Account ID (``acct_``) is used as a prefix in the UUID for Accounts entities. <br>
+So, an account UUId will look like this:  ``acct_3133a6ba-4392-4223-b678-84b6c044e5bf`` <br>
+### Case 2 - Object type
+It is required to identify the object type id by only observing the UUID. And, with the UUID alone, this is not enough.  <br>
+For example: <br>
+An enterprise generates payment transactions from different channels: Web, Mobile, ATM, BackOffice, etc. <br>
+Then each channel will use the assigned channel ``<prefix>`` when creating the payment transaction + ``UUId``. <br>
+Web:           ``web_c9500552-f07d-4ac4-9124-7f317080fe00``
+Mobile:        ``mob_c6c043e1-59f7-45eb-b372-9bf252552117``
+ATM:           ``atm_6b2c9ab6-c1b3-469f-beda-a170465fe8d2``
+Back-Office:   ``bao_7e4df0ad-9e0d-47e9-8604-293480da3301``
+## References
+<br>
+<br>
+<br>
 --End of File--
