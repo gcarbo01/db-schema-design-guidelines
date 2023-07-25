@@ -6,7 +6,7 @@ Database SQL schema design and data modelling guidelines
 ## Intro
 ### Summary
 This document lists different patterns for logical and physical data modelling. It can read as a cookbook for good data modelling and SQL schema design. <br>
-Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint; this is because it is most likely to be used by those trying to instrument governance over development groups.
+Of course, this list is always being updated, and the list never will be completed or finished. It may not answer your problem today. But I have been collecting scenarios to say that it is the most comprehensive list of guidance. So, I present this list as the best advice for several situations and scenarios; with all humility, this will be useful for most professionals and organisations trying to standardise data design. This is presented as a list of guidelines and best practices to consider when producing logical, physical data models and avoiding re-work or technical debt. The subjects have a heavy enterprise and solution architecture and design viewpoint because it is most likely to be used by those trying to instrument governance over development groups.
 ### Architecture Governance
 Architects can benefit from database SQL schema and data modelling guidance from several viewpoints. <br>
 <br>
@@ -78,7 +78,7 @@ Secondly, the primary key for high-performance systems' design differs from ente
 So, in most cases, we advise using a surrogate primary key of the type GUID for enterprise applications. Although these are not human-friendly, most scenarios are better than other options, such as Natural Keys, Business keys, and auto-generated sequential integers.  <br>
 Also, avoid other bad options such as simple Date-time or composed keys, for example: <br>
 ``FirstName-LastName-City-TimeStamp``, or ``Product-ProductPart-ProductCode``, etc. <br>
-If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. Please take a look at this document's Custom Human Readable id and Mnemotechnical hash id sections.  <br>
+If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. Please review this document's Custom Human Readable Ids and Mnemotechnical hash id sections.  <br>
 This category of IDs must also be considered if the system will be implementing APIs. The Restful API URLs are assumed to be used by humans. <br>
 ## References
 https://vertabelo.com/blog/primary-key/ 
@@ -135,7 +135,7 @@ So, by adopting this convention, each of these columns will have its unique name
 This was introduced in the MongoDB implementation.<br>
 This implementation caters to the Id to be sortable by time-creation using: ``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
-If you would like more information, you can see MongoDB Object id implementation references.<br>
+You can see MongoDB Object id implementation references if you want more information.<br>
 <br>
 ### Centralised service - IDs generation
 This can be done by a dedicated API that creates an Id. <br>
@@ -239,7 +239,7 @@ So, please use these accordingly.
 This pattern is one of the most popular when dealing with entities that can have multiple identifiers from multiple sources. So, it is one of the most important patterns to be considered and adopted.
 ## Category
 ## Description 
-Given a business entity table, the pattern consists in creating a separate table called ``Identification``related to a business entity table. One-to-Many relationship. <br>
+Given a business entity table, the pattern creates a separate table called ``Identification``related to a business entity table. One-to-Many relationship. <br>
 It is used to signify that a business entity is stored locally, but it is a copy.  <br>
 The Identification table keeps other identifiers of the business entities and metadata about the identification itself. For example: <br>
 . The original name of the Key. <br>
@@ -279,11 +279,10 @@ Therefore, the Dynamic primary identifier for the account object is preserved on
 In this hypothetical scenario, the data team want to migrate data. In inserting data, new primary keys are generated, but the data team wants to preserve the Ids used on the old system.  <br>
 Therefore, these legacy identifiers are preserved separately from the Asset table. <br>
 <br> <img src="./images/Identification-pattern-instance2.jpg" align="center" width=85% height=85%> <br>
-<br><br>
 #### Example 3
 In this hypothetical scenario, some customers send us information about Assets. These are attributes that they use as identifiers. Our customers want to use these details to find an Asset in our applications using their attributes on our web page.  <br>
 Therefore, these external identifiers are preserved separately from the Asset table. <br>
 You can see the External Identifier pattern in this document if you want more information. <br>
 ## References
 <br> <br><br>
---End of File--
+--End of the File--
