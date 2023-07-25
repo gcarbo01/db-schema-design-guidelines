@@ -211,15 +211,15 @@ For example:   <br>
 . “Invoice number” <br>
 <br>
 Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
-. ``NOT NULL``
-. ``UNIQUE``
+. ``NOT NULL``<br>
+. ``UNIQUE``<br>
 So, please use these accordingly.
 <br> <br><br>
 # Natural Keys
 ## Category
 ## Description
 They are natural attributes of entities that are used in the real world.  Natural Keys and Business keys could be alike. <br>
-Because they are: 
+Because they are: <br>
 . Unique  <br>
 . Mandatory  <br>
 . Immutable  <br>
@@ -231,8 +231,8 @@ For example: <br>
    The HR system generates this <br>
  <br>
 Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
-. ``NOT NULL``
-. ``UNIQUE``
+. ``NOT NULL``<br>
+. ``UNIQUE``<br>
 So, please use these accordingly.
 ## References
 <br> <br><br>
@@ -242,7 +242,8 @@ This pattern is one of the most popular when dealing with entities that can have
 ## Description 
 Given a business entity table, the pattern creates a separate table called ``Identification``related to a business entity table. One-to-Many relationship. <br>
 It is used to signify that a business entity is stored locally, but it is a copy.  <br>
-The Identification table keeps other identifiers of the business entities and metadata about the identification itself. For example: <br>
+The Identification table keeps other identifiers of the business entities and metadata about the identification itself. <br>
+For example: <br>
 . The original name of the Key. <br>
 . The Value of the Key  <br>
 . The origin application. <br>
