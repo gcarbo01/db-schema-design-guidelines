@@ -112,14 +112,16 @@ The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
 <img src="./images/PrimaryKeydefinition1.jpg" width=60% height=60%>
 <br>
+<br>
 ``Unique``<br>
 <img src="./images/PrimaryKeydefinition2.jpg" width=60% height=60%>
+<br>
 <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
-<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=25%>
+<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
 <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
