@@ -444,8 +444,9 @@ These types of IDs have similarities with the Resource-Id and the Short UUID.exa
 . So there should be a logic that catches possible collisions and propose a variant of the same id. <br>
 For example: <br>
 From: /system/customer/``3m-australia-pty-ltd``<br>
-to    /system/customer/``3m-australia-pty-ltd-01``<br>
+To:    /system/customer/``3m-australia-pty-ltd-01``<br>
 . Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property of ``Unique``.<br>
 ## References
 <br> <br> <br> 
+
 --End of the File--
