@@ -40,9 +40,9 @@ Each of the capabilities may apply to one or more Categories. So they are tagged
 <br>
 # SQL Styling
 ## Category
-## Comments
-It is strongly recommended to read, understand and incorporate SQL Styling standards. <br>
 ## Description
+It is strongly recommended to read, understand and incorporate SQL Styling standards. <br>
+## References
 GitLab SQL Styling best practices <br>
 https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/  <br>
 SQL Style Guide- (by Simon Holywell) <br>
@@ -55,11 +55,11 @@ https://docs.telemetry.mozilla.org/concepts/sql_style.html
 # SQL Linter 
 To be included in the CI-CD pipeline
 ## Category
-## Comments
+## Description
 It helps you write good SQL and catch errors and bad SQL before it hits your database. <br>
 In addition, if the project contains “.sql” files, it is recommended to incorporate a SQL Linter into the CI-CD pipeline.  <br>
 For example:
-## Description
+## References
 **SQL Fluff	Source code quality	SQL linter** <br>
 Source code linter specialising in SQL statements.	SQL Linter <br>
 https://docs.sqlfluff.com/en/stable/ <br> 
@@ -71,7 +71,7 @@ https://github.com/joereynolds/sql-lint
 <br>
 # Primary Key design
 ## Category
-## Comments
+## Description
 There are several theories about the design of primary keys. The discussion about the primary key can be of various kinds. <br>
 Firstly, avoid multi-column primary keys. These can introduce complexity and make it difficult to query.  <br>
 Secondly, the design of the primary key high-performance systems is different from enterprise platforms.  <br>
@@ -80,14 +80,14 @@ Also, avoid other bad options such as simple Date-time or composed keys, for exa
 ``FirstName-LastName-City-TimeStamp``, or ``Product-ProductPart-ProductCode``, etc. <br>
 If it is required to have displayable user-friendly ids for the end-user, it is better to adopt other design strategies. See the Custom Human Readable id and Mnemotechnical hash id sections of this document.  <br>
 This category of IDs must also be considered if the system will be implementing APIs. The Restful API URLs are assumed to be used by humans. <br>
-## References:
+## References
 https://vertabelo.com/blog/primary-key/ 
 <br>
 <br>
 <br>
 # Unique Id – GUID or UUID or GUID
 ## Category
-## Comments
+## Description
 **Introduction** <br>
 It is the design for a well-constructed Primary Key. It is called UUID or GUID type. <br>
 It is also known as “UniqueIdentifier”. This key also fits into the category of the surrogate artificial Key.
@@ -101,13 +101,13 @@ If we need to re-build the DB, the database engine may assign a different one if
 Business keys could be better, too, for other reasons. Law changes and regulations can badly affect systems based on an external business key we do not have any control over.  <br>
 As this type of id is to identify a row in the database, this pattern also applies to foreign keys.  
 <br>
-**Format** <br>
+### Format
 The format of this key is of the format: ``NNNNN-NNNNN-NNNNN-NNNNN``  <br>
 Where ``‘N’`` is Alphanumeric:``[0-9] | [A-Z] | [a-z]`` <br>
 Example: ``A2eXh-HBwHj-Gd04t-zezmP-ojU65`` <br>
 For more information, see surrogate Key pattern references.<br>
  <br>
-**Schema Field definition** 
+### Schema Field definition 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
 <br>
@@ -119,25 +119,25 @@ The convention for this field can be: <br>
 <img src="./images/PrimaryKeydefinition2.jpg" width=60% height=60%>
 <br>
 <br>
-**Naming Convention** <br>
+### Naming Convention
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
 <br>
 <img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
 <br>
-**Unique Identifier – Suffix**  <br>
+### Unique Identifier – Suffix
 The rationale for this convention is for clarity when querying multiple tables.  <br>
 For example, if the unique identifiers of each table are only ``Id``, a select query will bring all columns names of both tables, but they would have indistinguishable names; both will be ``Id``.  <br>
 So, by adopting this convention, each of these columns will have its unique name. <br>
 <br>
-**Time-creation awareness** <br>
+### Time-creation awareness
 This was introduced in the MongoDB implementation.<br>
 This implementation caters to the Id to be sortable by time-creation using: ``ObjectId.getTimestamp()``, which returns the timestamp portion of the object as a Date.<br>
 This is optimal for database sharding.<br>
 For more information, see MongoDB Object id implementation references.<br>
 <br>
-**Centralised service - IDs generation** <br>
+### Centralised service - IDs generation
 This can be done by a dedicated API that creates an Id. <br>
 For example, Twitter’s Snowflake implements a  Thrift service that uses Apache ZooKeeper to coordinate nodes and then generates 64-bit unique IDs. 
 In the case of needing a centralised service to generate Ids, there may be a need to be highly performant and available. Or generate Ids in batches and use a buffer using a Cache platform. <br>
