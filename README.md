@@ -440,12 +440,12 @@ Some systems may require creating business entities with custom human-readable o
 These types of IDs have similarities with the Resource-Id and the Short UUID.example below. The “Customer Id” is inferred from the name. However, it allows it to be edited or created by the human-being operator:<br>
 <br><img src="./images/Custom-Human-Readable-id1.jpg" align="center" width=50% height=50%> <br> <br> 
 ### Important
-. Because the field is created by hand, these Ids can lead to collisions. 
-. So there should be a logic that catches possible collisions and propose a variant of the same id. 
-For example: 
-From: /system/customer/``3m-australia-pty-ltd``
-to    /system/customer/``3m-australia-pty-ltd-01``
-. Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property of ``Unique``.
+. Because the field is created by hand, these Ids can lead to collisions. <br>
+. So there should be a logic that catches possible collisions and propose a variant of the same id. <br>
+For example: <br>
+From: /system/customer/``3m-australia-pty-ltd``<br>
+to    /system/customer/``3m-australia-pty-ltd-01``<br>
+. Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property of ``Unique``.<br>
 ## References
 <br> <br> <br> 
 --End of the File--
