@@ -385,6 +385,7 @@ This type of Ids have similarities with the Custom Human-readable Id. <br>
 Also, there is another interesting library that generates hash ids from text. The hash id has a mnemotechnical relationship with the original (the same way custom car plates are designed). These are implemented by Hash Id org.<br>
 ### Example
 <br>
+
 | #	| Original  | Hashed |
 | --- | --- | --- |
 |1|		Nano-ID	|N**4**n**0**-1D|
@@ -413,6 +414,7 @@ This is the case when these types of hash-ids are used for resource ids; the fie
 For example, consider applying the transformation from uppercase to lowercase or vice versa in all letters and randomly apply the transformation pattern from a letter to numbers. <br>
 So, if the same name is to be created again in the database to avoid collision (because of the Unique property of the field), it will generate one of the possible variations of the hashed name. <br>
 For example: <br>
+
 | Variation #	| Original  | Hashed |
 | --- | --- | --- |
 |1| Contoso | C**0**n**7050** |
