@@ -306,10 +306,10 @@ The following diagram represents when the company merges the records, which does
 ### Sample Scenario 2
 The diagram below represents the anti-pattern when external identifiers are embedded in the main business entity table. <br>
 Instance diagram - Individual - driver's license - embedded. <br>
-<br><img src="./images/External-identifier3.jpg" align="center" width=50% height=50%> <br> <br> 
+<br><img src="./images/External-identifier3.jpg" align="center" width=70% height=70%> <br> <br> 
 The diagram below represents the correct pattern when external identifiers are stored in a separate table from the main business entity table. <br>
-Instance diagram - Individual - driver's license - as Identification table apart.
-<br><img src="./images/External-identifier4.jpg" align="center" width=50% height=50%> <br> <br> 
+Instance diagram - Individual - driver's license - as Identification table apart.<br> 
+<br><img src="./images/External-identifier4.jpg" align="center" width=70% height=70%> <br> <br> 
 ## References
 <br> <br> <br> 
 # Unique Id – Short UUID
@@ -336,7 +336,7 @@ Business Entities designed to be exposed through restful API should have a human
 Therefore, they will be used for bookmarking a business entity in a browser.  <br>
 So that when the user clicks the bookmark, an application will open the resource and display it accordingly. The scenario is when someone needs to send the link to an invoice; then, it can copy and paste the invoice URL and send it to a client.  <br>
 For example: <br>
-https://myapplication.com/customer/**<customer_resource-Id>**/account/**<account_resource-Id>**/ <br>
+https://myapplication.com/customer/``<customer_resource-Id>``/account/``<account_resource-Id>``/ <br>
  <br>
 ### Requirements
 This resource-Id can be designed in multiple ways. These resource Ids are going to be exposed to end users, including developers; the only real requirements for this resource-Id are: <br>
