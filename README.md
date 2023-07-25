@@ -260,9 +260,8 @@ A system keeping information about the entities mastered in CRMs,  <br>
 . etc <br>
 ### Logical modelling
 <br> <img src="./images/Identification-pattern-logical.jpg" align="center" width=60% height=60%> <br>
-### Example of an implementation
-#### Physical design
-<br><img src="./images/Identification-pattern-physical.jpg" align="center" width=100% height=100%> <br><br>
+### Physical design
+<br><img src="./images/Identification-pattern-physical.jpg" align="center" width=100% height=100%> <br> <br>
 
 | #	| Column  Name	| Description |
 | --- | --- | --- |
@@ -271,16 +270,17 @@ A system keeping information about the entities mastered in CRMs,  <br>
 |3|		Name |	Name of the attribute as it is known in the origin application.|
 |4|		Value |	Value of the attribute. |
  <br><br>
-**Example 1**
+### Hypothetical example scenarios
+#### Example 1
 An account is an object that is mastered in Dynamics. But a copy is kept in a microservice. 
 Therefore, the Dynamic primary identifier for the account object is preserved on a separate table from the Account table.
 <br> <img src="./images/Identification-pattern-instance1.jpg" align="center" width=85% height=85%> <br>
-**Example 2** <br>
+#### Example 2
 In this hypothetical scenario, the data team want to migrate data. In inserting data, new primary keys are generated, but the data team wants to preserve the Ids used on the old system.  <br>
 Therefore, these legacy identifiers are preserved separately from the Asset table. <br>
 <br> <img src="./images/Identification-pattern-instance2.jpg" align="center" width=85% height=85%> <br>
 <br><br>
-**Example 3** <br>
+#### Example 3
 In this hypothetical scenario, some customers send us information about Assets. These are attributes that they use as identifiers. Our customers want to use these details to find an Asset in our applications using their attributes on our web page.  <br>
 Therefore, these external identifiers are preserved separately from the Asset table. <br>
 You can see the External Identifier pattern in this document if you want more information. <br>
