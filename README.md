@@ -394,8 +394,8 @@ Also, there is another interesting library that generates hash ids from text. Th
 |4|		small-open-source-library|	``5``m``411``-``0``p3n-``50``urc``3``-``11``br``4``ry|
 |5|		brute-force-attack|	bru``73``-f``0``rc``3``-``4774``ck|
 |6|		StackOverflow|	``574``ck``0``v``3``rf``10``w|
-
 <br>
+
 ### Caution about possible Collisions
 . The generation of shorter ids could lead to more probability of collisions. <br>
 . So there should be a logic that catches possible collisions and try to generate a new short id. <br>
@@ -426,7 +426,7 @@ For example: <br>
 |2| Contoso | ``c0``n``7``o``5``o |
 |3| Contoso | Co``N7O5``o |
 |4| Contoso | ``c``o``N``to``S0`` |
-
+<br>
 
 ## References
 Hash Id Organisation <br>
