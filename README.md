@@ -115,14 +115,16 @@ For more information, see surrogate Key pattern references.<br>
 **Schema Field definition** 
 The convention for this field can be: <br>
 ``Varchar (50)`` - ``primary Key``. <br>
+<img src="./images/PrimaryKeydefinition1.jpg" width=100% height=100%>
+<br>
+``Unique``<br>
+<img src="./images/PrimaryKeydefinition2.jpg" width=100% height=100%>
 <br>
 **Naming Convention** <br>
 The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
-For example:<br>
-``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
-${\color{blue}Contract}$ (table name) + ${\color{blue}Id}$ = ${\color{blue}ContractId}$ <br>
-![#00B0F0](https://placehold.it/150x40/00B0F0/FFFFFF?text=00B0F0)
+For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
+<img src="./images/PrimaryKeydefinition3.jpg" width=100% height=100%>
 <br>
 **Unique Identifier – Suffix**  <br>
 The rationale for this convention is for clarity when querying multiple tables.  <br>
