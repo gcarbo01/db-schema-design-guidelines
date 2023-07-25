@@ -209,32 +209,33 @@ Natural Keys and Business keys could be alike. <br>
 For example:   <br>
 . “Asset Number”  <br>
 . “Invoice number” <br>
+<br>
 Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
 . ``NOT NULL``
 . ``UNIQUE``
 So, please use these accordingly.
+<br> <br><br>
 # Natural Keys
 ## Category
 ## Description
 They are natural attributes of entities that are used in the real world.  Natural Keys and Business keys could be alike. <br>
-Because they are: <br>
-1. Unique  <br>
-2. Mandatory  <br>
-3. Immutable  <br>
+Because they are: 
+. Unique  <br>
+. Mandatory  <br>
+. Immutable  <br>
+<br>
 For example: <br>  
 . “ABN” (Australian Business Number) <br>
    Australia Business Registry generates these identifiers, which are used for Business Organisations.  <br>
 . "Employee number" <br>
    The HR system generates this <br>
+ <br>
 Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
 . ``NOT NULL``
 . ``UNIQUE``
 So, please use these accordingly.
 ## References
 <br> <br><br>
-<br>
-<br>
-<br>
 # Identification pattern
 This pattern is one of the most popular when dealing with entities that can have multiple identifiers from multiple sources. So, it is one of the most important patterns to be considered and adopted.
 ## Category
