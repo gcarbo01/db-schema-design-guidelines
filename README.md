@@ -743,10 +743,10 @@ The ``InvolvementRoleAssociation`` relationship represents more than a mere ``Jo
  <br>
 For example: 
 Instead of modelling the relationship as a Join 
-<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=90% height=90%> <br> <br> 
 <br>
 The relationship is complex with more metadata and is an InvolvementRoleAssociation
-<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=90% height=90%> <br> <br> 
 <br>
 For example: <br>
 |#|	Field Name|	Type|	Description|
@@ -762,12 +762,13 @@ For example: <br>
 |9| Category |varchar(50)| Qualifier. For example: 'Social Media', 'Email Marketing', 'Online Advertising', 'Online Forums', etc.|
 |10| Direction |varchar(50)| What direction this relationship must be read. For example: 'Product-to-User', 'User-to-Product', 'Bidirectional'|
  <br>
-Other attributes for more complex scenarios where the relationship belongs to another system, so a new set of attributes may be convenient to be stored for reference:
+Other attributes for more complex scenarios where the relationship belongs to another system, so a new set of attributes may be convenient to be stored for reference:<br>
+
 |#|	Field Name|	Type|	Description|
 | --- | --- | --- | --- |
 |1| Alias|varchar(50)|Other names applicable to the relationship. For example: "Purchased Subscription"|
 |2|. ApplicationOriginName |varchar(50)| This relationship is mastered in another system, and this system only has a copy. Application name|
-|3|. ApplicationOriginValue |This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
+|3|. ApplicationOriginValue |varchar(50)|This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
 ## References
 <br> <br> <br> 
 --End of the File--
