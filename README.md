@@ -583,12 +583,14 @@ The name convention: ``traceId`` <br>
 
 # Temporal Object (or Versioned Object pattern)
 This pattern is used for the scenario where an entity needs to represent a single instance for some consumers (showing continuity), preserve all the changes, and track all the versions for others, therefore being several versions.<br>
+<br>
 *“There are times when you like to think of an object having temporal properties, but others when you think of the object itself as temporal. A good example is a contract that goes through a series of amendments. You can think of each amendment as a new contract with new terms, yet you can also think of them as versions of the same contract.” “You might also provide direct access to the versions for reporting purposes. And also provide access to the one version showing the continuity face.“* <br>
-Martin Fowler March 2004 https://martinfowler.com/eaaDev/TemporalObject.html <br>
+Martin Fowler - March 2004 <br>
 <br>
 One concrete implementation of this pattern is the bi-temporal model used in the Land Administration domain for preserving all the history of owners (Land Registration Title holders) over time. But only one is the active one. The rest of the property title owners have a temporal reference from when to when they were the active title holder of the property, therefore the “active one”. <br>
-Generally, this pattern requires that the old data is not required to be removed from the same database or even the same table. So, the historical data must not be removed or deleted from the application's transactional database. This implicitly assumes that the storage and management of those old records will not compromise or interfere with the main purpose of the online database. <br>
-The bi-temporal design addresses the different scenarios and dimensions applicable for capturing the changes in the definition of land and parcels. So the cadastral database must have a temporal aspect recorded, where the changes are recorded using the” versioned object” pattern. The times recorded in the model are ``ValidTime`` and ``TransactionTime`` referred to as the bi-temporal model.  <br>
+Generally, this pattern requires that the old data is not required to be removed from the same database or even the same table. <br>
+So, the historical data must not be removed or deleted from the application's transactional database. This implicitly assumes that the storage and management of those old records will not compromise or interfere with the main purpose of the online database. <br>
+The bi-temporal design addresses the different scenarios and dimensions applicable for capturing the changes in the definition of land and parcels. So the cadastral database must have a temporal aspect recorded, where the changes are recorded using the ”versioned object” pattern. The times recorded in the model are ``ValidTime`` and ``TransactionTime`` referred to as the bi-temporal model.  <br>
 . ``Valid_time`` (Start, End): It is the period when a fact is true in the real world. <br>
 . ``Transaction_time`` (Start, End): It is when a fact is recorded in the database. <br>
 In addition, there is an extra one: <br>
@@ -601,28 +603,30 @@ This is a regular Product table:<br>
 
 | productId | Name | Price_USD |
 | --- | --- | --- |
-|97c3d418-8fd8-4f8e-8bca-430bf27a3a5c|	Eggs	|1.20|
-|01c8dbab-d26d-4b2b-869e-a303a8269976|	Milk	|0.45|
-|420d3197-afdf-44f7-be97-faa9eb81e162|	Bread	|0.30|
+|430bf27a3a5c|	Eggs	|1.20|
+|a303a8269976|	Milk	|0.45|
+|faa9eb81e162|	Bread	|0.30|
 <br>
 This is the Product table with the ``Valid_time`` dimension.<br>
 
 |productId|	versionId|	Name|	Price_USD|	ValidFrom|  	ValidTo|
 | --- | --- | --- | --- | --- | --- |
-|97c3d418-8fd8-4f8e-8bca-430bf27a3a5c|	e61579c6-3599-4314-aab9-b4a8f53f7185|	Eggs|	1.20|	20/01/2006|	13/06/2006|
-|97c3d418-8fd8-4f8e-8bca-430bf27a3a5c|	1a5d8b9a-b895-465d-9c0b-8ce5f997507e|	Eggs|	1.25|	13/06/2006|	31/12/9999|
-|01c8dbab-d26d-4b2b-869e-a303a8269976|	3cd96aa1-0abf-4c8e-8b0a-61ac4228f9e3|	Milk| 	0.45|	20/01/2006|	01/01/2007v
-|420d3197-afdf-44f7-be97-faa9eb81e162|	53104b95-ffa9-4046-9b31-d26c89e922aa|	Bread| 	0.28|	18/06/2005|	20/01/2006|
-|420d3197-afdf-44f7-be97-faa9eb81e162|	6a5e502c-f5a1-4580-97b0-44d37fa3fc2c|	Bread|	0.30|	20/01/2006|	31/12/9999|
+|430bf27a3a5c|	b4a8f53f7185|	Eggs|	1.20|	20/01/2006|	13/06/2006|
+|430bf27a3a5c|	8ce5f997507e|	Eggs|	1.25|	``13/06/2006``|	``31/12/9999``|
+|a303a8269976|	61ac4228f9e3|	Milk| 	0.45|	20/01/2006|	01/01/2007|
+|faa9eb81e162|	d26c89e922aa|	Bread| 	0.28|	18/06/2005|	20/01/2006|
+|faa9eb81e162|	44d37fa3fc2c|	Bread|	0.30|	``20/01/2006``|	``31/12/9999``|
 
 Note the following:<br>
 . The Milk does not have a current active price. This means that the Milk is not being sold any more. <br>
-. The lines with the ``ValidFrom``, and ValidTo in bold are the current active rows for these items.<br>
+. The lines with the ``ValidFrom``and ``ValidTo`` in bold are the current active rows for these items.<br>
 . The productId is not unique. So, another strategy must be designed for the foreign keys to this table. Or productId may be filled only when the row is the active one. But in this case, it cannot be nominated as the SQL primary key because SQL primary keys cannot have empty values.<br>
 
 ## References
-Codeproject-Bitemporal-Database-Table-Design-The-Basics article<br>
+Codeproject-Bitemporal-Database-Table-Design-The-Basics article <br>
 https://www.codeproject.com/Articles/17637/Bitemporal-Database-Table-Design-The-Basics <br>
+Martin Fowler Temporal Object <br>
+March 2004 https://martinfowler.com/eaaDev/TemporalObject.html <br>
 
 # Reference Data
 ## Category
@@ -635,9 +639,10 @@ These are the values that are used for displaying and selecting preconceived val
 <br>
 It is advisable to adopt a naming convention for this type of table. <br> 
 Then, follow this naming convention: <br>
-``<Name of the data set>`` +``_`` + ``List``(Suffix)`<br>
+``<Name of the data set>`` +``_`` + ``List``(Suffix)<br>
 For example:<br>
 ``CountryCode_List``<br>
+<br>
 **Design**<br>
 Usually, the reference data will consist of: <br>
 . Code<br>
@@ -645,6 +650,7 @@ Usually, the reference data will consist of: <br>
 <br>
 **Caution** <br>
 One particularity of the Reference Data is that the values are never removed completely from the tables. These are deprecated, meaning they will not be available for displaying and selecting new datasets. This is because the Reference Data is usually used as a Foreign Key. Therefore, if they are removed, they could cause SQL violations to be triggered or data inconsistencies.<br>
+<br>
 **Others**<br>
 In UML, usually, this type of data is referred to as Enum literals ``Enum`` (UML Class diagrams)<br>
 ## References
