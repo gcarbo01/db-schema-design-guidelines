@@ -442,16 +442,19 @@ https://hashids.org/
 ## Description
 Some systems may require creating business entities with custom human-readable or human-friendly Ids. <br>
 The User can enter the custom id, or the id can be inferred from a given name. However, it allows it to be edited or created by the human-being operator
-These types of IDs have similarities with the Resource-Id and the Short-UUID. <br>>
+These types of IDs have similarities with the Resource-Id and the Short-UUID. <br>
 See the example below, where the user can create a custom "Customer Id".<br>
 <br><img src="./images/Custom-Human-Readable-id1.jpg" align="center" width=50% height=50%> <br> <br> 
 ### Important
 . Because the field is created by hand, these Ids can lead to collisions. <br>
-. So there should be a logic that catches possible collisions and propose a variant of the same id. <br>
+. So there should be a logic that catches possible collisions and propose a variant of the same id. For example, adding a random two-digit number.<br>
 For example: <br>
-From: /system/customer/``3m-australia-pty-ltd``<br>
-To:    /system/customer/``3m-australia-pty-ltd-01``<br>
-. Customer human readable Ids must complement the Primary Key Long UUIDs. They should be in a separate field with the SQL property ``Unique``.<br>
+|  #	| URI |
+| --- | --- |
+|Original| /system/customer/``3m-australia-pty-ltd``   |
+|Modified| /system/customer/``3m-australia-pty-ltd-01``  |
+   
+. These Custom Ids (human-friendly) complement the Primary Key but do not replace them. It cannot be primary keys. They should be in a separate field with the SQL property ``Unique``.<br>
 ## References
 <br> <br> <br> 
 
