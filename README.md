@@ -908,4 +908,25 @@ https://www.npmjs.com/package/tokenex   <br>
 Masking tool - simple-data-anonymizer  <br>
 https://www.npmjs.com/package/simple-data-anonymizer    <br>
 <br> <br> <br> 
+
+# Multitenancy design
+## Category
+## Description
+## References
+Microsoft Application design patterns <br> 
+https://learn.microsoft.com/en-us/azure/architecture/guide/saas/overview <br> 
+https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/tenancy-models <br> 
+Microsoft SQL Server Design patterns <br> 
+https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns <br> 
+Multitenancy cluster management  <br> 
+https://blog.argoproj.io/hassle-free-multi-tenant-k8s-clusters-management-using-argo-cd-7dd35619046a  <br> 
+https://developers.redhat.com/articles/2022/04/13/manage-namespaces-multitenant-clusters-argo-cd-kustomize-and-helm  <br> 
+API Gateway Design patterns  <br> 
+https://medium.com/@cezarromaniuc/multi-tenancy-authentication-through-kong-api-gateway-e05e08308da8  <br> 
+Multitenancy API design patterns  <br> 
+https://medium.com/@vivekmadurai/multi-tenancy-in-rest-api-a570d728620c  <br> 
+<br> <br> <br> 
+Others
+https://relevant.software/blog/multi-tenant-architecture/
+https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row
 --End of the File--
