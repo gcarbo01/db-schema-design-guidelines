@@ -850,6 +850,7 @@ In terms of the production environment, anonymisation can be used to deal with s
 |5| Łódż, Polska			| ``Ĭãsṻ, Yleivd`` 	|
 |5| +31 (0) 20 123 234 56		| ``+80 (4) 98 803 550 44``	 |
 <br>
+
 ### Tokenization
 It transforms a piece of data into a string of characters called a token.<br> 
 This new token does not directly relate to the original piece of data.<br> 
@@ -868,6 +869,7 @@ In addition, it could also be used for Telephone numbers, email addresses, etc. 
 |#| Original| Tokenized data|
 | --- | --- | --- |
 |1| 38338383 |``93746385`` |
+<br>
 
 ### Masking
 This is a way of showing partially the original value. <br>
