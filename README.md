@@ -912,6 +912,29 @@ https://www.npmjs.com/package/simple-data-anonymizer    <br>
 # Multitenancy design
 ## Category
 ## Description
+The Multi-tenancy implementation is not only a data concern because depending on the requirements, the architecture implementing multitenancy can affect several layers in the architecture. <br>
+From the data perspective, there are several considerations, to mention a few of them: <br>
+. For Applications supporting more than one Tenant. This has repercussions on hosting names, API URLs, and Databases.  <br>
+. For the infrastructure hosting more than one tenant. Network compartmentalisation, access control, workload capping and distribution, etc.  <br>
+<br>
+
+### Application database design
+From the Application design perspective, the strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
+The TenantId implementation will be embedded in the multiple microservices/domains that the organisation is implementing. So the TenantId can be seen as: <br>
+. A field at the aggregate root level only. <br>
+. A field in all tables and not only in the domain root entity.  <br>
+<br>
+And at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails.  <br>
+
+### Infrastructure and platform design
+From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, a database is designed to store all the needed metadata for the different scenarios.  <br>
+Although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this data must be propagated to the actual platforms for them to run. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, etc.  <br>
+For example:   <br>
+. The DevOps pipeline: To provision dynamically runtime environments to new Tenants.  <br>
+. The API Gateway, to know where to route requests from different Tenants.   <br>
+. Other architecture components require knowing where to find the proper platform or application instance assigned to each Tenant. <br>
+<br>
+
 ## References
 Microsoft Application design patterns <br> 
 https://learn.microsoft.com/en-us/azure/architecture/guide/saas/overview <br> 
