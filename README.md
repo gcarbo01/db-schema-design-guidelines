@@ -597,6 +597,7 @@ In addition, there is an extra one: <br>
 . ``Decision_time`` (Start, End): This is an extra dimension to the abovementioned main two. It is the time at which the decision was made about the fact.
  <br>
 Note: some commercial databases already provide features to make tables “bi-temporal”. In the case of PostgreSQL, it does not have it as a built-in capability. But several enhancement packages can be used that will provide this capability.  <br>
+<br>
 Example: <br>
 This example is inspired by the Codeproject-Bitemporal-Database-Table-Design-The-Basics article. Please take a look at the reference below.
 This is a regular Product table:<br>
@@ -625,8 +626,8 @@ Note the following:<br>
 ## References
 Codeproject-Bitemporal-Database-Table-Design-The-Basics article <br>
 https://www.codeproject.com/Articles/17637/Bitemporal-Database-Table-Design-The-Basics <br>
-Martin Fowler Temporal Object <br>
-March 2004 https://martinfowler.com/eaaDev/TemporalObject.html <br>
+Martin Fowler Temporal Object, March 2004  <br>
+https://martinfowler.com/eaaDev/TemporalObject.html <br>
 
 # Reference Data
 ## Category
@@ -654,5 +655,59 @@ One particularity of the Reference Data is that the values are never removed com
 **Others**<br>
 In UML, usually, this type of data is referred to as Enum literals ``Enum`` (UML Class diagrams)<br>
 ## References
+<br> <br> <br> 
+
+# ISO Codes
+## Category
+## Description
+These must be adopted when possible as reference data. Many of these can be found on Wikipedia. <br> 
+<br> 
+For example: <br> 
+. Country Code <br> 
+. Country calling code prefix
+. Human sexes classification international standard <br> 
+. etc <br> 
+
+## References
+Country Code <br> 
+https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes <br> 
+Country calling code prefix  <br> 
+https://en.wikipedia.org/wiki/List_of_country_calling_codes  <br> 
+Human sexes classification international standard <br> 
+https://en.wikipedia.org/wiki/ISO/IEC_5218 <br> 
+<br> <br> <br> 
+
+# Watermark (design pattern)
+## Category
+## Description
+This pattern is useful for data processing scenarios. For example, in data import/ETL scenarios, often it is needed to track the last imported set of data so that the import or synchronisation process can be: <br> 
+. Resumed (from last imported date). Only considering the new records.<br> 
+. Re-executed (from last imported date). Only considering records from a saved date.<br> 
+<br> 
+Commercial software usually implements these using a design pattern called “Watermark”.
+The watermark is implemented as a table containing metadata about the import or synchronisation processes.
+The ``startRecordDateTime`` and ``endRecordDateTime`` are filled with one of the audit fields, depending on what type of operation was: ``createdDateTime``, ``updatedDateTime`` or ``deletedDateTime``.<br> 
+<br> 
+Watermark Table design<br> 
+|#|	Field Name|	Type|	Description|
+| --- | --- | --- | --- |
+|1|	watermarkId|	Unique Identifier|	Unique identifier. UUID.|
+|2|	watermarkName|	String|	Name of the watermark for easy query.|
+|3|	processId|	Unique Identifier|	Unique identifier. UUID.|
+|4|	processName|	String|	Name of the batch process for easy query.|
+|5|	sourceTableName|	String|	Name of the table, source of the information.|
+|6|	destinationTableName|	String|	Name of the table, destination of the information.|
+|7|	startRecordDateTime|	DateTime|	The date-time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
+|8		endRecordDateTime|	DateTime|	The date time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
+
+
+## References
+More about the design watermark pattern on the following links <br>
+Incrementally load data from a source data store to a destination data store <br>
+https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview  <br>
+Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal  <br>
+https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-portal  <br>
+Incremental or High-Water Mark data Loading  <br>
+https://documentation.matillion.com/docs/2506598  <br>
 <br> <br> <br> 
 --End of the File--
