@@ -837,7 +837,7 @@ Using any particular type for each security scenario is not the objective of thi
 ### Anonymisation
 This is a way of replacing the original values with data that provide a realistic feeling. The anonymised data can be used as a replacement for the original data in many scenarios. <br> 
 For example, we can recreate attributes by replacing the original value and respecting the format. So instead of exposing real names, IDs, telephone numbers, addresses, and postcodes, we can use the anonymised data for testing, for example.<br> 
-In terms of the production environment, anonymisation can be used to deal with sensitive individual information at rest. So that when it is recorded in the database, it will not be practical, even if someone internally or externally to the company makes a dump of the database and copies these values.<br> 
+Regarding the production environment, anonymisation can deal with sensitive individual information at rest. So that when it is recorded in the database, it will not be practical, even if someone internally or externally to the company makes a dump of the database and copies these values.<br> 
  <br>
 ***Anonymisation Example*** <br>
 
@@ -881,22 +881,24 @@ Masking example with different masking strategies<br>
 |1| foobaruser@emailservice.com |``fo********@emailservice.com`` |
 |2| foobaruser@emailservice.com | ``foobaruser@************.com`` |
 |3|foobaruser@emailservice.com | ``foob*******************.com`` |
+<br>
 
 ### Implementation strategies
 #### In a single Application, only
 This could be one implementation strategy when developing a simple application. <br>
 In TypeORM, no built-in decorator is specifically designed to implement automatic field encoding and decoding.  <br>
 However, you can achieve this functionality by combining custom getter and setter methods with existing decorators. <br>
-The BeforeInsert and BeforeUpdate decorators are applied to the customEncodeField method, ensuring the field is encoded before saving. <br>
-The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
+The ``BeforeInsert`` and ``BeforeUpdate`` decorators are applied to the ``customEncodeField`` method, ensuring the field is encoded before saving. <br>
+The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.<br>
+Another alternative could be using database features if available.
 
 #### Across Applications
 The same algorithm must be applied for this scenario when encoding and decoding data across applications. <br>
-Therefore, a common strategy for applications that share encoded data must be used. This can be neutral centralised API or common libraries embedded in applications. <br>. 
-When opting for APIs, there should be careful design for high performance, throughput, and availability. Without these, no data can be transformed in real-time.
-The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
-
+Therefore, a common strategy for applications that share encoded data must be used. This can be neutral centralised API or common libraries embedded in applications. <br> 
+When opting for APIs, there should be careful design for high performance, throughput, and availability. Without these, no data can be transformed in real-time.<br>
+The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.<br>
 <br>
+
 ## References
 Anonymisation tool - js-data-anonymizer <br>
 https://github.com/joostvunderink/js-data-anonymizer  <br>
