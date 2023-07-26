@@ -229,9 +229,9 @@ Because they are: <br>
 . Immutable  
 <br>
 For example: <br>  
-. 'ABN' (Australian Business Number) <br>
+. "ABN" (Australian Business Number) <br>
 Australia Business Registry generates these identifiers, which are used for Business Organisations.  <br>
-. 'Employee number' <br>
+. "Employee number" <br>
    The HR system generates this <br>
  <br>
 Be aware that there could be business rules that apply to this entity that may require these Natural Keys fields to be assigned the SQL properties: <br>
