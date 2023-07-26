@@ -849,7 +849,6 @@ In terms of the production environment, anonymisation can be used to deal with s
 |4| San Francisco			| ``Gmd Vcpwayjpq``	|
 |5| Łódż, Polska			| ``Ĭãsṻ, Yleivd`` 	|
 |5| +31 (0) 20 123 234 56		| ``+80 (4) 98 803 550 44``	 |
-
 <br>
 ### Tokenization
 It transforms a piece of data into a string of characters called a token.<br> 
@@ -870,17 +869,18 @@ In addition, it could also be used for Telephone numbers, email addresses, etc. 
 | --- | --- | --- |
 |1| 38338383 |``93746385`` |
 
-***Masking***<br>
+### Masking
 This is a way of showing partially the original value. <br>
 Masking example with different masking strategies<br>
-
+<br>
+ ***Masking example*** <br>
 |#|	Original|	Masked data|
 | --- | --- | --- |
 |1| foobaruser@emailservice.com |``fo********@emailservice.com`` |
 |2| foobaruser@emailservice.com | ``foobaruser@************.com`` |
 |3|foobaruser@emailservice.com | ``foob*******************.com`` |
 
-### Implementation
+### Implementation strategies
 #### In a single Application, only
 This could be one implementation strategy when developing a simple application. <br>
 In TypeORM, no built-in decorator is specifically designed to implement automatic field encoding and decoding.  <br>
@@ -889,7 +889,9 @@ The BeforeInsert and BeforeUpdate decorators are applied to the customEncodeFiel
 The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
 
 #### Across Applications
-The same algorithm must be applied for this scenario when encoding and decoding data across applications. Therefore, a common strategy for applications that share encoded data must be used. This can be neutral centralised API or common libraries embedded in applications. <br>
+The same algorithm must be applied for this scenario when encoding and decoding data across applications. <br>
+Therefore, a common strategy for applications that share encoded data must be used. This can be neutral centralised API or common libraries embedded in applications. <br>. 
+When opting for APIs, there should be careful design for high performance, throughput, and availability. Without these, no data can be transformed in real-time.
 The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
 
 <br>
