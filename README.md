@@ -491,12 +491,13 @@ Note: If the table names are long, then the concatenation of table names plus th
 # Audit fields
 ## Category
 ## Description
-This is another of the most used patterns. Any system that has "Auditablity" as a non-functional requirement must have some implementation of it.<br>
-The Updates fields (auditModifiedDateTime, auditModifiedBy) are updated every time the record is changed; these fields cannot keep the history of changes.<br>
-So, these fields alone cannot keep previous Update field data because they are overwritten every time.<br>
+This is another of the most used patterns. Any system that has "Auditablity" as a non-functional requirement must address it and have some implementation.<br>
+In this pattern, it is proposed the data modelling for these audit fields. <br>
+In this design, fields are updated every time the record is created (only once); they are modified or deleted (only once).<br> 
+The limitation of this design is that these fields alone cannot keep the history of changes.<br>
+So, every time a record is updated, the ``auditModifiedBy`` and ``auditModifiedDateTime`` will be overwritten.<br>
 Therefore, for this design to be effective must be complemented with another design which is the extraction of the Update fields every time the record is changed.<br>
-There has to be a process that captures individual changes and sends them to Data Warehouse, so when a row is updated, we are guaranteed to keep a copy and no updated audit data is lost.<br>
-This design also allows the logical deletion of rows. This is by auditDeletedDateTime is not blank.<br>
+In any large organisation, processes are usually in place that capture individual changes and send them to Data Warehouse, so when a row is updated, we can do it safely because the system is guaranteed that a copy is already made. The update will not cause any data to be lost.<br>
 
 |#| Field Name|	Type|	Description|
 | --- | --- | --- | --- |
@@ -505,15 +506,20 @@ This design also allows the logical deletion of rows. This is by auditDeletedDat
 |3|	auditDeletedDateTime|		dateTime	|Date time when the business entity being audited was deleted.|
 |4|	auditDeletedBy|			varchar(50)	|User id in the session when the business entity was deleted.|
 |4|	auditModifiedDateTime|		dateTime	|Date time when the business entity being audited was modified.|
-|6|	auditModifiedBy|		varchar(50)	|User id in the session when the business entity being audited was modified.|
+|6|	auditModifiedBy|		varchar(50)	|User id in the session when the business entity was modified.|
 
 In addition, there may be convenient to have extra fields needed to support the Operation teams in correlating transactions among systems when performing audits<br>
 
 |#| Field Name|	Type|	Description|
 | --- | --- | --- | --- |
 |1|	auditInternalCorrelationId|	varchar(50)	|This is the correlationId. The internal correlation id is a field used for end-to-end traceability among all the components of our distributed architecture. It allows the implementation of the observability capability by the DevOps team. |
-|2|	auditExternalCorrelationId|	varchar(50)	|This is the externalCorrelationId. The external correlation id is a field that external organisations create. For example, Customers send data in B2B interfaces along with their correlationId, which in our systems will be an externalCorrelationId. Then, the Customers log in to our website and can track each of these transactions using the sent correlationsIds embedded with our processes.|
+|2|	auditExternalCorrelationId|	varchar(50)	|This is the externalCorrelationId. The external correlation id is a field that external organisations create. For example, Customers send data in B2B interfaces along with their correlationId, which in our systems will be an externalCorrelationId. Then, the Customers log in to our website and can track these transactions using the sent correlationsIds embedded with our processes.|
 <br>
+
+### Logical deletion
+This design also overlaps with the Logical Delete pattern. The Logical delete allows the logical deletion of rows without removing them from the database. <br>
+This is by filling in the ``auditDeletedDateTime``. So when the application finds that ``auditDeletedDateTime`` is not blank, it must assume that it has been deleted.<br>
+
 ### Historical changes
 A frequent question raised by developers about this pattern is that when there are multiple updates, the tables only preserve the latest change, and the audit fields are overwritten, losing the previous information on the ``auditModifiedDateTime`` and ``auditModifiedBy`` fields. <br>
 So, the questions are:<br>
@@ -524,12 +530,12 @@ The answer is no and no. This pattern only keeps the metadata about the event, b
 To preserve all the changes in the database, different alternatives depending on the database and requirements. <br>
 But in all cases should consider keeping a copy of the existing record before overwriting it. <br>
 One of the most used patterns is the Change Data Capture, which allows monitoring and tracking the change log in the database, extracting the data and publishing these changes as events to Kafka or elsewhere. So, every change occurred in a business domain, at the same time, is saved in the database and is also sent as an event to the eco-system. <br>
-The Kafka platform is a type of technology that keeps all the events as records kept in a database, so it is possible to reconstruct all the changes that occurred through time.<br>
+The Kafka platform is a technology that keeps all the events as records in a database, so it is possible to reconstruct all the changes that occurred through time.<br>
 Another alternative, if working with a cloud PaaS database, is to enable the track changes. So, every change is preserved.<br>
-Anyway, any method implemented needs to be verified, and tested, and operations need to be aware of how to use it.<br>
+Any method implemented needs to be verified and tested, and operations need to know how to use it.<br>
 ## References
 Backend Side design <br>
-CQRS (Command and Query Responsibility Segregation), which can be complemented with Eventual Consistency. <br>
+CQRS (Command and Query Responsibility Segregation) can be complemented with Eventual Consistency. <br>
 Eventual Consistency <br>
 https://fauna.com/blog/why-strong-consistency-with-event-driven <br>
 CQRS <br>
