@@ -830,4 +830,69 @@ There are different types of data obfuscation, encryption, masking, anonymisatio
 Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation - Tokenisation - Masking section of this document.
 ## References
 <br> <br> <br> 
+
+# Anonymisation – Tokenisation – Masking
+## Category
+## Description
+### Anonymisation
+This is a way of replacing the original values with data that provide a realistic feeling. The anonymised data can be used as a replacement for the original data in many scenarios. <br> 
+For example, we can recreate attributes by replacing the original value and respecting the format. So instead of exposing real names, IDs, telephone numbers, addresses, and postcodes, we can use the anonymised data for testing, for example.<br> 
+In terms of the production environment, anonymisation can be used to deal with sensitive individual information at rest. So that when it is recorded in the database, it will not be practical, even if someone internally or externally to the company makes a dump of the database and copies these values.<br> 
+ <br>
+***Anonymisation Example*** <br>
+
+|#|	Original|	Anonymised data|
+| --- | --- | --- |
+|1| John Peter Salisbury		| ``Csmu Lzwly Qnyiyfoqw``	|
+|2| john.peter.salisbury@example.com	| ``rclp.uzlzd.yymrjceym@cyaiert.wor`` |
+|3| 1279 Basil Road			| ``2026 Icjjo Good``	|
+|4| San Francisco			| ``Gmd Vcpwayjpq``	|
+|5| Łódż, Polska			| ``Ĭãsṻ, Yleivd`` 	|
+|5| +31 (0) 20 123 234 56		| ``+80 (4) 98 803 550 44``	 |
+
+<br>
+### Tokenization
+It transforms a piece of data into a string of characters called a token.<br> 
+This new token does not directly relate to the original piece of data.<br> 
+Tokens are used as a reference to the original data. The data cannot be read in plain sight, but the token is used instead of the original. <br> 
+Tokenisation does not use a Cipher program, and Tokenisation is a process that relies on storage where the data is translated from one to the other. This repository, called 'Token vault', is usually provisioned from cloud providers as a PaaS. <br>
+This database stores the relationship between the original data (sensitive) value and the new replacement, called a token. <br>
+The real data in the vault is then secured by encryption, and no human access is ever allowed. <br>
+The original value stored in the 'Token Vault' is encrypted. It cannot be accessed by any means, only by the API provided that never provides the functionality of de-tokenising the original data. <br>
+The token value should be adopted as the only way of identifying the substituted original data.  <br>
+For example, one of the most famous data attributes that are subject to Tokenisation in the Payment industry is the Credit Card PAN (Primary Account Number), which is replaced by a token (of the same data format) for companies, platforms and business entities be subject to PCI compliance.  <br>
+Tokens also secure other types of sensitive or personally identifiable information. This includes data like Passports, Driver's Licenses, and Medicare cards.  <br>
+In addition, it could also be used for Telephone numbers, email addresses, etc. This depends on the strategy chosen for each attribute.  <br>
+<br>
+
+ ***Tokenisation example*** <br>
+|#| Original| Tokenized data|
+| --- | --- | --- |
+|1| 38338383 |``93746385`` |
+
+***Masking***<br>
+This is a way of showing partially the original value. <br>
+Masking example with different masking strategies<br>
+
+|#|	Original|	Masked data|
+| --- | --- | --- |
+|1| foobaruser@emailservice.com |``fo********@emailservice.com`` |
+|2| foobaruser@emailservice.com | ``foobaruser@************.com`` |
+|3|foobaruser@emailservice.com | ``foob*******************.com`` |
+
+### Implementation
+This could be one implementation strategy when developing a simple application. <br>
+In TypeORM, no built-in decorator is specifically designed for implementing automatic encoding and decoding of fields.  <br>
+However, you can achieve this functionality by combining custom getter and setter methods with existing decorators. <br>
+The BeforeInsert and BeforeUpdate decorators are applied to the customEncodeField method, ensuring the field is encoded before saving. <br>
+
+<br>
+## References
+Anonymisation tool - js-data-anonymizer <br>
+https://github.com/joostvunderink/js-data-anonymizer  <br>
+Tokenisation tool - tokenex  <br> 
+https://www.npmjs.com/package/tokenex   <br>
+Masking tool - simple-data-anonymizer
+https://www.npmjs.com/package/simple-data-anonymizer    <br>
+<br> <br> <br> 
 --End of the File--
