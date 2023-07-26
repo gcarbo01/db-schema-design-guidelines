@@ -454,8 +454,24 @@ For example: <br>
 |Original| /system/customer/``3m-australia-pty-ltd``   |
 |Modified| /system/customer/``3m-australia-pty-ltd-01``  |
    
-. These Custom Ids (human-friendly) cannot be a Primary Key. They should be in a separate field with the table and it is recommended to have the SQL property ``Unique``.<br>
+. These Custom Ids (human-friendly) cannot be a Primary Key. They should be in a separate field with the table, and it is recommended to have the SQL property ``Unique``.<br>
 ## References
 <br> <br> <br> 
+# Foreign Key
+## Category
+## Description
+This topic of Foreign Keys only refers to a naming convention when designing the Physical data model.<br>
+It is important to adopt a convention and be consistent with Foreign Keys.<br>
+They follow the name convention: ``<The name of the foreign entity>`` + ``Id``<br>
+Note: Assuming that it has been adopted, the Primary Key design proposed as the UUID or GUID, then the foreign key should only have this primary key from other tables. Otherwise, the database is not able to keep SQL referential integrity.
+<br><img src="./images/ForeignKey1.jpg" align="center" width=70% height=70%> <br> <br> 
+<br><img src="./images/ForeignKey2.jpg" align="center" width=70% height=70%> <br> <br> 
+## References
+Referential Integrity Wikipedia<br>
+https://en.wikipedia.org/wiki/Referential_integrity<br>
+Basis of Referential Integrity in databases
+https://www.w3resource.com/sql/joins/joining-tables-through-referential-integrity.php
+<br> <br> <br> 
+
 
 --End of the File--
