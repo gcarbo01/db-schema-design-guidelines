@@ -803,7 +803,7 @@ The following Business Entities and attributes should be treated under privacy p
 . etc. <br> 
 
 ### Online identifiers
-Login details (username)
+. Login details (username)
 . etc <br> 
 
 ### Media identifiers
@@ -816,6 +816,7 @@ Login details (username)
 
 ### Solution
 Generally, we talk about encryption at different levels.  <br> 
+ <br> 
 ***Database encryption*** <br> 
 Depending on what databases using, there could be different encryption mechanisms and granularity options.  <br> 
 . Partition  <br> 
@@ -826,7 +827,7 @@ Depending on what databases using, there could be different encryption mechanism
 ***Applicationencryption*** <br> 
 Data encryption and obfuscation can be seen as an array of options that can be applied to different scenarios. <br> 
 There are different types of data obfuscation, encryption, masking, anonymisation and tokenization. <br> 
-Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation – Tokenisation - Masking section of this document.
+Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation - Tokenisation - Masking section of this document.
 ## References
 <br> <br> <br> 
 --End of the File--
