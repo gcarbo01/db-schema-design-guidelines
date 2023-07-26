@@ -443,7 +443,7 @@ https://hashids.org/
 Some systems may require creating business entities with custom human-readable or human-friendly Ids. <br>
 Many systems allow the User to write the custom id, or the system can create them by inferring the name from another field. However, in most cases, the system allows this custom id to be editable, and the User can overwrite the proposed generated id.<br>
 These types of IDs have similarities with the Resource-Id and the Short-UUID. <br>
-See the example below, where the user can create a custom "Customer Id". The custom is proposed from the field above, but the User can edit it.<br>
+See the example below, where the user can create a custom "Customer Id". The custom id is proposed from the field above, but the User can edit it.<br>
 <br><img src="./images/Custom-Human-Readable-id1.jpg" align="center" width=50% height=50%> <br> <br> 
 ### Important
 . Because the field is created by hand, these Ids can lead to collisions. <br>
