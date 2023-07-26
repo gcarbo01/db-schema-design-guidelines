@@ -496,8 +496,8 @@ In this pattern, it is proposed the data modelling for these audit fields. <br>
 In this design, fields are updated every time the record is created (only once); they are modified or deleted (only once).<br> 
 The limitation of this design is that these fields alone cannot keep the history of changes.<br>
 So, every time a record is updated, the ``auditModifiedBy`` and ``auditModifiedDateTime`` will be overwritten.<br>
-Therefore, for this design to be effective must be complemented with another design which is the extraction of the Update fields every time the record is changed.<br>
-In any large organisation, processes are usually in place that capture individual changes and send them to Data Warehouse, so when a row is updated, we can do it safely because the system is guaranteed that a copy is already made. The update will not cause any data to be lost.<br>
+Therefore, for this design to be effective must be complemented with another design which is the extraction of the updated fields every time the record is changed.<br>
+In large organisations, usually, there are processes that capture individual changes in application databases and send them to Data Warehouse, so when a row is updated, we can do it safely because the system is guaranteed that a copy is already made. The update will not cause any data to be lost.<br>
 
 |#| Field Name|	Type|	Description|
 | --- | --- | --- | --- |
@@ -512,8 +512,8 @@ In addition, there may be convenient to have extra fields needed to support the 
 
 |#| Field Name|	Type|	Description|
 | --- | --- | --- | --- |
-|1|	auditInternalCorrelationId|	varchar(50)	|This is the correlationId. The internal correlation id is a field used for end-to-end traceability among all the components of our distributed architecture. It allows the implementation of the observability capability by the DevOps team. |
-|2|	auditExternalCorrelationId|	varchar(50)	|This is the externalCorrelationId. The external correlation id is a field that external organisations create. For example, Customers send data in B2B interfaces along with their correlationId, which in our systems will be an externalCorrelationId. Then, the Customers log in to our website and can track these transactions using the sent correlationsIds embedded with our processes.|
+|1|	auditInternalCorrelationId|	varchar(50)	|This is the ``correlationId``. The internal correlation id is a field used for end-to-end traceability among all the components of our distributed architecture. It allows the implementation of the observability capability by the DevOps team. |
+|2|	auditExternalCorrelationId|	varchar(50)	|This is the ``externalCorrelationId``. The external correlation id is a field that external organisations create. For example, Customers send data in B2B interfaces along with their correlationId, which in our systems will be an externalCorrelationId. Then, the Customers log in to our website and can track these transactions using the sent correlationsIds embedded with our processes.|
 <br>
 
 ### Logical deletion
@@ -523,7 +523,7 @@ This is by filling in the ``auditDeletedDateTime``. So when the application find
 ### Historical changes
 A frequent question raised by developers about this pattern is that when there are multiple updates, the tables only preserve the latest change, and the audit fields are overwritten, losing the previous information on the ``auditModifiedDateTime`` and ``auditModifiedBy`` fields. <br>
 So, the questions are:<br>
-1. Does this pattern keep a version of each record before changing or after changing them?<br>
+Does this pattern keep a version of each record before changing or after changing them?<br>
 The answer is no and no. This pattern only keeps the metadata about the event, but it does not solve keeping the historical changes.<br>
 
 ### Change Data Capture (CDC)
@@ -532,10 +532,10 @@ But in all cases should consider keeping a copy of the existing record before ov
 One of the most used patterns is the Change Data Capture, which allows monitoring and tracking the change log in the database, extracting the data and publishing these changes as events to Kafka or elsewhere. So, every change occurred in a business domain, at the same time, is saved in the database and is also sent as an event to the eco-system. <br>
 The Kafka platform is a technology that keeps all the events as records in a database, so it is possible to reconstruct all the changes that occurred through time.<br>
 Another alternative, if working with a cloud PaaS database, is to enable the track changes. So, every change is preserved.<br>
-Any method implemented needs to be verified and tested, and operations need to know how to use it.<br>
+Any method implemented must be verified and tested, and operations must know how to use it.<br>
 ## References
 Backend Side design <br>
-CQRS (Command and Query Responsibility Segregation) can be complemented with Eventual Consistency. <br>
+CQRS (Command and Query Responsibility Segregation) can complement Eventual Consistency. <br>
 Eventual Consistency <br>
 https://fauna.com/blog/why-strong-consistency-with-event-driven <br>
 CQRS <br>
