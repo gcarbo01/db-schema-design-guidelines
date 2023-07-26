@@ -890,6 +890,7 @@ In TypeORM, no built-in decorator is specifically designed to implement automati
 However, you can achieve this functionality by combining custom getter and setter methods with existing decorators. <br>
 The ``BeforeInsert`` and ``BeforeUpdate`` decorators are applied to the ``customEncodeField`` method, ensuring the field is encoded before saving. <br>
 The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.<br>
+<br>
 Another alternative could be using database features if available.
 
 #### Across Applications
