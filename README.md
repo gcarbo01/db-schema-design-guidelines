@@ -128,7 +128,7 @@ The name of the field should be: <br>
 ``<The same name used on the table>`` + ``'Id'`` <br>
 For example: ``Contract`` (table name) + ``Id`` =  ``ContractId`` <br>
 <br>
-<img src="./images/PrimaryKeydefinition3.jpg" width=30% height=30%>
+<img src="./images/PrimaryKeydefinition3.jpg" width=45% height=45%>
 <br>
 ### Unique Identifier – Suffix
 The rationale for this convention is for clarity when querying multiple tables.  <br>
