@@ -698,7 +698,7 @@ Watermark Table design<br>
 |5|	sourceTableName|	String|	Name of the table, source of the information.|
 |6|	destinationTableName|	String|	Name of the table, destination of the information.|
 |7|	startRecordDateTime|	DateTime|	The date-time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
-|8|		endRecordDateTime|	DateTime|	The date time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
+|8|	endRecordDateTime|	DateTime|	The date time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
 
 
 ## References
@@ -729,5 +729,45 @@ https://typeorm.io/#/decorator-reference/deletedatecolumn <br>
 https://typeorm.io/#/delete-query-builder <br>
 Sequelize ORM Soft Deleted <br>
 https://www.npmjs.com/package/sequelize-soft-delete <br>
+<br> <br> <br> 
 
+# InvolvementRoleAssociation
+## Category
+## Description
+This pattern is one of the modelling best practices of Industry models that deal with complex business entity relationships.  <br>
+It represents an association/relationship between two business entities. (See Party modelling section of this document).  <br>
+The ``InvolvementRoleAssociation`` relationship represents more than a mere ``Join`` table because it has some extra attributes that are used to describe the association in the following ways: <br>
+. Quantify  <br> 
+. Qualify  <br>
+. Lifecycle (Status, start and end date)  <br>
+ <br>
+For example: 
+Instead of modelling the relationship as a Join 
+<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br>
+The relationship is complex with more metadata and is an InvolvementRoleAssociation
+<br><img src="./images/InvolvementRoleAssociation1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br>
+For example: <br>
+|#|	Field Name|	Type|	Description|
+| --- | --- | --- | --- |
+|1| InvolvementRoleAssociationProductOwnerId|Unique Identifier|	Unique identifier. UUID.|
+|2| Name | varchar(50)|Name of the InvolvementRoleAssociation
+|3|Description |String|Description of the InvolvementRoleAssociation|
+|4|Type|varchar(50) | Qualifier. Type or relationship is. For example: 'Legal', 'Binding', 'Formal', 'Proffesional'etc|
+|5|Start_Date|DateTime| From what date time this relationship is active|
+|6| End_Date |DateTime| Until what date time this relationship is active|
+|7| Status |varchar(50)| What status this relationship is. For example, 'Acvtive', 'Suspended', 'Dormant', etc.|
+|8|Context | |Qualifier. Names of the context where this association can be used. For example, 'Online', 'Back-office', 'Chatboot', etc |
+|9| Category |varchar(50)| Qualifier. For example: 'Social Media', 'Email Marketing', 'Online Advertising', 'Online Forums', etc.|
+|10| Direction |varchar(50)| What direction this relationship must be read. For example: 'Product-to-User', 'User-to-Product', 'Bidirectional'|
+ <br>
+Other attributes for more complex scenarios where the relationship belongs to another system, so a new set of attributes may be convenient to be stored for reference:
+|#|	Field Name|	Type|	Description|
+| --- | --- | --- | --- |
+|1| Alias|varchar(50)|Other names applicable to the relationship. For example: "Purchased Subscription"|
+|2|. ApplicationOriginName |varchar(50)| This relationship is mastered in another system, and this system only has a copy. Application name|
+|3|. ApplicationOriginValue |This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
+## References
+<br> <br> <br> 
 --End of the File--
