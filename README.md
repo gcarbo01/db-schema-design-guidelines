@@ -462,10 +462,13 @@ For example: <br>
 ## Description
 This topic of Foreign Keys only refers to a naming convention when designing the Physical data model.<br>
 It is important to adopt a convention and be consistent with Foreign Keys.<br>
-They follow the name convention: ``<The name of the foreign entity>`` + ``Id``<br>
+They follow the name convention: <br>
+``FK`` (Prefix) +``_`` +``<The name of the entity>``+``_`` +``<The name of the foreign entity>`` + ``Id``<br>
+For example: <br>
+ClientCompany has a foreign key to the Tenant table: ``FK_ClientCompany_TenantId``<br>
 Note: Assuming that it has been adopted, the Primary Key design proposed as the UUID or GUID, then the foreign key should only have this primary key from other tables. Otherwise, the database is not able to keep SQL referential integrity.
-<br><img src="./images/ForeignKey1.jpg" align="center" width=70% height=70%> <br> <br> 
-<br><img src="./images/ForeignKey2.jpg" align="center" width=70% height=70%> <br> <br> 
+<br><img src="./images/ForeignKey1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br><img src="./images/ForeignKey2.jpg" align="center" width=50% height=50%> <br> <br> 
 ## References
 Referential Integrity Wikipedia<br>
 https://en.wikipedia.org/wiki/Referential_integrity<br>
