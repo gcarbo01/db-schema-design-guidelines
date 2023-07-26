@@ -440,8 +440,10 @@ https://hashids.org/
 # Custom Human-Readable-id
 ## Category
 ## Description
-Some systems may require creating business entities with custom human-readable or human-friendly Ids. 
-These types of IDs have similarities with the Resource-Id and the Short UUID.example below. The “Customer Id” is inferred from the name. However, it allows it to be edited or created by the human-being operator:<br>
+Some systems may require creating business entities with custom human-readable or human-friendly Ids. <br>
+The User can enter the custom id, or the id can be inferred from a given name. However, it allows it to be edited or created by the human-being operator
+These types of IDs have similarities with the Resource-Id and the Short-UUID. <br>>
+See the example below, where the user can create a custom "Customer Id".<br>
 <br><img src="./images/Custom-Human-Readable-id1.jpg" align="center" width=50% height=50%> <br> <br> 
 ### Important
 . Because the field is created by hand, these Ids can lead to collisions. <br>
