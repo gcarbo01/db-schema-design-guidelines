@@ -927,12 +927,10 @@ The TenantId implementation will be embedded in the multiple microservices/domai
 And at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails.  <br>
 
 ### Infrastructure and platform design
-From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, a database is designed to store all the needed metadata for the different scenarios.  <br>
+From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, they place a database with all Tenants' metadata. This metadata is the physical addresses and service Ids assigned to each Tenant. So architecture components can use this as the source to find the correct platform instances for different scenarios.  <br>
 Although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this data must be propagated to the actual platforms for them to run. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, etc.  <br>
-For example:   <br>
-. The DevOps pipeline: To provision dynamically runtime environments to new Tenants.  <br>
-. The API Gateway, to know where to route requests from different Tenants.   <br>
-. Other architecture components require knowing where to find the proper platform or application instance assigned to each Tenant. <br>
+This is why the reviewed Multitenancy architecture proposes using a dynamic DevOps pipeline to provision dynamically runtime environments to new Tenants.  <br>
+For example, once the pipeline runs, it provisions a new environment for a Tenant, and the information for routing to the tenant is also placed as a static configuration in the API Gateway or Proxies. So these Proxies know where to route requests from different Tenants.   <br>
 <br>
 
 ## References
