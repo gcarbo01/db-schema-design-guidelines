@@ -754,7 +754,7 @@ For example: <br>
 |1| InvolvementRoleAssociationProductOwnerId|Unique Identifier|	Unique identifier. UUID.|
 |2| Name | varchar(50)|Name of the InvolvementRoleAssociation
 |3|Description |String|Description of the InvolvementRoleAssociation|
-|4|Type|varchar(50) | Qualifier. Type or relationship is. For example: 'Legal', 'Binding', 'Formal', 'Proffesional'etc|
+|4|Type|varchar(50) | Qualifier. Type or relationship is. For example: 'Legal', 'Binding', 'Formal', 'Professional'etc|
 |5|Start_Date|DateTime| From what date time this relationship is active|
 |6| End_Date |DateTime| Until what date time this relationship is active|
 |7| Status |varchar(50)| What status this relationship is. For example, 'Acvtive', 'Suspended', 'Dormant', etc.|
@@ -769,6 +769,64 @@ Other attributes for more complex scenarios where the relationship belongs to an
 |1|Alias|varchar(50)|Other names applicable to the relationship. For example: "Purchased Subscription"|
 |2|ApplicationOriginName |varchar(50)| This relationship is mastered in another system, and this system only has a copy. Application name|
 |3|ApplicationOriginValue |varchar(50)|This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
+## References
+<br> <br> <br> 
+
+# Privacy fields
+## Category
+## Description
+This topic deals with identifying data that could be under privacy regulations and how to address the security requirements from the data at rest perspective. <br> 
+This is part of a broader Privacy solution that addresses the requirements mandated by Privacy laws in jurisdictions. <br> 
+The following Business Entities and attributes should be treated under privacy policies.<br> 
+
+### Individual Identifiers
+. Medicare number/Social Security number <br> 
+. Passport number <br> 
+. Driver’s license number <br> 
+. etc. Any other government-issued id  <br> 
+
+### Individual personal attributes
+. Full name <br> 
+. Date of birth <br> 
+. Age <br> 
+. Home address <br> 
+. Email address <br> 
+. Sexual orientation  <br> 
+. Ethnicity  <br> 
+. etc <br> 
+
+### Individual financial attributes
+. Credit card numbers <br> 
+. Bank account <br> 
+. Payment platform token identifiers <br> 
+. File Tax Number <br> 
+. etc. <br> 
+
+### Online identifiers
+Login details (username)
+. etc <br> 
+
+### Media identifiers
+. Processor or device serial number  <br> 
+. Media access control (MAC)  <br> 
+. Internet Protocol (IP) address  <br> 
+. Device IDs  <br> 
+. Location  <br> 
+. Cookies  <br> 
+
+### Solution
+Generally, we talk about encryption at different levels.  <br> 
+***Database encryption*** <br> 
+Depending on what databases using, there could be different encryption mechanisms and granularity options.  <br> 
+. Partition  <br> 
+. Database  <br> 
+. Table  <br> 
+. Column  <br> 
+<br> 
+***Applicationencryption*** <br> 
+Data encryption and obfuscation can be seen as an array of options that can be applied to different scenarios. <br> 
+There are different types of data obfuscation, encryption, masking, anonymisation and tokenization. <br> 
+Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation – Tokenisation - Masking section of this document.
 ## References
 <br> <br> <br> 
 --End of the File--
