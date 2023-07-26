@@ -925,8 +925,8 @@ API Gateway Design patterns  <br>
 https://medium.com/@cezarromaniuc/multi-tenancy-authentication-through-kong-api-gateway-e05e08308da8  <br> 
 Multitenancy API design patterns  <br> 
 https://medium.com/@vivekmadurai/multi-tenancy-in-rest-api-a570d728620c  <br> 
+Others  <br> 
+https://relevant.software/blog/multi-tenant-architecture/  <br> 
+https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
 <br> <br> <br> 
-Others
-https://relevant.software/blog/multi-tenant-architecture/
-https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row
 --End of the File--
