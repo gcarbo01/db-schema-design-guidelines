@@ -881,10 +881,16 @@ Masking example with different masking strategies<br>
 |3|foobaruser@emailservice.com | ``foob*******************.com`` |
 
 ### Implementation
+#### In a single Application, only
 This could be one implementation strategy when developing a simple application. <br>
-In TypeORM, no built-in decorator is specifically designed for implementing automatic encoding and decoding of fields.  <br>
+In TypeORM, no built-in decorator is specifically designed to implement automatic field encoding and decoding.  <br>
 However, you can achieve this functionality by combining custom getter and setter methods with existing decorators. <br>
 The BeforeInsert and BeforeUpdate decorators are applied to the customEncodeField method, ensuring the field is encoded before saving. <br>
+The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
+
+#### Across Applications
+The same algorithm must be applied for this scenario when encoding and decoding data across applications. Therefore, a common strategy for applications that share encoded data must be used. This can be neutral centralised API or common libraries embedded in applications. <br>
+The cryptographic key must be stored in a proper secure key vault; only encrypted and signed libraries can access it.
 
 <br>
 ## References
@@ -892,7 +898,7 @@ Anonymisation tool - js-data-anonymizer <br>
 https://github.com/joostvunderink/js-data-anonymizer  <br>
 Tokenisation tool - tokenex  <br> 
 https://www.npmjs.com/package/tokenex   <br>
-Masking tool - simple-data-anonymizer
+Masking tool - simple-data-anonymizer  <br>
 https://www.npmjs.com/package/simple-data-anonymizer    <br>
 <br> <br> <br> 
 --End of the File--
