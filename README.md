@@ -472,9 +472,20 @@ Note: Assuming that it has been adopted, the Primary Key design proposed as the 
 ## References
 Referential Integrity Wikipedia<br>
 https://en.wikipedia.org/wiki/Referential_integrity<br>
-Basis of Referential Integrity in databases
+Basis of Referential Integrity in Databases <br>
 https://www.w3resource.com/sql/joins/joining-tables-through-referential-integrity.php
 <br> <br> <br> 
-
-
+# Join table name
+## Category
+## Description
+This is a naming convention about how to name these tables. These types of tables resolve N-to-N relationships.
+They follow the name convention: <br>
+<The name of the first entity>``+``_`` +``<The name of the second entity>`` +``_`` +``Join``<br>
+For example: <br>
+A hypothetical scenario where a customer has many Orders, and the Order can be an aggregation from multiple Customers: ``Order_Customer_Join``<br>
+For example<br>
+<br><img src="./images/JoinTable1.jpg" align="center" width=50% height=50%> <br> <br> 
+Note: If the table names are long, then the concatenation of tables names plus the “Join” can be too long and some abbreviations to the names maybe useful.
+## References
+<br> <br> <br> 
 --End of the File--
