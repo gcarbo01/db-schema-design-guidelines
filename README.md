@@ -920,11 +920,11 @@ From the data perspective, there are several considerations, to mention a few of
 
 ### Application database design
 From the Application design perspective, the strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
-The TenantId implementation will be embedded in the multiple microservices/domains that the organisation is implementing. So the TenantId can be seen as: <br>
-. A field at the aggregate root level only. <br>
-. A field in all tables and not only in the domain root entity.  <br>
+The TenantId implementation will be embedded in the multiple microservices/domains that the organisation is implementing. So the TenantId can be designed with two different approaches: <br>
+. A TenantId field at the aggregate root level only. <br>
+. A TenantId field in all tables, and not only in the domain root entity. Despite the data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
 <br>
-And at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails.  <br>
+About how to propagate the TenantIds, at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails. So, it could be treated as any other reference data set. <br>
 
 ### Infrastructure and platform design
 From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, they place a database with all Tenants' metadata. This metadata consists of all the physical addresses and service Ids assigned to each Tenant. So architecture components can use this database as the source to find the correct platform instances for different scenarios.  <br>
