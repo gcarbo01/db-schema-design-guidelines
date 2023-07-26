@@ -927,10 +927,10 @@ The TenantId implementation will be embedded in the multiple microservices/domai
 And at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails.  <br>
 
 ### Infrastructure and platform design
-From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, they place a database with all Tenants' metadata. This metadata is the physical addresses and service Ids assigned to each Tenant. So architecture components can use this as the source to find the correct platform instances for different scenarios.  <br>
-Although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this data must be propagated to the actual platforms for them to run. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, etc.  <br>
-This is why the reviewed Multitenancy architecture proposes using a dynamic DevOps pipeline to provision dynamically runtime environments to new Tenants.  <br>
-For example, once the pipeline runs, it provisions a new environment for a Tenant, and the information for routing to the tenant is also placed as a static configuration in the API Gateway or Proxies. So these Proxies know where to route requests from different Tenants.   <br>
+From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, they place a database with all Tenants' metadata. This metadata consists of all the physical addresses and service Ids assigned to each Tenant. So architecture components can use this database as the source to find the correct platform instances for different scenarios.  <br>
+Although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this could slow down the performance significantly. So, to solve this potential bottleneck, the data must be propagated to the actual platforms to run independently without having to fetch the data. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, Kafka Topic and partitions, etc.  <br>
+This is why the  multitenancy architecture reviewed proposes using a dynamic DevOps pipeline to provision dynamically runtime environments to new Tenants.  <br>
+For example, once the deployment of a new Tenant is triggered, a Dev-Ops pipeline runs; it provisions a new environment for the Tenant and places static configuration in the API Gateway or Proxies about how to identify the Tenant and how to route the Tenant traffic to the correct environment. So these Proxies know where to route requests from different Tenants without fetching any data from external sources.   <br>
 <br>
 
 ## References
