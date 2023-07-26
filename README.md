@@ -628,7 +628,7 @@ Codeproject-Bitemporal-Database-Table-Design-The-Basics article <br>
 https://www.codeproject.com/Articles/17637/Bitemporal-Database-Table-Design-The-Basics <br>
 Martin Fowler Temporal Object, March 2004  <br>
 https://martinfowler.com/eaaDev/TemporalObject.html <br>
-
+<br> <br> <br> 
 # Reference Data
 ## Category
 ## Description
@@ -684,8 +684,8 @@ This pattern is useful for data processing scenarios. For example, in data impor
 . Resumed (from last imported date). Only considering the new records.<br> 
 . Re-executed (from last imported date). Only considering records from a saved date.<br> 
 <br> 
-Commercial software usually implements these using a design pattern called “Watermark”.
-The watermark is implemented as a table containing metadata about the import or synchronisation processes.
+Commercial software usually implements these using a design pattern called “Watermark”.<br> 
+The watermark is implemented as a table containing metadata about the import or synchronisation processes.<br> 
 The ``startRecordDateTime`` and ``endRecordDateTime`` are filled with one of the audit fields, depending on what type of operation was: ``createdDateTime``, ``updatedDateTime`` or ``deletedDateTime``.<br> 
 <br> 
 Watermark Table design<br> 
@@ -698,7 +698,7 @@ Watermark Table design<br>
 |5|	sourceTableName|	String|	Name of the table, source of the information.|
 |6|	destinationTableName|	String|	Name of the table, destination of the information.|
 |7|	startRecordDateTime|	DateTime|	The date-time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
-|8		endRecordDateTime|	DateTime|	The date time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
+|8|		endRecordDateTime|	DateTime|	The date time of the first record processed. (Assuming that the process will process the records incrementally by time. - The ones that were modified first will be processed first-)|
 
 
 ## References
@@ -710,4 +710,24 @@ https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-po
 Incremental or High-Water Mark data Loading  <br>
 https://documentation.matillion.com/docs/2506598  <br>
 <br> <br> <br> 
+
+# Soft Delete
+## Category
+## Description
+The audit field “auditDeletedDatetime” can be used as the Boolean field that indicates if the record has been soft deleted.<br>
+Some ORM (Object Relationship Mapping) libraries allow customising which field will be used by the model to differentiate soft deleted records.<br>
+It's worthwhile to investigate how the ORM library settings work to be able to customise the soft-delete field.<br>
+
+**Caution**<br>
+When adopting the soft delete, after a record is soft-deleted, there could be business scenarios where the user creates a new record with the same business entity can cause problems. <br>
+The Primary key will not be the same (If using GUID as the primary Key); however, if the entity has other fields and identifiers with the SQL ``Unique`` property, then the database will not allow the creation of this new field. This can happen with the Business Key, Natural Key, Resource Id, Mnemotechnical hash Ids, etc.<br>
+
+## References
+TypeORM Soft Delete field setting features <br>
+https://github.com/typeorm/typeorm/pull/5034 <br> 
+https://typeorm.io/#/decorator-reference/deletedatecolumn <br>
+https://typeorm.io/#/delete-query-builder <br>
+Sequelize ORM Soft Deleted <br>
+https://www.npmjs.com/package/sequelize-soft-delete <br>
+
 --End of the File--
