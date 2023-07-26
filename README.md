@@ -466,7 +466,7 @@ They follow the name convention: <br>
 ``FK`` (Prefix) +``_`` +``<The name of the entity>``+``_`` +``<The name of the foreign entity>`` + ``Id``<br>
 For example: <br>
 ClientCompany has a foreign key to the Tenant table: ``FK_ClientCompany_TenantId``<br>
-Note: Assuming that it has been adopted, the Primary Key design proposed as the UUID or GUID, then the foreign key should only have this primary key from other tables. Otherwise, the database is not able to keep SQL referential integrity.
+Note: Assuming that it has been adopted, the Primary Key design proposed as the UUID or GUID, then the foreign key should only have this primary key from other tables. Otherwise, the database is not able to keep SQL referential integrity.<br><br>
 <br><img src="./images/ForeignKey1.jpg" align="center" width=80% height=80%> <br> <br> 
 <br><img src="./images/ForeignKey2.jpg" align="center" width=50% height=50%> <br> <br> 
 ## References
@@ -480,12 +480,12 @@ https://www.w3resource.com/sql/joins/joining-tables-through-referential-integrit
 ## Description
 This is a naming convention about how to name these tables. These types of tables resolve N-to-N relationships.
 They follow the name convention: <br>
-<The name of the first entity>``+``_`` +``<The name of the second entity>`` +``_`` +``Join``<br>
+``<The name of the first entity>``+``_`` +``<The name of the second entity>`` +``_`` +``Join``<br>
 For example: <br>
 A hypothetical scenario where a customer has many Orders, and the Order can be an aggregation from multiple Customers: ``Order_Customer_Join``<br>
 For example<br>
-<br><img src="./images/JoinTable1.jpg" align="center" width=50% height=50%> <br> <br> 
-Note: If the table names are long, then the concatenation of tables names plus the “Join” can be too long and some abbreviations to the names maybe useful.
+<br><img src="./images/JoinTable1.jpg" align="center" width=80% height=80%> <br> <br> 
+Note: If the table names are long, then the concatenation of table names plus the “Join” can be too long. So, in this case, you can apply some abbreviations to the names to make it practical.
 ## References
 <br> <br> <br> 
 --End of the File--
