@@ -979,12 +979,12 @@ Company is a concept related directly to the implementation of SaaS. Indicates w
 It is a concept related to Multi-Tenancy or extends the Multi-tenancy concept. <br> 
 A Tenant owns the Application instance and can have multiple Companies using the application. <br> 
 Then the Tenant and the Company are related concepts, but they are not the same and interchangeable. <br>
-<br><img src="./images/Tenant-Company1.jpg" align="center" width=90% height=90%> <br> <br> 
+<br><img src="./images/Tenant-Company1.jpg" align="center" width=70% height=70%> <br> <br> 
 <br>
 The example below: <br> 
 . The tenant has only one single company using an Application. <br>
 . The application is being used only by one company. <br>
-<br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=90% height=90%> <br> <br> 
+<br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=80% height=80%> <br> <br> 
 <br>
 
 The minimum implementation of the Company concept is to have the Unique identifier key named “CompanyId”.
