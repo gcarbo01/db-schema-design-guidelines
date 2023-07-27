@@ -912,42 +912,56 @@ https://www.npmjs.com/package/simple-data-anonymizer    <br>
 # Multitenancy design
 ## Category
 ## Description
-The Multi-tenancy implementation is not only a data concern because depending on the requirements, the architecture implementing multitenancy can affect several layers in the architecture. <br>
-From the data perspective, there are several considerations, to mention a few of them: <br>
-. For Applications supporting more than one Tenant. This has repercussions on hosting names, API URLs, and Databases.  <br>
-. For the infrastructure hosting more than one tenant. Network compartmentalisation, access control, workload capping and distribution, etc.  <br>
+The Multi-tenancy design and implementation can have multiple implications on data modelling depending on the requirements. The architecture design can be only to the scope of an application where all the Tenants are running simultaneously, or it can go further to the different levels of the technology stack, for example, platforms, containers, networking, infrastructure, etc. Therefore, affects several layers in the architecture. <br>
+So, in developing a generic data design guidance for multi-tenancy scenarios, I would postulate two scenarios that can be taken as a reference from the data design perspective. These are Application database design and a more complex Infrastructure and platform design, where tenants need to be segregated not only from the data perspective but also from the allocation of resources. So, briefly, I can mention the problem space for both scenarios:<br>
+. For Applications supporting more than one Tenant. This has repercussions on Database design and also hosting names and API URLs.  <br>
+. For the infrastructure hosting more than one tenant. This affects the whole stack, from network compartmentalisation to workload allocation and isolation, capping, etc. There are several models to follow depending on the occasion. More below. <br>
+<br>
+. For the case of designing that each Tenant or group of Tenants will be in a different database sharding, this design can be applicable for both scenarios above. In any case, the proposed implementation of the TenantId can be helpful if a single database is partitioned into multiple shards.<br>
 <br>
 
 ### Application database design
-From the Application design perspective, the strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
-The TenantId implementation will be embedded in the multiple microservices/domains that the organisation is implementing. So the TenantId can be designed with two different approaches: <br>
-. A TenantId field at the aggregate root level only. <br>
-. A TenantId field in all tables, and not only in the domain root entity. Despite the data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
+From the Application design perspective, the problem scope and narrowed to data design; the Application must understand and manage data from multiple Tenants without confusing or mixing it.  So, the simplest design strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
+To complete the idea, the TenantId implementation must also be embedded in the services and APIs exposed as interfaces, and it could also be considered having several permutations of the same client applications for the same backend instance. This is not so uncommon.<br>
+If the application on the backend consists of multiple deployable units, such as microservices domains, then the TenantId must be implemented in all the databases if there is more than one. <br>
+These repositories can be designed with two different approaches, and I will use the Domain-Driven Design nomenclature to explain them. <br>
+. A TenantId field can be placed at the aggregate root level only. <br>
+. A TenantId field can be placed in every database table, not just the domain root entity. Despite the data evident data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
 <br>
-About how to propagate the TenantIds, at the design level, it could be assumed that the master table with Tenants is provided to all microservices through the reference data propagation rails. So, it could be treated as any other reference data set. <br>
+About how to propagate the TenantIds in a distributed environment, it could be assumed that TenantsId fit into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
 
 ### Infrastructure and platform design
-From the infrastructure design perspective, following the commonalities of the proposed design patterns by Microsoft and other sources, they place a database with all Tenants' metadata. This metadata consists of all the physical addresses and service Ids assigned to each Tenant. So architecture components can use this database as the source to find the correct platform instances for different scenarios.  <br>
-Although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this could slow down the performance significantly. So, to solve this potential bottleneck, the data must be propagated to the actual platforms to run independently without having to fetch the data. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, Kafka Topic and partitions, etc.  <br>
-This is why the  multitenancy architecture reviewed proposes using a dynamic DevOps pipeline to provision dynamically runtime environments to new Tenants.  <br>
-For example, once the deployment of a new Tenant is triggered, a Dev-Ops pipeline runs; it provisions a new environment for the Tenant and places static configuration in the API Gateway or Proxies about how to identify the Tenant and how to route the Tenant traffic to the correct environment. So these Proxies know where to route requests from different Tenants without fetching any data from external sources.   <br>
+From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But more and more architects confront this scenario and need patterns and best practices. Analysing all the articles cited below in the reference section, which are from Microsoft and other sources. These are the variations proposed:<br>
+. Single-tenant deployments <br>
+. Fully multitenant deployments <br>
+. Vertically partitioned deployments <br>
+. Horizontally partitioned deployments <br>
+<br>
+From the data design perspective, they propose having a database with all Tenants' metadata. This database is named a Tenant-mapping repository or a Tenant-catalogue. The Tenants' metadata will consist of all the physical addresses and service Ids assigned to each Tenant. So architecture components can use this database as the source to find the correct platform instances and services for a particular Tenant. Because the type of data about the Tenant consists of Infrastructure services instances, platform instances, etc., this data will be required for several scenarios.  <br>
+Regarding the infrastructure design of this database, although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this could slow down the performance significantly. So, to solve this potential bottleneck, the data must be propagated to the actual platforms to run independently without having to fetch the data. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, Kafka Topic and partitions, and any other service or platform that requires it.  <br>
+In addition, the architecture proposed relies on a CI-CD pipeline that provisions dynamically runtime environments to new Tenants.  <br>
+Once the deployment of a new Tenant is triggered, a Dev-Ops pipeline starts, queries the database to obtain all the information about the new Tenant, and provisions a new environment for the Tenant. This process places static configurations at different stack levels to permit traffic to flow correctly for this Tenant. For example, in the API Gateway or Proxies, identifying the Tenant and routing the Tenant traffic to the correct Kubernetes Pod or Containerised application. So these Proxies know where to route requests from different Tenants without fetching any data from external sources.  During the deployment process, the CI-CD pipeline may collect new information about the services-ids assigned by the cloud providers to the new Tenant instances, these data must also be preserved in the Tenants' catalogue database. <br>
 <br>
 
 ## References
-Microsoft Application design patterns <br> 
-https://learn.microsoft.com/en-us/azure/architecture/guide/saas/overview <br> 
+Microsoft Tenancy models for a multitenant solution <br> 
 https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/tenancy-models <br> 
-Microsoft SQL Server Design patterns <br> 
+Microsoft SaaS and multitenant solution architecture <br> 
+https://learn.microsoft.com/en-us/azure/architecture/guide/saas/overview <br> 
+Microsoft Multi-tenant SaaS database tenancy patterns <br> 
 https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns <br> 
-Multitenancy cluster management  <br> 
+Hassle-free multi-tenant K8S clusters management using Argo CD <br> 
 https://blog.argoproj.io/hassle-free-multi-tenant-k8s-clusters-management-using-argo-cd-7dd35619046a  <br> 
+Manage namespaces in multitenant clusters with Argo CD, Kustomize, and Helm <br> 
 https://developers.redhat.com/articles/2022/04/13/manage-namespaces-multitenant-clusters-argo-cd-kustomize-and-helm  <br> 
-API Gateway Design patterns  <br> 
+Multi-tenancy authentication through Kong API Gateway  <br> 
 https://medium.com/@cezarromaniuc/multi-tenancy-authentication-through-kong-api-gateway-e05e08308da8  <br> 
 Multitenancy API design patterns  <br> 
 https://medium.com/@vivekmadurai/multi-tenancy-in-rest-api-a570d728620c  <br> 
 Others  <br> 
+Multi-Tenant Architecture for Designing a SaaS Application  <br> 
 https://relevant.software/blog/multi-tenant-architecture/  <br> 
+Sharded Multi-Tenant Database using SQL Server Row-Level Security  <br> 
 https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
 <br> <br> <br> 
 --End of the File--
