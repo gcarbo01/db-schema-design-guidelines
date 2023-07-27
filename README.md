@@ -758,7 +758,7 @@ For example: <br>
 |5|Start_Date|DateTime| From what date time this relationship is active|
 |6| End_Date |DateTime| Until what date time this relationship is active|
 |7| Status |varchar(50)| What status this relationship is. For example, 'Acvtive', 'Suspended', 'Dormant', etc.|
-|8|Context | |Qualifier. Names of the context where this association can be used. For example, 'Online', 'Back-office', 'Chatboot', etc |
+|8|Context | varchar(50)|Qualifier. Names of the context where this association can be used. For example, 'Online', 'Back-office', 'Chatboot', etc |
 |9| Category |varchar(50)| Qualifier. For example: 'Social Media', 'Email Marketing', 'Online Advertising', 'Online Forums', etc.|
 |10| Direction |varchar(50)| What direction this relationship must be read. For example: 'Product-to-User', 'User-to-Product', 'Bidirectional'|
  <br>
