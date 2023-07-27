@@ -920,23 +920,26 @@ So, in developing a generic data design guidance for multi-tenancy scenarios, I 
 . For the case of designing a sharding model, where a Tenant or a group of Tenants are in a database shard, this design can apply to both scenarios above. Implementing the ``TenantId`` at the row level proposed below can be helpful if it is a single database or a database is partitioned into multiple shards.<br>
 <br>
 
-### Application database design
+### Application Multi-tenant design
 From the Application design perspective, the problem scope and narrowed to data design; the Application must understand and manage data from multiple Tenants without confusing or mixing it.  So, the simplest design strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
 To complete the idea, the TenantId implementation must also be embedded in the services and APIs exposed as interfaces, and it could also be considered having several permutations of the same client applications for the same backend instance. This is not so uncommon.<br>
 If the application on the backend consists of multiple deployable units, such as microservices domains, then the TenantId must be implemented in all the databases if there is more than one. <br>
+#### Application Multi-tenant database
 These repositories can be designed with two different approaches, and I will use the Domain-Driven Design nomenclature to explain them. <br>
 . A TenantId field can be placed at the aggregate root level only. <br>
 . A TenantId field can be placed in every database table, not just the domain root entity. Despite the data evident data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
 <br>
 About how to propagate the TenantIds in a distributed environment, it could be assumed that the ``TenantId`` concept fit into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
 
-### Infrastructure and platform design
-From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But increasingly, more architects confront this scenario and develop patterns and best practices. So, I analysed the best articles available when writing this (cited below in the reference section, which are from Microsoft and other sources); these are the variations proposed:<br>
+### Infrastructure and platform  Multi-tenancy design
+From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But increasingly, more architects confront this scenario and develop patterns and best practices. So, I analysed the best articles available when writing this (cited below in the reference section, which is from Microsoft and other sources); these are the variations proposed.<br>
+#### Infrastructure Multi-tenancy models
 . Single-tenant deployments <br>
 . Fully multitenant deployments <br>
 . Vertically partitioned deployments <br>
 . Horizontally partitioned deployments <br>
 <br>
+#### Tenant-catalogue database
 From the data design perspective, they propose having a database with all Tenants' metadata. This database is named a Tenant-mapping repository or a Tenant-catalogue. The Tenants' metadata will consist of all the physical addresses and service Ids assigned to each Tenant. So architecture components can use this database as the source to find the correct platform instances and services for a particular Tenant. Because the type of data about the Tenant consists of Infrastructure services instances, platform instances, etc., this data will be required for several scenarios.  <br>
 Regarding the infrastructure design of this database, although it is possible to have a centralised database with all the Tenant metadata running on the infrastructure, this could slow down the performance significantly. So, to solve this potential bottleneck, the data must be propagated to the actual platforms to run independently without having to fetch the data. For example, Proxies, Kubernetes namespaces, Service Mesh configurations, Kafka Topic and partitions, and any other service or platform that requires it.  <br>
 In addition, the architecture proposed relies on a CI-CD pipeline that provisions dynamically runtime environments to new Tenants.  <br>
@@ -965,5 +968,31 @@ Multi-Tenant Architecture for Designing a SaaS Application  <br>
 https://relevant.software/blog/multi-tenant-architecture/  <br> 
 Sharded Multi-Tenant Database using SQL Server Row-Level Security  <br> 
 https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
-<br> <br> <br> 
+<br> 
+<br> 
+<br> 
+
+# Multi-Compan design
+## Category
+## Description
+Company is a concept related directly to the implementation of SaaS. Indicates which company uses an Application or is “hosted” in an Application. <br> 
+It is a concept related to Multi-Tenancy or extends the Multi-tenancy concept. <br> 
+A Tenant owns the Application instance and can have multiple Companies using the application. <br> 
+Then the Tenant and the Company are related concepts, but they are not the same and interchangeable. <br>
+<br><img src="./images/Tenant-Company1.jpg" align="center" width=90% height=90%> <br> <br> 
+<br>
+The example below: <br> 
+. The tenant has only one single company using an Application. <br>
+. The application is being used only by one company. <br>
+<br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=90% height=90%> <br> <br> 
+<br>
+
+The minimum implementation of the Company concept is to have the Unique identifier key named “CompanyId”.
+So, the CompanyId implementation in domains can be:
+. A field at the aggregate root level only.
+. A field in all tables, not just the domain root entity. 
+## References
+<br> 
+<br> 
+<br> 
 --End of the File--
