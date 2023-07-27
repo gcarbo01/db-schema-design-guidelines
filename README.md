@@ -827,11 +827,11 @@ Depending on what databases using, there could be different encryption mechanism
 ***Application encryption*** <br> 
 Data encryption and obfuscation can be seen as an array of options that can be applied to different scenarios. <br> 
 There are different types of data obfuscation, encryption, masking, anonymisation and tokenization. <br> 
-Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation - Tokenisation - Masking section of this document.
+Using any particular type for each security scenario is not the objective of this part of the solution. Please look at the Anonymisation, Tokenisation and Masking section of this document.
 ## References
 <br> <br> <br> 
 
-# Anonymisation – Tokenisation – Masking
+# Anonymisation, Tokenisation and Masking
 ## Category
 ## Description
 ### Anonymisation
@@ -917,8 +917,6 @@ So, in developing a generic data design guidance for multi-tenancy scenarios, I 
 . For Applications supporting more than one Tenant. This has repercussions on Database design and also hosting names and API URLs.  <br>
 . For the infrastructure hosting more than one tenant. This affects the whole stack, from network compartmentalisation to workload allocation and isolation, capping, etc. There are several models to follow depending on the occasion. More below. <br>
 <br>
-. For the case of designing a sharding model, where a Tenant or a group of Tenants are in a database shard, this design can apply to both scenarios above. Implementing the ``TenantId`` at the row level proposed below can be helpful if it is a single database or a database is partitioned into multiple shards.<br>
-<br>
 
 ### Application Multi-tenant design
 From the Application design perspective, the problem scope and narrowed to data design; the Application must understand and manage data from multiple Tenants without confusing or mixing it.  So, the simplest design strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
@@ -946,6 +944,10 @@ In addition, the architecture proposed relies on a CI-CD pipeline that provision
 Once the deployment of a new Tenant is triggered, a Dev-Ops pipeline starts, and the first thing it does is query the database to obtain all the information about the new Tenant. The Tenant information will include the tenant model (see above) to be used and how many components need to be provisioned for each case.  <br>
 The CI-CD will translate this general information to a new physical environment for the Tenant. This process places static configurations at different stack levels to permit traffic to flow correctly for this Tenant. For example, in the API Gateway or Proxies, identifying the Tenant and routing the Tenant traffic to the correct Kubernetes Pod or Containerised application. So these Proxies know where to route requests from different Tenants without fetching any data from external sources.   <br>
 During the deployment process, the CI-CD pipeline may collect new information about the services-ids assigned by the cloud providers to the new Tenant instances; these data must also be preserved in the Tenant-catalogue database; so the CI-CD pipeline will collect this data and update the Tenant-catalogue accordingly. <br>
+<br>
+#### Data isolation - Database sharding
+In any of the two scenarios presented above for Applications and Infrastructure multi-tenancy, the sharding of an Application database can be considered to ensure data privacy and performance for each Tenant. In this model, a Tenant or a group of Tenants are in a database shard. <br>
+Implementing the ``TenantId`` at the row level proposed can be helpful if it is a single database or helping the process of converting a single database to multiple shard partitions per Tenant.<br>
 <br>
 
 ## References
@@ -975,8 +977,8 @@ https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using
 # Multi-Company design
 ## Category
 ## Description
-Company is a concept related directly to the implementation of SaaS. Indicates which company uses an Application or is “hosted” in an Application. <br> 
-It is a concept related to Multi-Tenancy or extends the Multi-tenancy concept. <br> 
+Company is a concept related directly to the implementation of SaaS. The Company concept indicates which company uses an Application or is “hosted” in an Application. <br> 
+It is a concept also related to Multi-Tenancy, or it extends the Multi-tenancy concept. <br> 
 A Tenant owns the Application instance and can have multiple Companies using the application. <br> 
 Then the Tenant and the Company are related concepts, but they are not the same and interchangeable. <br>
 <br><img src="./images/Tenant-Company1.jpg" align="center" width=70% height=70%> <br> <br> 
