@@ -946,7 +946,12 @@ The CI-CD will translate this general information to a new physical environment 
 During the deployment process, the CI-CD pipeline may collect new information about the services-ids assigned by the cloud providers to the new Tenant instances; these data must also be preserved in the Tenant-catalogue database; so the CI-CD pipeline will collect this data and update the Tenant-catalogue accordingly. <br>
 <br>
 #### Data isolation - Database sharding
-In any of the two scenarios presented above for Applications and Infrastructure multi-tenancy, the sharding of an Application database can be considered to ensure data privacy and performance for each Tenant. In this model, a Tenant or a group of Tenants are in a database shard. <br>
+In any of the two scenarios presented above for Applications and Infrastructure multi-tenancy, one of the concerns could be how to ensure data privacy and performance for each Tenant. This is data isolation by design. This can be achieved by:<br>
+. Creating a dedicated database instance per tenant. <br>
+. Creating a sharding instance per Tenant. <br>
+In the dedicated database model, there should be a configuration of Tenant-Database for the application to find the correct repository.<br>
+Implementing the ``TenantId`` at the row level proposed can be helpful if it is a single database or helping the process of converting a single database to multiple shard partitions per Tenant.<br>
+In the sharding model, a Tenant or a group of Tenants will be placed in one of the database shards. In most cases, the sharding technology makes the sharding internal partition configurations transparent to the Application.<br>
 Implementing the ``TenantId`` at the row level proposed can be helpful if it is a single database or helping the process of converting a single database to multiple shard partitions per Tenant.<br>
 <br>
 
