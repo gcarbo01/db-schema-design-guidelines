@@ -972,7 +972,7 @@ https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using
 <br> 
 <br> 
 
-# Multi-Compan design
+# Multi-Company design
 ## Category
 ## Description
 Company is a concept related directly to the implementation of SaaS. Indicates which company uses an Application or is “hosted” in an Application. <br> 
@@ -988,9 +988,9 @@ The example below: <br>
 <br>
 
 The minimum implementation of the Company concept is to have the Unique identifier key named “CompanyId”.
-So, the CompanyId implementation in domains can be:
-. A field at the aggregate root level only.
-. A field in all tables, not just the domain root entity. 
+So, the CompanyId implementation in domains can be: <br>
+. A field at the aggregate root level only. <br>
+. A field in all tables, not just the domain root entity.  <br>
 ## References
 <br> 
 <br> 
