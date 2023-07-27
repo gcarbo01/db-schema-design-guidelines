@@ -949,8 +949,7 @@ During the deployment process, the CI-CD pipeline may collect new information ab
 In any of the two scenarios presented above for Applications and Infrastructure multi-tenancy, one of the concerns could be how to ensure data privacy and performance for each Tenant. This is data isolation by design. This can be achieved by:<br>
 . Creating a dedicated database instance per tenant. <br>
 . Creating a sharding instance per Tenant. <br>
-In the dedicated database model, there should be a configuration of Tenant-Database for the application to find the correct repository.<br>
-Implementing the ``TenantId`` at the row level proposed can be helpful if it is a single database or helping the process of converting a single database to multiple shard partitions per Tenant.<br>
+In the dedicated database model, there should be a configuration of Tenant-Database-instance for the application to find the correct repository.<br>
 In the sharding model, a Tenant or a group of Tenants will be placed in one of the database shards. In most cases, the sharding technology makes the sharding internal partition configurations transparent to the Application.<br>
 Implementing the ``TenantId`` at the row level proposed can be helpful if it is a single database or helping the process of converting a single database to multiple shard partitions per Tenant.<br>
 <br>
