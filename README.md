@@ -984,7 +984,7 @@ Then the Tenant and the Company are related concepts, but they are not the same 
 The example below: <br> 
 . The tenant has only one single company using an Application. <br>
 . The application is being used only by one company. <br>
-<br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=90% height=90%> <br> <br> 
 <br>
 
 The minimum implementation of the Company concept is to have the Unique identifier key named “CompanyId”.
