@@ -913,11 +913,11 @@ https://www.npmjs.com/package/simple-data-anonymizer    <br>
 ## Category
 ## Description
 The Multi-tenancy design and implementation can have multiple implications on data modelling depending on the requirements. The architecture design can be only to the scope of an application where all the Tenants are running simultaneously, or it can go further to the different levels of the technology stack, for example, platforms, containers, networking, infrastructure, etc. Therefore, affects several layers in the architecture. <br>
-So, in developing a generic data design guidance for multi-tenancy scenarios, I would postulate two scenarios that can be taken as a reference from the data design perspective. These are Application database design and a more complex Infrastructure and platform design, where tenants need to be segregated not only from the data perspective but also from the allocation of resources. So, briefly, I can mention the problem space for both scenarios:<br>
+So, in developing a generic data design guidance for multi-tenancy scenarios, I postulate two scenarios that can be taken as a reference from the data design perspective. These are Application database design and a more complex Infrastructure and platform design, where tenants need to be segregated not only from the data perspective but also from the allocation of resources. So, briefly, I can mention the problem space for both scenarios:<br>
 . For Applications supporting more than one Tenant. This has repercussions on Database design and also hosting names and API URLs.  <br>
 . For the infrastructure hosting more than one tenant. This affects the whole stack, from network compartmentalisation to workload allocation and isolation, capping, etc. There are several models to follow depending on the occasion. More below. <br>
 <br>
-. For the case of designing that each Tenant or group of Tenants will be in a different database sharding, this design can be applicable for both scenarios above. In any case, the proposed implementation of the TenantId can be helpful if a single database is partitioned into multiple shards.<br>
+. For the case of designing a sharding model, where a Tenant or a group of Tenants are in a database shard, this design can apply to both scenarios above. Implementing the ``TenantId`` at the row level proposed below can be helpful if it is a single database or a database is partitioned into multiple shards.<br>
 <br>
 
 ### Application database design
@@ -928,10 +928,10 @@ These repositories can be designed with two different approaches, and I will use
 . A TenantId field can be placed at the aggregate root level only. <br>
 . A TenantId field can be placed in every database table, not just the domain root entity. Despite the data evident data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
 <br>
-About how to propagate the TenantIds in a distributed environment, it could be assumed that TenantsId fit into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
+About how to propagate the TenantIds in a distributed environment, it could be assumed that the ``TenantId`` concept fit into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
 
 ### Infrastructure and platform design
-From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But more and more architects confront this scenario and need patterns and best practices. Analysing all the articles cited below in the reference section, which are from Microsoft and other sources. These are the variations proposed:<br>
+From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But increasingly, more architects confront this scenario and develop patterns and best practices. So, I analysed the best articles available when writing this (cited below in the reference section, which is from Microsoft and other sources); these are the variations proposed:<br>
 . Single-tenant deployments <br>
 . Fully multitenant deployments <br>
 . Vertically partitioned deployments <br>
