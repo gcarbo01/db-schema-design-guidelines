@@ -824,7 +824,7 @@ Depending on what databases using, there could be different encryption mechanism
 . Table  <br> 
 . Column  <br> 
 <br> 
-***Applicationencryption*** <br> 
+***Application encryption*** <br> 
 Data encryption and obfuscation can be seen as an array of options that can be applied to different scenarios. <br> 
 There are different types of data obfuscation, encryption, masking, anonymisation and tokenization. <br> 
 Using any particular type for each security scenario is not the objective of this part of the solution. See Anonymisation - Tokenisation - Masking section of this document.
