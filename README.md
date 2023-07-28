@@ -1210,6 +1210,7 @@ In the logical domain model, the entities identified as mastered in this data mo
 Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
 Therefore, consultation with data modellers about the correct party name that should be used in your domain would be required. <br> 
 Parties refer, for example, to:<br>
+<br>
 ***Organization***<br>
 . ClientCompany <br> 
 . Tenant <br> 
@@ -1352,7 +1353,7 @@ Characteristic table
 
 Example:
  <br>
- <br><img src="./images/Characteristic2.jpg" align="center" width=85% height=85%> <br> <br>
+ <br><img src="./images/Characteristic2.jpg" align="center" width=75% height=55%> <br> <br>
 
 The Chargingharacteristic is a specialisation of a generic abstract Characteristic.  <br>
 The name ‘recurrentChargingPeriod’ is the name of the Characteristic. <br>
