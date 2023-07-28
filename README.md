@@ -1205,7 +1205,7 @@ In the logical domain model, the entities identified as mastered in this data mo
 Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
 Therefore, consultation with data modellers about the correct party name that should be used in your domain would be required. <br> 
 Parties refer, for example, to:
-### Organization: 
+***Organization***<br>
 . ClientCompany <br> 
 . Tenant <br> 
 . Vendor <br> 
@@ -1213,13 +1213,13 @@ Parties refer, for example, to:
 . Supplier <br> 
 . Etc <br> 
  <br> 
-#### Individual: <br> 
+***Individual*** <br> 
 . User <br> 
 . ClientIndividual <br> 
 . Customer <br> 
 . etc. <br> 
  <br> 
-#### Other: 
+***Other*** <br>
 . Application (Third party application interacting with Pickles) <br> 
 . Etc.  <br> 
 #### Party and PartyRole diagram
