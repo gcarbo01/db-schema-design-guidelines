@@ -975,10 +975,11 @@ https://relevant.software/blog/multi-tenant-architecture/  <br>
 Sharded Multi-Tenant Database using SQL Server Row-Level Security  <br> 
 https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
 <br> 
-AWS - Amazon Resource Names (ARNs) 
-https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html
-Kubernetes - Object Names and IDs
-https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
+Cloud Service Ids   <br> 
+AWS - Amazon Resource Names (ARNs)   <br> 
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html  <br> 
+Kubernetes - Object Names and IDs  <br> 
+https://kubernetes.io/docs/concepts/overview/working-with-objects/names/  <br> 
 <br> 
 <br> 
 
@@ -997,7 +998,7 @@ The example below: <br>
 <br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=90% height=90%> <br> <br> 
 <br>
 
-The minimum implementation of the Company concept is to have the Unique identifier key named “CompanyId”.
+The minimum implementation of the Company concept is to have the Unique identifier key named ``CompanyId``.
 So, the CompanyId implementation in domains can be: <br>
 . A field at the aggregate root level only. <br>
 . A field in all tables, not just the domain root entity.  <br>
