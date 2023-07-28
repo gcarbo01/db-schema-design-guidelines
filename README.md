@@ -1026,6 +1026,7 @@ This is only a quick reference to possible name-casing practices:<br>
 |3|``camelCase``|names – the name starts with a lowercase letter, but new words start with an uppercase letter|	``firstName``|
 |4|``PascalCaseNames``|(Also known as an upper camel) – similar to camelCase, but the name starts with an uppercase letter, as do all additional words|	``FirstName``|
 <br> 
+
 ### name-separator practices
 This is only a quick reference to possible name-separator practices:<br>
 
