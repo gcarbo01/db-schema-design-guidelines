@@ -1312,7 +1312,60 @@ https://maps.google.com/pluscodes/ <br>
 https://www.placekey.io/blog/google-maps-plus-codes-location-keys<br>
 https://en.wikipedia.org/wiki/Open_Location_Code<br>
 ***PlaceKey*** <br>
-https://medium.com/spatial-data-science/placekey-the-universal-identifier-for-the-physical-world-73d8d2d8ab9c<br>
+https://medium.com/spatial-data-science/placekey-the-universal-identifier-for-the-physical-world-73d8d2d8ab9c <br>
 https://www.placekey.io/<br>
+<br> <br> <br> 
 
+# Characteristic
+## Category
+## Description
+It is an auxiliary utility entity for a main business entity. It is used to indicate that the main business entity has distinctive attributes.  <br
+These attributes are usually pre-categorised and approved in reference data tables. They are not free text and are related to specific behaviour “injected” into the main business entity when a characteristic is given to an entity.  <br>
+
+ <br><img src="./images/Characteristic1.jpg" align="center" width=85% height=85%> <br> <br>
+
+A Characteristic is a feature or quality that is used to catalogue, typify and use as a method for adding specific attributes to a main entity. 
+Characteristic is not by any means a primary business entity. It holds the attributes of another, more important entity.
+This avoids changing or dealing with backward compatibility concerns when adding attributes to the main entity.
+The Characteristic refers to a specific arrangement of things that determines what the system will do and how its parts will interact since the entity holds a specific Characteristic.
+The Characteristic entry consists of simple Name, Value pairs. 
+Other data can also be stored along these for reference cataloguing or categorising the Characteristics. However, this extra metadata may add extra complexity. Choosing a proper label for the ‘Name’ should be sufficient to typify the Characteristic.
+This pattern generally allows separating the main entities from a customised behaviour. However, the behaviours triggered by this Characteristic should be independent of the main entity.  
+The motivation or advantage of implementing this pattern is to achieve some dynamic reusable behaviour that can be applied to any entity with a particular Characteristic.
+
+Characteristic table
+
+|#|Field Name|	Type|	Description|
+| --- | --- | --- | --- |
+|1|characteristicId|Unique Identifier|	Unique identifier. UUID.|
+|2|name|String|	Name of the Characteristic.|
+|3|value|String|Value of the Characteristic.|
+|4|description|	String|	Description of the Characteristic.|
+|5|displayName|	String|	Human-friendly name or description of the Characteristic.|
+|6|isHidden|Boolean|Flag that indicates that the characteristic is not meant to be presented or managed through a user interface.|
+
+
+Example:
+ <br><img src="./images/Characteristic2.jpg" align="center" width=85% height=85%> <br> <br>
+
+The Chargingharacteristic is a specialisation of a generic abstract Characteristic.  <br>
+The name ‘recurrentChargingPeriod’ is the name of the Characteristic. <br>
+The value ‘Monthly’ indicates the frequency of time how this service should be charged to the Customer. <br>
+ <br>
+Note: <br>
+The Characteristic data modelling pattern is related to or resembles the Anchor modelling data modelling pattern.  <br>
+Anchor modelling concept: <br>
+*Anchor modelling handles two types of informational evolution, structural changes and content changes. Changes to the structure of information are represented through extensions. The high degree of normalisation makes it possible to non-destructively add the necessary modelling concepts needed to capture a change so that every previous schema remains a subset of the current schema. Since the existing schema is not touched, this gives the benefit of being able to evolve the database in a highly iterative manner and without causing any downtime* <br>
+Wikipedia - Anchor modelling <br>
+ <br>
+In addition, we added an extra dimension consisting of the Characteristic, a type of metadata used for driving behaviour, which is not tied directly to the main entity but to the Characteristic itself. <br>
+This makes the Characteristic a valuable tool for designing frameworks.  <br>
+For example, any framework is meant to evolve with time. Still, to avoid constant refactoring and re-testing when more functionality is added to the framework, each new behaviour could be triggered when main business entities are granted or attached to Characteristics.  <br>
+In this case the Characteristic is a type of metadata describing behavior.  <br>
+So, the behaviour is triggered when the main entity (business entity) and its attached metadata (the characteristics) are given as parameters to different modules of the framework.  <br>
+In this way, it is possible to add more functionality without modifying existing data structures or functionality. <br>
+## References
+Anchor modelling
+https://en.wikipedia.org/wiki/Anchor_modeling
+<br> <br> <br> 
 --End of the File--
