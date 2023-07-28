@@ -1355,7 +1355,7 @@ The value ‘Monthly’ indicates the frequency of time how this service should 
 Note: <br>
 The Characteristic data modelling pattern is related to or resembles the Anchor modelling data modelling pattern.  <br>
 Anchor modelling concept: <br>
-*Anchor modelling handles two types of informational evolution, structural changes and content changes. Changes to the structure of information are represented through extensions. The high degree of normalisation makes it possible to non-destructively add the necessary modelling concepts needed to capture a change so that every previous schema remains a subset of the current schema. Since the existing schema is not touched, this gives the benefit of being able to evolve the database in a highly iterative manner and without causing any downtime* <br>
+*"Anchor modelling handles two types of informational evolution, structural changes and content changes. Changes to the structure of information are represented through extensions. The high degree of normalisation makes it possible to non-destructively add the necessary modelling concepts needed to capture a change so that every previous schema remains a subset of the current schema. Since the existing schema is not touched, this gives the benefit of being able to evolve the database in a highly iterative manner and without causing any downtime"* <br>
 Wikipedia - Anchor modelling <br>
  <br>
 In addition, we added an extra dimension consisting of the Characteristic, a type of metadata used for driving behaviour, which is not tied directly to the main entity but to the Characteristic itself. <br>
