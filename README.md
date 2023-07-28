@@ -1163,7 +1163,7 @@ Avoid implementing data integrity rules at the code-base level. Rely on database
 It is encouraged to align with what other development groups have adopted already.<br>
 For example, align with other domain names and data types if they have modelled this entity.<br>
 All microservices will be part of one system. <br>
-When you're thinking about a table name, I'd like you to please take the time to explore how the same entity has been called somewhere else. <br>
+When you're thinking about a table name, please take the time to explore how the same entity has been called somewhere else. <br>
 If they differ, you must discuss and agree with other domains of these conventions. <br>
 If you are right, then tag the other domain deviation on the naming convention as technical debt and carry on.<br>
 If the name used on the other domain is right, then create a registry of decisions to capture this important insight and carry on.<br>
@@ -1174,7 +1174,7 @@ If the name used on the other domain is right, then create a registry of decisio
 # SQL Reserved words
 ## Category
 ## Description
-Avoid using reserved words when naming databases, tables, columns, or other database objects. <br>
+Avoid using reserved words when naming databases, tables, columns, or objects. <br>
 The following table contains a list of the common reserved words:<br>
 ``ABORT``, ``ALL``, ``ANALYSE``, ``ANALYZE``, ``AND``, ``ANY``, ``ASC``, ``BETWEEN``, ``BINARY``, ``BIT``, ``BOTH``, ``CASE``, ``CAST``, ``CHAR``, ``CHARACTER``, ``CHECK``, ``CLUSTER``, ``COALESCE``, ``COLLATE``, ``COLLATION``, ``COLUMN``, ``CONSTRAINT``, ``COPY``, ``CROSS``, ``CURRENT``, ``CURRENT_CATALOG``, ``CURRENT_DATE``, ``CURRENT_DB``, ``CURRENT_SCHEMA``, ``CURRENT_SID``, ``CURRENT_TIME``, ``CURRENT_TIMESTAMP``, ``CURRENT_USER``, ``CURRENT_USERID``, ``CURRENT_USEROID``, ``DEALLOCATE``, ``DEC``, ``DECIMAL``, ``DEFAULT``, ``DECODE``, ``DESC``, ``DISTINCT``, ``DISTRIBUTE``, ``DO``, ``ELSE``, ``END``, ``EXCEPT``, ``EXCLUDE``, ``EXPLAIN``, ``EXTEND``, ``EXTERNAL``, ``EXTRACT``, ``FALSE``, ``FIRST``, ``FLOAT``, ``FOLLOWING``, ``FOR``, ``FOREIGN``, ``FROM``, ``FULL``, ``FUNCTION``, ``GENSTATS``, ``GLOBAL``, ``GROUP``, ``HAVING``, ``IDENTIFIER_CASE``, ``ILIKE``, ``IMPORT``, ``IN``, ``INDEX``, ``INITIALLY``, ``INNER``, ``INOUT``, ``INTERVAL``, ``INTO``, ``IS``, ``JOIN``, ``KEY``, ``LAST``, ``LEADING``, ``LEFT``, ``LIKE``, ``LIMIT``, ``LOAD``, ``LOCAL``, ``LOCK``, ``MINUS``, ``MOVE``, ``NATURAL``, ``NCHAR``, ``NEW``, ``NOT``, ``NOTNULL``, ``NULL``, ``NULLS``, ``NVL``, ``NVL2``, ``OFFSET``, ``OLD``, ``ON``, ``ONLINE``, ``ONLY``, ``OPEN``, ``OR``, ``ORDER``, ``OTHERS``, ``OUTER``, ``OVER``, ``OVERLAPS``, ``PARTITION``, ``POSITION``, ``PRECEDING``, ``PRECISION``, ``PRIMARY``, ``RESET``, ``REUSE``, ``RIGHT``, ``ROWS``, ``SELECT``, ``SETOF``, ``SHOW``, ``SOME``, ``TABLE``, ``THEN``, ``TIES``, ``TIME``, ``TIMESTAMP``, ``TO``, ``TRAILING``, ``TRANSACTION``, ``TRIGGER``, ``TRIM``, ``TRUE``, ``TRUNCATE``, ``UNBOUNDED``, ``UNION``, ``UNIQUE``, ``USER``, ``USING``, ``VACUUM``, ``VERBOSE``, ``VERSION``, ``VIEW``, ``VIRTUAL``, ``WHEN``, ``WHERE``, ``WITH``, ``WRITE``.
 
@@ -1192,8 +1192,64 @@ Avoid and challenge if you find a business entity is mastered in more than one d
  <br> 
 For example:
 In the logical domain model, the entities identified as mastered in this data model are coloured Gold. <br> 
-<br><img src="./images/Source-of-truth1.jpg" align="center" width=85% height=85%> <br> <br> 
+<br><img src="./images/Source-of-truth1.jpg" align="center" width=80% height=80%> <br> <br> 
 ## References
 <br> <br> 
 <br> 
+
+# Party (data modelling standardization)
+## Category
+## Description
+Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
+Therefore, consultation with data modellers about the correct party name that should be used in your domain would be required. <br> 
+Parties refer, for example, to:
+### Organization: 
+. ClientCompany <br> 
+. Tenant <br> 
+. Vendor <br> 
+. AfiliatedCompany <br> 
+. Supplier <br> 
+. Etc <br> 
+ <br> 
+#### Individual: <br> 
+. User <br> 
+. ClientIndividual <br> 
+. Customer <br> 
+. etc. <br> 
+ <br> 
+#### Other: 
+. Application (Third party application interacting with Pickles) <br> 
+. Etc.  <br> 
+#### Party and PartyRole diagram
+<br><img src="./images/Party-PartyRole-diagram1.jpg" align="center" width=80% height=80%> <br> <br>
+## References
+<br> <br> 
+<br> 
+# PartyRoles Relationships (modelling)
+## Category
+## Description
+Following the “Party” diagram above. <br> 
+The party are abstract entities that take a role in a scenario. They use an envelope of PartyRole when the Party is used in an Application-Channel. <br> 
+PartyRoles are related through “PartyRoleAssociation”.  <br> 
+This PartyRoleAssociation enables a direct relationship between Parties.  <br> 
+However, this is not to be taken literally since a relationship between parties should be more dynamic rather than static.  <br> 
+From the modelling point of view, the relationship or association between two parties, in general, must be through a: <br> 
+. An “Agreement” <br> 
+. A “Service”  <br> 
+. A “Contract” <br> 
+So that the two parties have a common ground of understanding and other meta-data that put context to this association or understanding between parties. <br> 
+## References
+<br> <br> 
+<br> 
+# First Name – Last Name
+## Category
+## Description
+There are several considerations for designing First Name, Last Name, Middle Name, etc.  <br> 
+Firstly, avoid storing a person’s name in a single field. <br> 
+Secondly, consider all possible applicable conditions to the names for the culture the application is being designed. <br> 
+It is important to design the Individual’s name carefully from the beginning. <br> 
+There are multiple ways these can be used. See references. <br> 
+## References
+https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
+<br> <br> <br> 
 --End of the File--
