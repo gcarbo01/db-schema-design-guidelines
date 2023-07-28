@@ -1011,7 +1011,30 @@ So, the CompanyId implementation in domains can be: <br>
 . A field at the aggregate root level only. <br>
 . A field in all tables, not just the domain root entity.  <br>
 ## References
+<br> <br> 
 <br> 
+# Name conventions (Tables, Columns and others)
+## Category
+## Description
+This is only a quick reference to possible name-casing practices:<br> 
+|#|	Original data|	Description| Example |
+| --- | --- | --- | --- |
+|1|``UPPERCASE``|Simple uppercase|``Name``|
+|2|``lowercase``|Simple lowercase|``name``|
+|3|``camelCase``|names – the name starts with a lowercase letter, but new words start with an uppercase letter|	``firstName``|
+|4|``PascalCaseNames``|(Also known as an upper camel) – similar to camelCase, but the name starts with an uppercase letter, as do all additional words|	``FirstName``|
 <br> 
+In his beard lived three <span style="color:red">cardinals</span>.
+<br> 
+This is only a quick reference to possible name-separator practices:<br>
+
+|#|	Original data|	Description| Example |
+| --- | --- | --- | --- |
+|1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
+|2| ``kebab-case``|Using Kebab Case, the empty spaces are replaced with dashes.|``first-name``|
+
+
+## References
+<br> <br> 
 <br> 
 --End of the File--
