@@ -978,6 +978,8 @@ https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using
 Cloud Service Ids   <br> 
 AWS - Amazon Resource Names (ARNs)   <br> 
 https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html  <br> 
+Azure - Resource-id format  <br> 
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription#changed-resource-id  <br> 
 Kubernetes - Object Names and IDs  <br> 
 https://kubernetes.io/docs/concepts/overview/working-with-objects/names/  <br> 
 <br> 
