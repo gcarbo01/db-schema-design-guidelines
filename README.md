@@ -1324,7 +1324,7 @@ These attributes are usually pre-categorised and approved in reference data tabl
 
  <br><img src="./images/Characteristic1.jpg" align="center" width=85% height=85%> <br> <br>
 
-A Characteristic is a feature or quality that is used to catalogue, typify and use as a method for adding specific attributes to a main entity. 
+A Characteristic is a feature or quality used to catalogue, typify, and add specific attributes to a main entity. 
 Characteristic is not by any means a primary business entity. It holds the attributes of another, more important entity.
 This avoids changing or dealing with backward compatibility concerns when adding attributes to the main entity.
 The Characteristic refers to a specific arrangement of things that determines what the system will do and how its parts will interact since the entity holds a specific Characteristic.
@@ -1361,9 +1361,9 @@ Wikipedia - Anchor modelling <br>
 In addition, we added an extra dimension consisting of the Characteristic, a type of metadata used for driving behaviour, which is not tied directly to the main entity but to the Characteristic itself. <br>
 This makes the Characteristic a valuable tool for designing frameworks.  <br>
 For example, any framework is meant to evolve with time. Still, to avoid constant refactoring and re-testing when more functionality is added to the framework, each new behaviour could be triggered when main business entities are granted or attached to Characteristics.  <br>
-In this case the Characteristic is a type of metadata describing behavior.  <br>
-So, the behaviour is triggered when the main entity (business entity) and its attached metadata (the characteristics) are given as parameters to different modules of the framework.  <br>
-In this way, it is possible to add more functionality without modifying existing data structures or functionality. <br>
+In this case, the Characteristic is a type of metadata describing behaviour.  <br>
+So, the behaviour is triggered when the main entity (business entity) and its attached metadata (the characteristics) are given as parameters to different framework modules.  <br>
+This way, adding more functionality without modifying existing data structures or functionality is possible. <br>
 ## References
 Anchor modelling
 https://en.wikipedia.org/wiki/Anchor_modeling
