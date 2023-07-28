@@ -1016,6 +1016,8 @@ So, the CompanyId implementation in domains can be: <br>
 # Name conventions (Tables, Columns and others)
 ## Category
 ## Description
+
+### name-casing practices
 This is only a quick reference to possible name-casing practices:<br> 
 |#|	Original data|	Description| Example |
 | --- | --- | --- | --- |
@@ -1024,17 +1026,60 @@ This is only a quick reference to possible name-casing practices:<br>
 |3|``camelCase``|names – the name starts with a lowercase letter, but new words start with an uppercase letter|	``firstName``|
 |4|``PascalCaseNames``|(Also known as an upper camel) – similar to camelCase, but the name starts with an uppercase letter, as do all additional words|	``FirstName``|
 <br> 
-In his beard lived three <span style="color:red">cardinals</span>.
-<br> 
+### name-separator practices
 This is only a quick reference to possible name-separator practices:<br>
-
 |#|	Original data|	Description| Example |
 | --- | --- | --- | --- |
 |1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
 |2| ``kebab-case``|Using Kebab Case, the empty spaces are replaced with dashes.|``first-name``|
 
+### Policies
+These standards are proposed. They apply to table names, but most also to attributes (column names).
+
+#### Table Name – singular Noun
+Use singular nouns for database table names.  <br>
+Table names should be NOUNS. Nouns are the most descriptive way of representing an object.   <br>
+For example: ``Customer``  <br>
+Recommendation:    <br>
+Do not use plural nouns, e.g., “Customers”.   <br>
+
+
+#### Table Name – Use of Qualifier (adjective + Noun)
+Think twice when using adjectives in conjunction with the nominated noun.    <br>
+This could be a design flaw. Some adjectives are only reinforcements of data that is saved or known otherwise.   <br>
+For example:    <br>
+. “singleCustomer”.    <br>
+<br>
+Recommendation:    <br>
+Adjectives in the Table names are not recommended.    <br>
+These adjectives can be modelled as attributes.   <br>
+<br>
+There are also legitimate business scenarios where there is a need to have qualifiers for business entities:   <br>
+For example:    <br>
+. ``Order``
+. ``ReturnedOrder``
+<br>
+This can be modelled in multiple ways, but there is indeed the need to model “returned orders” to be distinguished in some way from the normal “orders”.    <br>
+This can be by having a ``Boolean`` field in the Order table, or having a separate table for Orders that have been returned, etc. The problem with qualifiers is that in the future, there could be more qualifiers to the same object, for example:   <br>
+. ``ShippedOrders``    <br>
+. ``ApprovedOrders``   <br>
+. ``CappedOrders``   <br>
+. ``DraftOrders``   <br>
+. Etc.   <br>
+<br>
+So, these qualifiers can be just simple attributes of the entity and status fields (Boolean) or a Category Table.    <br>
+<br>
+#### Table Name – Composed Names (Two Nouns)
+Table names can be a combination of two nouns. But in most cases, this could be a design flaw.
+But think carefully if these two are not two different entities that should have their table.
+For example: ``CustomerApplication``, ``UserProfile``.
+``Customer`` has an ``Application``. 1 to n relationship
+``User`` has ``Profile``. 1 to 1 relationship.
+Recommendation: 
+Verify if the entity (noun) may be better modelled in its Table.
 
 ## References
 <br> <br> 
 <br> 
+
 --End of the File--
