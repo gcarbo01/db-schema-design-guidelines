@@ -1277,44 +1277,41 @@ Addresses normally have a structure using a nested set of spatial units:  <br>
 . Street (but some rural areas do not have street names).  <br>
 . Building or property within a street.  <br>
 . Sub-unit within a building or property.  <br>
-  <br>
-Residential Address  <br>
-Residential Addresses are related to Electorate Addresses. The government addresses them catalogue as valid Residential Addressed for voting purposes.   <br>
+<br>
+### Residential Address  
+Residential Addresses are related to Electorate Addresses. The government addresses the catalogue as valid Residential Addressed for voting purposes.   <br>
 Moreover, address is a complex structure that depends on the country. For example, in Australia, there are de facto standards in the industry for Addresses.  <br>
-Australia Address Validation  <br>
-https://auspost.com.au/business/marketing-and-communications/access-data-and-insights/address-data/address-validation<br>
-
-Providers of Address validation services<br>
-https://auspost.com.au/business/marketing-and-communications/business-letter-services/barcoding-process/address-matching-approval-system-amas<br>
-
 In general terms, Addresses is a predetermined verified location where people can reside. They are used for the government electoral commission. <br>
+And the other consideration is that Countries have their custom format. <br>
 
-Countries have their custom format<br>
-http://www.bitboost.com/ref/international-address-formats.html<br>
-
-Place<br>
+### Place
 Addresses are different from “Places”. Places are a loose concept that sometimes could match with an Address. Google map services provide standards for “Places”.<br>
 
-
-Postal Address<br>
+### Postal Address
 Postal addresses are different from residential Address. They are used for being a recipient of letters and parcels.<br>
 
-Open Location Code (Google Plus Code)
+### Open Location Code (Google Plus Code)
 The Open Location Code (OLC) is a geocode system for identifying an area anywhere on the Earth. It was developed at Google's Zürich engineering office and released in late October 2014. Location codes created by the OLC system are called "plus codes".  Open Location Code is a way of encoding location into a form easier to use than showing coordinates in the usual form of latitude and longitude. Plus, codes are designed to be used like street addresses and may be especially useful in places without a formal system to identify buildings, such as street names, house numbers, and postcodes.
 Plus Codes are derived from latitude and longitude coordinates, so they exist everywhere.[5] They are similar in length to a telephone number – 849VCWC8+R9, for example – but can often be shortened to only four or six digits when combined with a locality (CWC8+R9, Mountain View).
 Plus Codes are a form of location key, essentially any alphanumeric code representing a physical location. These are commonly used for street addresses but can be used to identify and label any real-world location. This is better than traditional addressing, as you can create a Plus Code for any location, even if it does not have a standardized (or even existing) street address. This is ideally suited for people that live in rural areas and don’t have access to an address. Plus Codes provide an alternative for those that do not have a street address, giving them access to an address for mailing, emergency services, and more. When we get into rural areas, where most locations have street addresses.<br>
 
-References:
-https://maps.google.com/pluscodes/ <br>
-https://www.placekey.io/blog/google-maps-plus-codes-location-keys<br>
-https://en.wikipedia.org/wiki/Open_Location_Code<br>
-
-
-PlaceKey<br>
+### PlaceKey
 Placekey is similar to Open Location Code but focuses on providing more accuracy. It is an open-source project. It can encode multiple POIs to a single location. <br>
 Placekey is a string that follows a What@Where structure. This is a unique way of shedding light on a place's descriptive element and its geospatial position in the physical world via a single identifier.<br>
 
-References
+## References
+***Residential Address*** <br>
+Australia Address Validation  <br>
+https://auspost.com.au/business/marketing-and-communications/access-data-and-insights/address-data/address-validation <br>
+Providers of Address validation services <br>
+https://auspost.com.au/business/marketing-and-communications/business-letter-services/barcoding-process/address-matching-approval-system-amas <br>
+International address formats <br>
+http://www.bitboost.com/ref/international-address-formats.html <br>
+***Open Location Code (Google Plus Code)*** <br>
+https://maps.google.com/pluscodes/ <br>
+https://www.placekey.io/blog/google-maps-plus-codes-location-keys<br>
+https://en.wikipedia.org/wiki/Open_Location_Code<br>
+***PlaceKey*** <br>
 https://medium.com/spatial-data-science/placekey-the-universal-identifier-for-the-physical-world-73d8d2d8ab9c<br>
 https://www.placekey.io/<br>
 
