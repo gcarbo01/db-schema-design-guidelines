@@ -1440,29 +1440,31 @@ It is an auxiliary utility entity for a main business entity. It is used to indi
 
 <br><img src="./images/Version1.jpg" align="center" width=70% height=70%> <br> <br> 
 
-The versioning protocol defined by the semantic versioning https://semver.org/ can be summarized as follow: <br>
-. Given a version number MAJOR.MINOR.PATCH <br>
+The semantic versioning organisation defines the versioning protocol. It works as follows:<br>
+<br>
+. Given a version number ``<MAJOR>``.``<MINOR>``.``<PATCH>`` <br>
+<br>
 Increment the: <br>
-. MAJOR version: When you make incompatible (API) changes. <br>
-. MINOR version: When you add functionality in a backwards-compatible manner.  <br>
-. PATCH version: When you make backwards-compatible bug fixes. <br>
+. ``MAJOR`` version: When you make incompatible (API) changes. <br>
+. ``MINOR`` version: When you add functionality in a backwards-compatible manner.  <br>
+. ``PATCH`` version: When you make backwards-compatible bug fixes. <br>
  <br>
 The version can have the following attributes: <br>
-. versionId (UUID) <br>
-. CreationDate (Audit Field) <br>
-. Major <br>
-. Minor <br>
-. Patch <br>
-. Name <br>
-. Short description <br>
-. Long description <br>
+. ``versionId`` (UUID) <br>
+. ``CreationDate`` (Audit Field) <br>
+. ``Major`` <br>
+. ``Minor`` <br>
+. ``Patch`` <br>
+. ``Name`` <br>
+. ``ShortDescription`` <br>
+. ``LongDescription`` <br>
  <br>
 Example:  <br>
 
 <br><img src="./images/Version2.jpg" align="center" width=100% height=100%> <br> <br> 
 
 ## References
-Semantic Versioning standard
+Semantic Versioning Standard <br>
 https://semver.org/
 <br> <br> <br>
 
@@ -1475,6 +1477,7 @@ It is an auxiliary utility entity for a main business entity. It indicates that 
 
 Lifecycle management can be an entity that is used to be descriptive or prescriptive.  <br>
 Lifecycle management can be conceived in two different ways: <br>
+<br>
 ***Guiding and constraining***<br>
 It is used as an enforcing rule. <br>
 The status of the business entity must change in a certain order.  <br>
@@ -1493,7 +1496,7 @@ The lifecycle management is used only to indicate current and previous states an
 # Event message - metadata
 ## Category
 ## Description
-This applies to systems that adopt Event Driven Design and must standardize event metadata.
+This applies to systems that adopt Event Driven Design and must standardize event metadata.<br>
 <br>
 ***EventId***<br> 
 Unique identifier. It is a unique identifier of an event in an ecosystem. <br>
