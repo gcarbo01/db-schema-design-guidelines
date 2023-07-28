@@ -1035,6 +1035,7 @@ This is only a quick reference to possible name-separator practices:<br>
 |1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
 |2| ``kebab-case``|Using Kebab Case, the empty spaces are replaced with dashes.|``first-name``|
 <br>
+
 ### Policies
 These standards are proposed. They apply to table names, but most also to attributes (column names).
 
