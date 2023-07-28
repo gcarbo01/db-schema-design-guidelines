@@ -1365,7 +1365,96 @@ In this case, the Characteristic is a type of metadata describing behaviour.  <b
 So, the behaviour is triggered when the main entity (business entity) and its attached metadata (the characteristics) are given as parameters to different framework modules.  <br>
 This way, adding more functionality without modifying existing data structures or functionality is possible. <br>
 ## References
-Anchor modelling
+Anchor modelling.  <br>
 https://en.wikipedia.org/wiki/Anchor_modeling
 <br> <br> <br> 
+# Scope (Operating Scope)
+## Category
+## Description
+It is an auxiliary utility entity for a main business entity. It indicates that the main business entity has (one or more) specific boundaries or ambits where this entity is valid and can be operated. .  <br>
+
+ 
+ <br><img src="./images/Scope1.jpg" align="center" width=85% height=85%> <br> <br>
+
+
+For example:  <br>
+. Business entity example: Tax-Regulation has scope for countries’ legal systems.  <br>
+. Technical example: A login session token has one or more domains where it is valid..  <br>
+<br>
+The scope is reference data across the entire system or platforms. These attributes are usually pre-categorised and approved in reference data tables and are not free text.  <br>
+## References
+<br> <br> <br>
+# Documentation
+## Category
+## Description
+<br><img src="./images/Documentation1.jpg" align="center" width=85% height=85%> <br> <br>
+## References
+<br> <br> <br>
+
+# Instruction (Processing Instruction)
+## Category
+## Description
+<br><img src="./images/Instruction1.jpg" align="center" width=85% height=85%> <br> <br>
+## References
+<br> <br> <br>
+
+# Version
+## Category
+## Description
+<br><img src="./images/Version1.jpg" align="center" width=85% height=85%> <br> <br>
+## References
+<br> <br> <br>
+
+# Lifecycle management
+## Category
+## Description
+<br><img src="./images/Lifecycle-management1.jpg" align="center" width=85% height=85%> <br> <br>
+## References
+<br> <br> <br>
+
+# Event message - metadata
+## Category
+## Description
+## References
+<br> <br> <br>
+
+# TimePeriod
+## Category
+## Description
+<br><img src="./images/TimePeriod1.jpg" align="center" width=85% height=85%> <br> <br>
+<br><img src="./images/TimePeriod2.jpg" align="center" width=85% height=85%> <br> <br>
+## References
+<br> <br> <br>
+	
+# TimeFrequencyPeriod
+## Category
+## Description
+## References
+<br> <br> <br>
+	
+# Code First Approach vs Declarative Schema Definition
+## Category
+## Description
+## References
+<br> <br> <br>
+
+
+# Generic fields names
+## Category
+## Description
+## References
+<br> <br> <br>
+
+# Time fields
+## Category
+## Description
+## References
+<br> <br> <br>
+
+
+# Synthetic test Data Generation
+## Category
+## Description
+## References
+<br> <br> <br>
 --End of the File--
