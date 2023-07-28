@@ -1161,10 +1161,10 @@ Avoid implementing data integrity rules at the code-base level. Rely on database
 <br><br>
 #### Consistency in standards adoption (Consistency)
 It is encouraged to align with what other development groups have adopted already.<br>
-For example, align with other domain names and data types if they have already modelled this entity.<br>
+For example, align with other domain names and data types if they have modelled this entity.<br>
 All microservices will be part of one system. <br>
-When you're thinking about a table, please take the time to explore how the same entity has been called somewhere else. <br>
-If they are different, you need to discuss and agree with other domains of these conventions. <br>
+When you're thinking about a table name, I'd like you to please take the time to explore how the same entity has been called somewhere else. <br>
+If they differ, you must discuss and agree with other domains of these conventions. <br>
 If you are right, then tag the other domain deviation on the naming convention as technical debt and carry on.<br>
 If the name used on the other domain is right, then create a registry of decisions to capture this important insight and carry on.<br>
 <br><br>
@@ -1174,10 +1174,25 @@ If the name used on the other domain is right, then create a registry of decisio
 # SQL Reserved words
 ## Category
 ## Description
-Avoid using reserved words when you name databases, tables, columns, or any other database objects. <br>
+Avoid using reserved words when naming databases, tables, columns, or other database objects. <br>
 The following table contains a list of the common reserved words:<br>
 ``ABORT``, ``ALL``, ``ANALYSE``, ``ANALYZE``, ``AND``, ``ANY``, ``ASC``, ``BETWEEN``, ``BINARY``, ``BIT``, ``BOTH``, ``CASE``, ``CAST``, ``CHAR``, ``CHARACTER``, ``CHECK``, ``CLUSTER``, ``COALESCE``, ``COLLATE``, ``COLLATION``, ``COLUMN``, ``CONSTRAINT``, ``COPY``, ``CROSS``, ``CURRENT``, ``CURRENT_CATALOG``, ``CURRENT_DATE``, ``CURRENT_DB``, ``CURRENT_SCHEMA``, ``CURRENT_SID``, ``CURRENT_TIME``, ``CURRENT_TIMESTAMP``, ``CURRENT_USER``, ``CURRENT_USERID``, ``CURRENT_USEROID``, ``DEALLOCATE``, ``DEC``, ``DECIMAL``, ``DEFAULT``, ``DECODE``, ``DESC``, ``DISTINCT``, ``DISTRIBUTE``, ``DO``, ``ELSE``, ``END``, ``EXCEPT``, ``EXCLUDE``, ``EXPLAIN``, ``EXTEND``, ``EXTERNAL``, ``EXTRACT``, ``FALSE``, ``FIRST``, ``FLOAT``, ``FOLLOWING``, ``FOR``, ``FOREIGN``, ``FROM``, ``FULL``, ``FUNCTION``, ``GENSTATS``, ``GLOBAL``, ``GROUP``, ``HAVING``, ``IDENTIFIER_CASE``, ``ILIKE``, ``IMPORT``, ``IN``, ``INDEX``, ``INITIALLY``, ``INNER``, ``INOUT``, ``INTERVAL``, ``INTO``, ``IS``, ``JOIN``, ``KEY``, ``LAST``, ``LEADING``, ``LEFT``, ``LIKE``, ``LIMIT``, ``LOAD``, ``LOCAL``, ``LOCK``, ``MINUS``, ``MOVE``, ``NATURAL``, ``NCHAR``, ``NEW``, ``NOT``, ``NOTNULL``, ``NULL``, ``NULLS``, ``NVL``, ``NVL2``, ``OFFSET``, ``OLD``, ``ON``, ``ONLINE``, ``ONLY``, ``OPEN``, ``OR``, ``ORDER``, ``OTHERS``, ``OUTER``, ``OVER``, ``OVERLAPS``, ``PARTITION``, ``POSITION``, ``PRECEDING``, ``PRECISION``, ``PRIMARY``, ``RESET``, ``REUSE``, ``RIGHT``, ``ROWS``, ``SELECT``, ``SETOF``, ``SHOW``, ``SOME``, ``TABLE``, ``THEN``, ``TIES``, ``TIME``, ``TIMESTAMP``, ``TO``, ``TRAILING``, ``TRANSACTION``, ``TRIGGER``, ``TRIM``, ``TRUE``, ``TRUNCATE``, ``UNBOUNDED``, ``UNION``, ``UNIQUE``, ``USER``, ``USING``, ``VACUUM``, ``VERBOSE``, ``VERSION``, ``VIEW``, ``VIRTUAL``, ``WHEN``, ``WHERE``, ``WITH``, ``WRITE``.
 
+# Source of Truth
+## Category
+## Description
+This design principle applies especially when designing distributed systems.  <br> 
+Therefore it is important to consider having only one master always.  <br> 
+This is applicable when designing microservices and Domain Driven Design (DDD) systems.  <br> 
+In microservices architecture is important to nominate which microservice is mastering business entities. <br> 
+Only one domain should master a business entity. <br> 
+However, some entities can be in multiple domains/microservice.  <br> 
+If this is the case, it is expected to be mastered in one domain/microservice and replicated in others through eventual consistency. <br> 
+Avoid and challenge if you find a business entity is mastered in more than one domain/microservice. <br> 
+ <br> 
+For example:
+In the logical domain model, the entities identified as mastered in this data model are coloured Gold. <br> 
+<br><img src="./images/Source-of-truth1.jpg" align="center" width=85% height=85%> <br> <br> 
 ## References
 <br> <br> 
 <br> 
