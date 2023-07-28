@@ -957,6 +957,7 @@ Implementing the ``TenantId`` at the row level proposed can be helpful if it is 
 <br>
 
 ## References
+Multi-tenancy models <br> 
 Microsoft Tenancy models for a multitenant solution <br> 
 https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/tenancy-models <br> 
 Microsoft SaaS and multitenant solution architecture <br> 
