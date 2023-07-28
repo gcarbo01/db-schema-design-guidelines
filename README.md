@@ -32,7 +32,7 @@ Data modelling guidelines incorporate security measures, protecting sensitive da
 **Alignment with Business Goals** <br>
 Architects align the data model with business goals and requirements, which is crucial for delivering valuable insights and supporting decision-making processes.  
 ## Capabilities
-I've listed the capabilities in no particular order. <br> It is important how to read them; the capabilities may overlap, or some of them are subspecialisation of others. Some of them are complimentary. So, I organise them into topics or subjects that, in most cases, can be read independently and also implemented independently, with obvious exception of course.
+I've listed the capabilities in no particular order. <br> It is important how to read them; the capabilities may overlap, or some of them are subspecialisation of others. Some of them are complimentary. So, I organise them into topics or subjects that, in most cases, can be read independently and also implemented independently, with the obvious exception of course.
 Lastly, it is important to note that most of these capabilities provide some references to websites, tools and libraries. Most of them are open-sourced. These may flourish or die without notice. 
 ## Use
 After reading any of the capabilities, I recommend doing your own research. Please let me know if you have comments, disagree, or find gaps. Collaborators are welcome to the project.<br>
@@ -917,7 +917,7 @@ So, in developing a generic data design guidance for multi-tenancy scenarios, I 
 . For Applications supporting more than one Tenant. This has repercussions on Database design and also hosting names and API URLs.  <br>
 . For the infrastructure hosting more than one tenant. This affects the whole stack, from network compartmentalisation to workload allocation and isolation, capping, etc. There are several models to follow depending on the occasion. More below. <br>
 <br>
-
+<br>
 ### Application Multi-tenant design
 From the Application design perspective, the problem scope and narrowed to data design; the Application must understand and manage data from multiple Tenants without confusing or mixing it.  So, the simplest design strategy consists of adding a ``TenantId`` qualifier to all rows to identify the data owner. <br>
 To complete the idea, the TenantId implementation must also be embedded in the services and APIs exposed as interfaces, and it could also be considered having several permutations of the same client applications for the same backend instance. This is not so uncommon.<br>
@@ -1208,7 +1208,7 @@ In the logical domain model, the entities identified as mastered in this data mo
 ## Description
 Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
 Therefore, consultation with data modellers about the correct party name that should be used in your domain would be required. <br> 
-Parties refer, for example, to:
+Parties refer, for example, to:<br>
 ***Organization***<br>
 . ClientCompany <br> 
 . Tenant <br> 
