@@ -1001,8 +1001,8 @@ So, the Tenant and the Company are related concepts, both are organisations, but
 <br><img src="./images/Tenant-Company1.jpg" align="center" width=85% height=85%> <br> <br> 
 <br>
 The example below: <br> 
-. The tenant has only one single Company using an Application. <br>
-. The application is being used only by one Company. <br>
+. The Tenant has multiple child Companies; all companies are invited to use an Application. <br>
+. The users of the Companies are provided with access to the Application. <br>
 <br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=85% height=85%> <br> <br> 
 <br>
 
