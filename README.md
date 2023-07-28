@@ -994,13 +994,13 @@ https://kubernetes.io/docs/concepts/overview/working-with-objects/names/  <br>
 ## Description
 Company is a concept related directly to the implementation of SaaS. The Company concept indicates which company uses an Application or is “hosted” in an Application. <br> 
 It is a concept also related to Multi-Tenancy or extends the Multi-tenancy concept. <br> 
-A Tenant owns the Application instance and can have multiple Companies using the application. <br> 
-Then the Tenant and the Company are related concepts, but they are not the same and interchangeable. <br>
+The scenario that best explains when this Company concept is needed is when a Tenant subscribes to a SaaS service (SaaS Application). It requires inviting and managing the bill and the access of users that belong to multiple Companies under the parent Tenant organisation. <br> 
+So, the Tenant and the Company are related concepts, both are organisations, but they are not at the same level, and therefore they are not the same and interchangeable concepts. <br>
 <br><img src="./images/Tenant-Company1.jpg" align="center" width=70% height=70%> <br> <br> 
 <br>
 The example below: <br> 
-. The tenant has only one single company using an Application. <br>
-. The application is being used only by one company. <br>
+. The tenant has only one single Company using an Application. <br>
+. The application is being used only by one Company. <br>
 <br><img src="./images/Tenant-Company-instance1.jpg" align="center" width=90% height=90%> <br> <br> 
 <br>
 
