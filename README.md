@@ -1255,7 +1255,7 @@ There are multiple ways these can be used. See references. <br>
 https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 <br> <br> <br> 
 
-# Address, Places, Location
+# Address, Place, Location
 ## Category
 ## Description
 There are several considerations for designing Address tables and fields.  <br>
