@@ -975,6 +975,10 @@ https://relevant.software/blog/multi-tenant-architecture/  <br>
 Sharded Multi-Tenant Database using SQL Server Row-Level Security  <br> 
 https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
 <br> 
+AWS - Amazon Resource Names (ARNs) 
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html
+Kubernetes - Object Names and IDs
+https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
 <br> 
 <br> 
 
@@ -982,7 +986,7 @@ https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using
 ## Category
 ## Description
 Company is a concept related directly to the implementation of SaaS. The Company concept indicates which company uses an Application or is “hosted” in an Application. <br> 
-It is a concept also related to Multi-Tenancy, or it extends the Multi-tenancy concept. <br> 
+It is a concept also related to Multi-Tenancy or extends the Multi-tenancy concept. <br> 
 A Tenant owns the Application instance and can have multiple Companies using the application. <br> 
 Then the Tenant and the Company are related concepts, but they are not the same and interchangeable. <br>
 <br><img src="./images/Tenant-Company1.jpg" align="center" width=70% height=70%> <br> <br> 
