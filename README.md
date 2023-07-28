@@ -1346,6 +1346,7 @@ Characteristic table
 
 
 Example:
+ <br>
  <br><img src="./images/Characteristic2.jpg" align="center" width=85% height=85%> <br> <br>
 
 The Chargingharacteristic is a specialisation of a generic abstract Characteristic.  <br>
@@ -1421,7 +1422,7 @@ The scope is reference data across the entire system or platforms. These attribu
 # TimePeriod
 ## Category
 ## Description
-<br><img src="./images/TimePeriod1.jpg" align="center" width=70% height=70%> <br> <br>
+<br><img src="./images/TimePeriod1.jpg" align="center" width=65% height=65%> <br> <br>
 
 ## References
 <br> <br> <br>
@@ -1429,7 +1430,7 @@ The scope is reference data across the entire system or platforms. These attribu
 # TimeFrequencyPeriod
 ## Category
 ## Description
-<br><img src="./images/TimeFrequencyPeriod1.jpg" align="center" width=40% height=40%> <br> <br>
+<br><img src="./images/TimeFrequencyPeriod1.jpg" align="center" width=25% height=25%> <br> <br>
 ## References
 <br> <br> <br>
 	
