@@ -972,7 +972,6 @@ Multi-tenancy authentication through Kong API Gateway  <br>
 https://medium.com/@cezarromaniuc/multi-tenancy-authentication-through-kong-api-gateway-e05e08308da8  <br> 
 Multitenancy API design patterns  <br> 
 https://medium.com/@vivekmadurai/multi-tenancy-in-rest-api-a570d728620c  <br> 
-Others  <br> 
 Multi-Tenant Architecture for Designing a SaaS Application  <br> 
 https://relevant.software/blog/multi-tenant-architecture/  <br> 
 <br> 
