@@ -1021,7 +1021,7 @@ So, the CompanyId implementation in domains can be: <br>
 This is only a quick reference to possible name-casing practices:<br> 
 |#|	Original data|	Description| Example |
 | --- | --- | --- | --- |
-|1|``UPPERCASE``|Simple uppercase|``Name``|
+|1|``UPPERCASE``|Simple uppercase|``NAME``|
 |2|``lowercase``|Simple lowercase|``name``|
 |3|``camelCase``|names – the name starts with a lowercase letter, <br>but new words start with an uppercase letter|	``firstName``|
 |4|``PascalCaseNames``|(Also known as an upper camel) – similar to camelCase, <br>but the name starts with an uppercase letter, as do all additional words|	``FirstName``|
@@ -1034,7 +1034,7 @@ This is only a quick reference to possible name-separator practices:<br>
 | --- | --- | --- | --- |
 |1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
 |2| ``kebab-case``|Using Kebab Case, the empty spaces are replaced with dashes.|``first-name``|
-
+<br><br>
 ### Policies
 These standards are proposed. They apply to table names, but most also to attributes (column names).
 
@@ -1044,7 +1044,7 @@ Table names should be NOUNS. Nouns are the most descriptive way of representing 
 For example: ``Customer``  <br>
 Recommendation:    <br>
 Do not use plural nouns, e.g., “Customers”.   <br>
-
+<br><br>
 
 #### Table Name – Use of Qualifier (adjective + Noun)
 Think twice when using adjectives in conjunction with the nominated noun.    <br>
@@ -1070,18 +1070,115 @@ This can be by having a ``Boolean`` field in the Order table, or having a separa
 . Etc.   <br>
 <br>
 So, these qualifiers can be just simple attributes of the entity and status fields (Boolean) or a Category Table.    <br>
-<br>
+<br><br>
 #### Table Name – Composed Names (Two Nouns)
-Table names can be a combination of two nouns. But in most cases, this could be a design flaw.
-But think carefully if these two are not two different entities that should have their table.
-For example: ``CustomerApplication``, ``UserProfile``.
-``Customer`` has an ``Application``. 1 to n relationship
-``User`` has ``Profile``. 1 to 1 relationship.
+This refers to when a table name is the composition of two nouns. This could be a valid scenario, but it could also be a design flaw.
+Whenever you find this, please think carefully if these two are not separate entities that should have their table separate.
+For example: to mention some:  <br>
+. ``CustomerApplication`` <br>
+. ``UserProfile`` <br>
+ <br>
+When they should be modelled as: ``Customer`` table  and ``Application`` table. <br>
+And the ``User`` table and ``Profile`` table.  
+Because it could be the case that ``Customer`` has N ``Application``<br>
+Because it could be the case that ``User`` has N ``Profile``<br>
+Recommendation: <br>
+If you find a table name with two nouns, verify if these entities may be better in different tables. <br>
+<br><br>
+#### Prefix and Suffix 
+Avoid using unnecessary prefixes or suffixes for table names and fields. <br>
+For example:  <br>
+. ``CustomerTable`` <br>
+. ``TCustomer`` <br>
+. ``tbl_customer`` <br>
+. ``customer_column`` <br>
+. ``customer_col`` <br>
+. ``c_customer`` <br>
+. Etc… <br>
+<br> <br> 
+
+#### Boolean fields prefix
+To have consistency in naming and have a mnemotechnics rule to identify this type of field, the Boolean fields should start with the following prefixes: <br>
+. ``is`` <br>
+. ``has`` <br>
+<br>
+For example: <br>
+In the ``Customer`` table, a flag to indicate is a "frequent" customer, and then the boolean flag field should be:<br>
+. ``isFrequentFlyer``<br>
+. ``hasCredential``<br>
+<br>
 Recommendation: 
-Verify if the entity (noun) may be better modelled in its Table.
+Boolean fields are better understood if they have a prefix.
+<br> <br> 
+#### camelCase or PascalCaseName
+This is part of the importance of being consistent. It is far more important than what naming style you use. So, we need to nominate a standard, adopt it and be consistent. <br>
+Decide to adopt or not adopt the ``camelCase``.  <br>
+For example: 
+. ``customerProfile`` 
+. ``localTime``
+<br>
+Adopt or do not adopt the ``PascalCaseName``. <br>
+For example:  <br>
+. ``CustomerProfile``  <br>
+. ``LocalTime``  <br>
+<br><br>
+ #### Name separators 
+This is part of the importance of being consistent. It is far more important than what naming style you use. So, we need to nominate a standard, adopt it and be consistent.<br>
+Adopt or do not adopt the underscore (“_”) or dashes (“-“) as a name separator. <br>
+For example: <br>
+. ``user_profile``. <br>
+. ``local_time``<br>
+Or<br>
+. ``user-profile`` <br>
+. ``local-time``<br>
+<br><br>
+
+#### Special Characters
+Don’t use special characters for table names or field names. Including Spaces, ``&``, ``*``, ``$``, ``@``, etc. Only alphanumeric characters. <br>
+Only underscore (``_``), or dash (``-``) if the conventions adopted permits it.<br>
+The database or the application may have problems with these. Moreover, some database engines do not accept it and replace it automatically. This can cause strange characters to appear as part of the name replacing the space.<br>
+<br><br>
+
+#### SQL Object types Prefix
+Object types can adopt the following prefix conventions: <br>
+. ``PK`` for primary key constraints.<br>
+. ``FK`` for foreign key constraints.<br>
+. ``UK`` for unique key constraints.<br>
+. ``TG`` for triggers.<br>
+. ``SP`` for stored procedures<br>
+. ``IX`` for indexes.<br>
+An index name should include the index type, the name of the indexed table, and indexed column names. It would look something like this:<br>
+``IX_TableName_ColumnName``<br>
+<br><br>
+#### Use database features consistently
+Consider using database properties for helping with data integrity<br>
+For example:<br>
+. Constraints (foreign key, check, not null ...) to ensure data integrity. <br>
+. Don’t give whole control to the application code.<br>
+<br>
+Recommendation: <br>
+Avoid implementing data integrity rules at the code-base level. Rely on database features for this.<br>
+<br><br>
+#### Consistency in standards adoption (Consistency)
+It is encouraged to align with what other development groups have adopted already.<br>
+For example, align with other domain names and data types if they have already modelled this entity.<br>
+All microservices will be part of one system. <br>
+When you're thinking about a table, please take the time to explore how the same entity has been called somewhere else. <br>
+If they are different, you need to discuss and agree with other domains of these conventions. <br>
+If you are right, then tag the other domain deviation on the naming convention as technical debt and carry on.<br>
+If the name used on the other domain is right, then create a registry of decisions to capture this important insight and carry on.<br>
+<br><br>
+## References
+<br> <br> 
+<br> 
+# SQL Reserved words
+## Category
+## Description
+Avoid using reserved words when you name databases, tables, columns, or any other database objects. <br>
+The following table contains a list of the common reserved words:<br>
+``ABORT``, ``ALL``, ``ANALYSE``, ``ANALYZE``, ``AND``, ``ANY``, ``ASC``, ``BETWEEN``, ``BINARY``, ``BIT``, ``BOTH``, ``CASE``, ``CAST``, ``CHAR``, ``CHARACTER``, ``CHECK``, ``CLUSTER``, ``COALESCE``, ``COLLATE``, ``COLLATION``, ``COLUMN``, ``CONSTRAINT``, ``COPY``, ``CROSS``, ``CURRENT``, ``CURRENT_CATALOG``, ``CURRENT_DATE``, ``CURRENT_DB``, ``CURRENT_SCHEMA``, ``CURRENT_SID``, ``CURRENT_TIME``, ``CURRENT_TIMESTAMP``, ``CURRENT_USER``, ``CURRENT_USERID``, ``CURRENT_USEROID``, ``DEALLOCATE``, ``DEC``, ``DECIMAL``, ``DEFAULT``, ``DECODE``, ``DESC``, ``DISTINCT``, ``DISTRIBUTE``, ``DO``, ``ELSE``, ``END``, ``EXCEPT``, ``EXCLUDE``, ``EXPLAIN``, ``EXTEND``, ``EXTERNAL``, ``EXTRACT``, ``FALSE``, ``FIRST``, ``FLOAT``, ``FOLLOWING``, ``FOR``, ``FOREIGN``, ``FROM``, ``FULL``, ``FUNCTION``, ``GENSTATS``, ``GLOBAL``, ``GROUP``, ``HAVING``, ``IDENTIFIER_CASE``, ``ILIKE``, ``IMPORT``, ``IN``, ``INDEX``, ``INITIALLY``, ``INNER``, ``INOUT``, ``INTERVAL``, ``INTO``, ``IS``, ``JOIN``, ``KEY``, ``LAST``, ``LEADING``, ``LEFT``, ``LIKE``, ``LIMIT``, ``LOAD``, ``LOCAL``, ``LOCK``, ``MINUS``, ``MOVE``, ``NATURAL``, ``NCHAR``, ``NEW``, ``NOT``, ``NOTNULL``, ``NULL``, ``NULLS``, ``NVL``, ``NVL2``, ``OFFSET``, ``OLD``, ``ON``, ``ONLINE``, ``ONLY``, ``OPEN``, ``OR``, ``ORDER``, ``OTHERS``, ``OUTER``, ``OVER``, ``OVERLAPS``, ``PARTITION``, ``POSITION``, ``PRECEDING``, ``PRECISION``, ``PRIMARY``, ``RESET``, ``REUSE``, ``RIGHT``, ``ROWS``, ``SELECT``, ``SETOF``, ``SHOW``, ``SOME``, ``TABLE``, ``THEN``, ``TIES``, ``TIME``, ``TIMESTAMP``, ``TO``, ``TRAILING``, ``TRANSACTION``, ``TRIGGER``, ``TRIM``, ``TRUE``, ``TRUNCATE``, ``UNBOUNDED``, ``UNION``, ``UNIQUE``, ``USER``, ``USING``, ``VACUUM``, ``VERBOSE``, ``VERSION``, ``VIEW``, ``VIRTUAL``, ``WHEN``, ``WHERE``, ``WITH``, ``WRITE``.
 
 ## References
 <br> <br> 
 <br> 
-
 --End of the File--
