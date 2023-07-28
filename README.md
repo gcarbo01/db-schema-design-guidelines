@@ -972,8 +972,12 @@ https://medium.com/@vivekmadurai/multi-tenancy-in-rest-api-a570d728620c  <br>
 Others  <br> 
 Multi-Tenant Architecture for Designing a SaaS Application  <br> 
 https://relevant.software/blog/multi-tenant-architecture/  <br> 
+<br> 
+Database sharding   <br> 
 Sharded Multi-Tenant Database using SQL Server Row-Level Security  <br> 
 https://www.codeproject.com/Articles/5318079/Sharded-Multi-Tenant-Database-using-SQL-Server-Row  <br> 
+Schema-based sharding for Postgres  <br> 
+https://www.citusdata.com/blog/2023/07/18/citus-12-schema-based-sharding-for-postgres/  <br> 
 <br> 
 Cloud Service Ids   <br> 
 AWS - Amazon Resource Names (ARNs)   <br> 
