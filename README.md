@@ -1429,7 +1429,7 @@ The scope is reference data across the entire system or platforms. These attribu
 # TimeFrequencyPeriod
 ## Category
 ## Description
-<br><img src="./images/TimeFrequencyPeriod1.jpg" align="center" width=85% height=85%> <br> <br>
+<br><img src="./images/TimeFrequencyPeriod1.jpg" align="center" width=40% height=40%> <br> <br>
 ## References
 <br> <br> <br>
 	
