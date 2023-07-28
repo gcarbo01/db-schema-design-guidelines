@@ -1405,7 +1405,7 @@ Workflow:  <br>
 . Status management   <br>
 . etc   <br>
 Document management, as such, is just another workflow that carries as its main entity a document where the editions and approvals are visually stamped and notated. Some document engines specialise in managing document SDKs, so the edition of documents is done in the actual document media.   <br>
-If there are no special requirements about the specific format of the “document” whilst the media file goes through several workflow steps (for example, PDF, Word, etc.), then the document management can be accomplished by a normal workflow engine. The last stage of the workflow can generate a pdf file.  <br>
+Suppose there are no special requirements about the specific format of the “document” whilst the media file goes through several workflow steps (for example, PDF, Word, etc.). In that case, document management can be accomplished by a normal workflow engine. The last stage of the workflow can generate a pdf file.  <br>
 Storage:  <br>
 . Dedicated storage engine.   <br>
 . APIs optimised to manage documents.   <br>
@@ -1419,7 +1419,7 @@ If the volume of documents is not large, it can be managed within the same BDRMS
 # Instruction (Processing Instruction)
 ## Category
 ## Description
-It is an auxiliary utility entity for a main business entity. It is used to indicate how the main business entity must be processed. It is used mostly in system-to-system integration. These attributes are reference data across the entire system or platforms. These attributes are usually pre-categorised and approved in reference data tables and are not free text. <br>
+It is an auxiliary utility entity for a main business entity. It is used to indicate how the main business entity must be processed. It is used mostly in system-to-system integration. These attributes are reference data across the entire system or platforms. These attributes are usually pre-categorised, approved in reference data tables, and not free text. <br>
 This pattern applies, for example, to any business entity sent across in the services’ payload. So the sender can have particular annotations about how the entity must be processed or operated.  <br>
 
 <br><img src="./images/Instruction1.jpg" align="center" width=70% height=70%> <br> <br>
@@ -1459,7 +1459,7 @@ The version can have the following attributes: <br>
  <br>
 Example:  <br>
 
-<br><img src="./images/Version2.jpg" align="center" width=70% height=70%> <br> <br> 
+<br><img src="./images/Version2.jpg" align="center" width=100% height=100%> <br> <br> 
 
 ## References
 Semantic Versioning standard
