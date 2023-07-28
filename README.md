@@ -1381,7 +1381,7 @@ For example:  <br>
 . Business entity example: Tax-Regulation has scope for countries’ legal systems.  <br>
 . Technical example: A login session token has one or more domains where it is valid..  <br>
 <br>
-The scope is reference data across the entire system or platforms. These attributes are usually pre-categorised and approved in reference data tables and are not free text.  <br>
+The scope is reference data across the entire system or platforms. These attributes are usually pre-categorised, approved in reference data tables, and not free text.  <br>
 ## References
 <br> <br> <br>
 # Documentation
