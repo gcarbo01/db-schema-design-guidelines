@@ -1034,7 +1034,7 @@ This is only a quick reference to possible name-separator practices:<br>
 | --- | --- | --- | --- |
 |1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
 |2| ``kebab-case``|Using Kebab Case, the empty spaces are replaced with dashes.|``first-name``|
-<br><br>
+<br>
 ### Policies
 These standards are proposed. They apply to table names, but most also to attributes (column names).
 
@@ -1050,7 +1050,7 @@ Do not use plural nouns, e.g., “Customers”.   <br>
 Think twice when using adjectives in conjunction with the nominated noun.    <br>
 This could be a design flaw. Some adjectives are only reinforcements of data that is saved or known otherwise.   <br>
 For example:    <br>
-. “singleCustomer”.    <br>
+. ``singleCustomer``.    <br>
 <br>
 Recommendation:    <br>
 Adjectives in the Table names are not recommended.    <br>
@@ -1153,8 +1153,8 @@ An index name should include the index type, the name of the indexed table, and 
 #### Use database features consistently
 Consider using database properties for helping with data integrity<br>
 For example:<br>
-. Constraints (foreign key, check, not null ...) to ensure data integrity. <br>
-. Don’t give whole control to the application code.<br>
+. Use Constraints, foreign key, check, not null ...etc to ensure data integrity. <br>
+. Avoid giving the responsibility of SQL referential integrity to the Application<br>
 <br>
 Recommendation: <br>
 Avoid implementing data integrity rules at the code-base level. Rely on database features for this.<br>
