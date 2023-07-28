@@ -1028,6 +1028,7 @@ This is only a quick reference to possible name-casing practices:<br>
 <br> 
 ### name-separator practices
 This is only a quick reference to possible name-separator practices:<br>
+
 |#|	Original data|	Description| Example |
 | --- | --- | --- | --- |
 |1| ``snake_case``|Using Snake Case, the empty spaces are replaced with underscores.|``first_name``|
