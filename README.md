@@ -1328,7 +1328,7 @@ https://www.placekey.io/<br>
 It is an auxiliary utility entity for a main business entity. It is used to indicate that the main business entity has distinctive attributes.  <br
 These attributes are usually pre-categorised and approved in reference data tables. They are not free text and are related to specific behaviour “injected” into the main business entity when a characteristic is given to an entity.  <br>
 
- <br><img src="./images/Characteristic1.jpg" align="center" width=85% height=85%> <br> <br>
+ <br><img src="./images/Characteristic1.jpg" align="center" width=70% height=70%> <br> <br>
 
 A Characteristic is a feature or quality used to catalogue, typify, and add specific attributes to a main entity. 
 Characteristic is not by any means a primary business entity. It holds the attributes of another, more important entity.
@@ -1381,12 +1381,12 @@ https://en.wikipedia.org/wiki/Anchor_modeling
 It is an auxiliary utility entity for a main business entity. It indicates that the main business entity has (one or more) specific boundaries or ambits where this entity is valid and can be operated. .  <br>
 
  
- <br><img src="./images/Scope1.jpg" align="center" width=85% height=85%> <br> <br>
+ <br><img src="./images/Scope1.jpg" align="center" width=70% height=70%> <br> <br>
 
 
 For example:  <br>
 . Business entity example: Tax-Regulation has scope for countries’ legal systems.  <br>
-. Technical example: A login session token has one or more domains where it is valid..  <br>
+. Technical example: A login session token has one or more domains where it is valid.  <br>
 <br>
 The scope is reference data across the entire system or platforms. These attributes are usually pre-categorised, approved in reference data tables, and not free text.  <br>
 ## References
@@ -1394,41 +1394,162 @@ The scope is reference data across the entire system or platforms. These attribu
 # Documentation
 ## Category
 ## Description
-<br><img src="./images/Documentation1.jpg" align="center" width=85% height=85%> <br> <br>
+It is an auxiliary utility entity for a main business entity that indicates that the main entity has documents. Generally, this auxiliary entity handles documents generated or attached to business entities.  <br>
+
+<br><img src="./images/Documentation1.jpg" align="center" width=70% height=70%> <br> <br>
+
+The documents are generally handled by a specialised sub-system that usually is divided into two different functions:  <br>
+Workflow:  <br>
+. Who can create  <br>
+. Who are the approvers  <br>
+. Status management   <br>
+. etc   <br>
+Document management, as such, is just another workflow that carries as its main entity a document where the editions and approvals are visually stamped and notated. Some document engines specialise in managing document SDKs, so the edition of documents is done in the actual document media.   <br>
+If there are no special requirements about the specific format of the “document” whilst the media file goes through several workflow steps (for example, PDF, Word, etc.), then the document management can be accomplished by a normal workflow engine. The last stage of the workflow can generate a pdf file.  <br>
+Storage:  <br>
+. Dedicated storage engine.   <br>
+. APIs optimised to manage documents.   <br>
+. Storage binary content and a large volume of data.    <br>
+. Publish content online.   <br>
+. etc.   <br>
+If the volume of documents is not large, it can be managed within the same BDRMS by optimising the storage. Can be achieved by creating a dedicated volume partition to store binary documents only.  <br>
 ## References
 <br> <br> <br>
 
 # Instruction (Processing Instruction)
 ## Category
 ## Description
-<br><img src="./images/Instruction1.jpg" align="center" width=85% height=85%> <br> <br>
+It is an auxiliary utility entity for a main business entity. It is used to indicate how the main business entity must be processed. It is used mostly in system-to-system integration. These attributes are reference data across the entire system or platforms. These attributes are usually pre-categorised and approved in reference data tables and are not free text. <br>
+This pattern applies, for example, to any business entity sent across in the services’ payload. So the sender can have particular annotations about how the entity must be processed or operated.  <br>
+
+<br><img src="./images/Instruction1.jpg" align="center" width=70% height=70%> <br> <br>
+
+For example: <br>
+. Business entity example: Asset  <br>
+In this scenario, a company exposes the asset service. Suppliers send asset information through this service. The receiver company expects to receive the physical asset by mail or transportation. The receiver company expose a service so that it knows when a new asset has been shipped.  <br>
+The sender sends the asset information with Processing Instructions.  <br>
+The sender can tell the time frame, the owner, the channel and other specifications to the receiver about how the asset is meant to be processed and the information about that asset treated. <br>
+
 ## References
 <br> <br> <br>
 
 # Version
 ## Category
 ## Description
-<br><img src="./images/Version1.jpg" align="center" width=85% height=85%> <br> <br>
+It is an auxiliary utility entity for a main business entity. It is used to indicate that the main business entity, once it is created, is immutable and cannot be changed. If an update is required, then it must be created a clone with a different “version”.  <br>
+
+<br><img src="./images/Version1.jpg" align="center" width=70% height=70%> <br> <br> 
+
+The versioning protocol defined by the semantic versioning https://semver.org/ can be summarized as follow: <br>
+. Given a version number MAJOR.MINOR.PATCH <br>
+Increment the: <br>
+. MAJOR version: When you make incompatible (API) changes. <br>
+. MINOR version: When you add functionality in a backwards-compatible manner.  <br>
+. PATCH version: When you make backwards-compatible bug fixes. <br>
+ <br>
+The version can have the following attributes: <br>
+. versionId (UUID) <br>
+. CreationDate (Audit Field) <br>
+. Major <br>
+. Minor <br>
+. Patch <br>
+. Name <br>
+. Short description <br>
+. Long description <br>
+ <br>
+Example:  <br>
+
+<br><img src="./images/Version2.jpg" align="center" width=70% height=70%> <br> <br> 
+
 ## References
+Semantic Versioning standard
+https://semver.org/
 <br> <br> <br>
 
 # Lifecycle management
 ## Category
 ## Description
-<br><img src="./images/Lifecycle-management1.jpg" align="center" width=85% height=85%> <br> <br>
+It is an auxiliary utility entity for a main business entity. It indicates that the main business entity goes through several states. It is proposed to have status management as an auxiliary entity to separate the concerns of status management from the actual function of the business entity. <br>
+
+<br><img src="./images/Lifecycle-management1.jpg" align="center" width=70% height=70%> <br> <br>
+
+Lifecycle management can be an entity that is used to be descriptive or prescriptive.  <br>
+Lifecycle management can be conceived in two different ways: <br>
+***Guiding and constraining***<br>
+It is used as an enforcing rule. <br>
+The status of the business entity must change in a certain order.  <br>
+The status transitions, and the Lifecycle management describes the roles that the entity must go through. <br>
+In this case, the lifecycle management may be a complex entity that is conformed by several tables and sub-entities: <br>
+. Activity <br>
+. Status <br>
+. Time-frame <br>
+. Role <br>
+ <br>
+***Descriptive***  <br>
+The lifecycle management is used only to indicate current and previous states and other metadata about how and when the transition from one status to another status happened.
 ## References
 <br> <br> <br>
 
 # Event message - metadata
 ## Category
 ## Description
+This applies to systems that adopt Event Driven Design and must standardize event metadata.
+<br>
+***EventId***<br> 
+Unique identifier. It is a unique identifier of an event in an ecosystem. <br>
+<br>
+***MessageKey***<br>
+Unique identifier. It is an id generated for an instance of an event for an Event Type of a business domain.<br>
+<br>
+***EventType***<br>
+Type of event of a business domain. This is also the Schema identifier in Kafka.<br>
+<br>
+***SourceEventIds []***<br>
+It is an array of SourceEventId<br>
+<br>
+***SourceEventId***<br>
+It is a tuple of (ApplicationId, EventId). Each application that consumes the event generates another event; it should add its own tuple to the end of the array so that it is possible to track the sequence of Applications and the chain of events generated as a consequence of the first EventId on the array. This is useful for tracking if a design problem occurs and the event comes back to the source, producing a cycling error.<br>
+<br>
+***CorrelationId***<br>
+Unique identifier. The Client or Producer adds this to the requests, and the same value is populated to all the consequent messages' payloads created as a consequence of the initial message processing so that it is possible to track the event chain.<br>
+<br>	
+***ExternalCorrelationId***<br>
+A unique identifier value is generated by third parties when sending a request. The Client or Producer adds this to the requests, and the same value is populated to all the consequent messages' payloads created as a consequence of the initial message processing so that it is possible to track the event chain.<br>
+<br>
+***EventSource***<br>
+It is the Application id which is the creator of the event.<br>
+<br>
+***ApplicationId***<br>
+Unique identifier. It is an identifier of a logical group of deployments representing the same application or business domain. <br>
+Kubernetes has a concept of Application id. And also Dapr framework has an Application id that is interrelated.<br>
+See Kubernetes Application concept and Application Id references for more information.<br>
+<br>	
+***ApplicationInstanceId***<br>
+Unique identifier. It is an identifier of a deployed instance representing the same application or business domain. <br>	
+<br>
 ## References
+Kubernetes Application Concept <br>
+https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Integrations/k8s-ocp/k8s-app-identity.htm  <br>
+Application Id - environment variable <br>
+https://docs.dapr.io/reference/environment/  <br>
 <br> <br> <br>
 
 # TimePeriod
 ## Category
 ## Description
-<br><img src="./images/TimePeriod1.jpg" align="center" width=65% height=65%> <br> <br>
+TimePeriod is a utility entity that can be applied to business entities.   <br>
+This pattern allows dividing activities into time-periods.   <br>
+They are a fixed time interval.   <br>
+Time periods have a start and an end.   <br>
+These time-periods can be used for accounting and reporting.  <br>
+<br>
+Example:  <br>
+
+<br><img src="./images/TimePeriod1.jpg" align="center" width=65% height=65%> <br> <br> 
+
+Offer has a Validity Period, which is a specialisation of a TimePeriod.   <br>
+The period in question is established by startDateTime and endDateTime attributes.  <br>
+<br>
 
 ## References
 <br> <br> <br>
@@ -1436,33 +1557,104 @@ The scope is reference data across the entire system or platforms. These attribu
 # TimeFrequencyPeriod
 ## Category
 ## Description
+This pattern allows giving activities frequency of time.  <br>
+This entity contains labels that indicate the interval of times-frequency where the activity should occur.   <br>
+For example:  <br>
+. ``One-time-only``  <br>
+. ``Yearly``  <br>
+. ``Monthly``  <br>
+. ``Fortnightly``  <br>
+. ``Weekly``  <br>
+. ``Daily``  <br>
+. ``Hourly``  <br>
+. ``Once-a-minute``  <br>
+. ``Once-a-second``  <br>
+<br>
+For example:  <br>
+ 
 <br><img src="./images/TimeFrequencyPeriod1.jpg" align="center" width=25% height=25%> <br> <br>
+
+The Charging process is a type of Task that runs once every month at 12:00.  <br>
+
+
 ## References
 <br> <br> <br>
 	
 # Code First Approach vs Declarative Schema Definition
 ## Category
 ## Description
+When managing a database schema for a project, both code-first and declarative schema definition approaches have their benefits depending on the project requirements and development process.   <br>
+<br>
+
+### Code-First Approach
+***Flexibility***  <br>
+The code-first approach generates the database schema based on the code or object model. Developers can define the schema directly in code, making it easier to iterate and change it as the application evolves.  <br>
+***Rapid Development***   <br>
+Code-first allows developers to quickly get started with development without creating and managing database scripts manually. The schema can be generated automatically based on the code, saving time and effort.  <br>
+***Version Control Integration***  <br>
+Code-first aligns well with version control systems, as the database schema can be treated as code and managed alongside the application code. This enables better collaboration and version control for application code and database schema changes.  <br>
+***Simplified Deployment***  <br>
+Since the schema is generated from code, deploying the application with the database becomes more streamlined. The database can be automatically created or updated during deployment, reducing the manual steps involved.  <br>
+
+### Declarative Schema Definition
+***Explicit and Controlled***  <br>
+The declarative schema definition provides a clear and explicit representation of the database schema. The schema is defined using SQL scripts or a DSL (Domain-Specific Language), making it easier to understand and control the structure of the database.  <br>
+***Database-Agnostic***  <br>
+Declarative schema definition allows for a more database-agnostic approach. The same schema definition can be used with different database systems, making it easier to switch between databases or support multiple database platforms.  <br>
+***Schema Evolution Management***  <br>
+Declarative schema definition helps manage schema evolution over time. Changes to the schema can be represented as migration scripts, which enable controlled and incremental updates to the database schema while preserving existing data.  <br>
+***Database Administration***  <br>
+The declarative schema definition is well-suited for projects where database administrators handle the database schema management or where strict policies or regulations require explicit schema definitions.  <br>
+<br>
+It is generally better to have a declarative schema definition in the following scenarios:  <br>
+. Projects with complex database structures or specific schema requirements must be carefully managed and documented.  <br>
+. Projects with a separate database administration team responsible for maintaining and managing the database schema.   <br>
+. Projects that require fine-grained control over schema changes and versioning, especially when dealing with large-scale or production databases.  <br>
 ## References
 <br> <br> <br>
-
 
 # Generic fields names
 ## Category
 ## Description
+Avoid generic fields whenever possible. Generic names in tables and fields drive the route of having inconsistent data.<br>
+Generally, when someone implements one of these types of fields, it also needs another field to say what this field contains.<br>
+For example:<br>
+. Address_1, Address_2, etc.<br>
+. Name_1, Name_2, etc.<br>
+. Object_1, Object_2, etc.<br>
+
 ## References
 <br> <br> <br>
 
 # Time fields
 ## Category
 ## Description
+It is important to prepare the application for internationalization. <br>
+For this, it is important to design time fields carefully. <br>
+The one policy that applies to this is to use UTC. Always UTC. <br>
+Because using a time zone other than UTC will cause consistency problems.  <br>
+The application must convert the time to UTC when saving the field and vice versa. <br>
+Then, the application must have the functionality to convert from UTC to your current timezone. <br> 
+As per the database’s time zone should be UTC, then all dateTime columns should be types that strip time zones (e.g., timestamp without time zone). <br>
+The consequence of not adopting this standard is the lack of consistency, which can produce unnecessary complexity to cascade to the application layer.  <br>
+In addition, any type of analysis related to date-tie will be a lot harder and prone to errors. <br>
+
 ## References
 <br> <br> <br>
 
 
-# Synthetic test Data Generation
+# Synthetic Test Data Generation
 ## Category
 ## Description
+Test data generators are tools that can help to create synthetic data automatically. It can automatically generate hundreds or thousands of custom data sets. For example, customers, products or accounts items with different attributes for their id, email, name, etc. <br>
+These tools specialize in generating data with several approaches and specifications. Some of them specialize in SQL and databases. Others in specific industry domains, and others using AI. Other specialized in big data or Machine Learning. Etc. <br>
+Some of them are open-sourced, and some others are licensed. <br>
 ## References
+open-source-test-data-generators <br>
+https://www.softwaretestingmagazine.com/tools/open-source-test-data-generators/  <br>
+https://www.guru99.com/test-data-generation-tools.html  <br>
+test-data-generation-tools <br>
+https://www.getsynth.com/ <br>
+https://github.com/bchavez/Bogus  <br>
 <br> <br> <br>
 --End of the File--
