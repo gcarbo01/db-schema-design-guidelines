@@ -1114,8 +1114,8 @@ Boolean fields are better understood if they have a prefix.
 #### camelCase or PascalCaseName
 This is part of the importance of being consistent. It is far more important than what naming style you use. So, we need to nominate a standard, adopt it and be consistent. <br>
 Decide to adopt or not adopt the ``camelCase``.  <br>
-For example: 
-. ``customerProfile`` 
+For example:   <br>
+. ``customerProfile``   <br>
 . ``localTime``
 <br>
 Adopt or do not adopt the ``PascalCaseName``. <br>
