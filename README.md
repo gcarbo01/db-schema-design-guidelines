@@ -608,7 +608,7 @@ This is a regular Product table:<br>
 |a303a8269976|	Milk	|0.45|
 |faa9eb81e162|	Bread	|0.30|
 <br>
-This is the Product table with the ``Valid_time`` dimension.<br>
+This is the Product table with the ``Valid_time`` dimension. <br>
 
 |productId|	versionId|	Name|	Price_USD|	ValidFrom|  	ValidTo|
 | --- | --- | --- | --- | --- | --- |
