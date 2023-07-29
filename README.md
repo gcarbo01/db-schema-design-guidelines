@@ -1208,8 +1208,10 @@ In the logical domain model, the entities identified as mastered in this data mo
 ## Category
 ## Description
 Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
-Therefore, consultation with data modellers about the correct party name that should be used in your domain would be required. <br> 
-Parties refer, for example, to:<br>
+After several years of data modelling, I adopted the following cataloguing of Parties, shown below.<br> 
+To understand the concept of a Party, it is necessary to understand the concept of PartyRole. Each Party will be playing a Role (PartyRole). The PartyRole is the actual referable entity in a scenario. The Party will be wrapped by one of the PartyRole to perform any action with a system or interact with the organisation. <br>
+<br> 
+Parties:<br>
 <br>
 ***Organization***<br>
 . ClientCompany <br> 
@@ -1226,7 +1228,7 @@ Parties refer, for example, to:<br>
 . etc. <br> 
  <br> 
 ***Other*** <br>
-. Application (Third party application interacting with Pickles) <br> 
+. Application (Third-party application or system interacting with the organisation) <br> 
 . Etc.  <br> 
 #### Party and PartyRole diagram
 <br><img src="./images/Party-PartyRole-diagram1.jpg" align="center" width=100% height=100%> <br> <br>
@@ -1237,9 +1239,14 @@ Parties refer, for example, to:<br>
 ## Category
 ## Description
 Following the “Party” diagram above. <br> 
-The party are abstract entities that take a role in a scenario. They use an envelope of PartyRole when the Party is used in an Application-Channel. <br> 
-PartyRoles are related through “PartyRoleAssociation”.  <br> 
-This PartyRoleAssociation enables a direct relationship between Parties.  <br> 
+The party are abstract entities that play a role in a scenario. The Party use a PartyRole as an envelope. The Party is recognised by the PartyRole name, and the PartyRoles are usually needed when the Party uses different channels to interact with the organisation. <br> 
+For example: <br> 
+An Individual can be a Prospect. <br> 
+The same Individual can be a Customer (who has a commercial relationship with the company). <br> 
+The same Individual can be a User (of an application). <br> 
+ <br> 
+In addition, the PartyRoles are related through “PartyRoleAssociation”.  <br> 
+The PartyRoleAssociation concept is used to enable a direct relationship between Parties.  <br> 
 However, this is not to be taken literally since a relationship between parties should be more dynamic rather than static.  <br> 
 From the modelling point of view, the relationship or association between two parties, in general, must be through a: <br> 
 . An “Agreement” <br> 
