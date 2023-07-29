@@ -1059,7 +1059,7 @@ These adjectives can be modelled as attributes.   <br>
 <br>
 There are also legitimate business scenarios where there is a need to have qualifiers for business entities:   <br>
 For example:    <br>
-. ``Order``
+. ``Order`` <br>
 . ``ReturnedOrder``
 <br>
 This can be modelled in multiple ways, but there is indeed the need to model “returned orders” to be distinguished in some way from the normal “orders”.    <br>
