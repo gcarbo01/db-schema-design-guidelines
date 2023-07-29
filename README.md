@@ -3,6 +3,11 @@ Database SQL schema design and data modelling guidelines
 
 <img src="./images/db-schema-design-guidelines.jpg" align="center" width=50% height=50%>
 
+* 1\. item 
+    * 1.1\. item 1.1
+    * 1.2\. item 1.2
+* 2\. item
+  
 ## Intro
 ### Summary
 This document lists different patterns for logical and physical data modelling. It can read as a cookbook for good data modelling and SQL schema design. <br>
