@@ -1240,11 +1240,23 @@ Parties:<br>
 ## Description
 Following the “Party” diagram above. <br> 
 The party are abstract entities that play a role in a scenario. The Party use a PartyRole as an envelope. The Party is recognised by the PartyRole name, and the PartyRoles are usually needed when the Party uses different channels to interact with the organisation. <br> 
+<br> 
 For example: <br> 
-An Individual can be a Prospect. <br> 
-The same Individual can be a Customer (who has a commercial relationship with the company). <br> 
-The same Individual can be a User (of an application). <br> 
+***Individual*** <br>
+. An Individual is a physical Individual. It is a Party. <br> 
+. The Individual can play the partyRole of Prospect. <br> 
+. The same Individual can play the partyRole of Customer (who has a commercial relationship with the company). <br> 
+. The same Individual can play the partyRole of User (of an application). <br> 
+. Etc. <br> 
  <br> 
+***Organisation*** <br>
+. An Organisation is a physical Entity. It is a Party. <br> 
+. The same Organisation can play the partyRole of a Tenant. <br> 
+. The same Organisation can play the partyRole of ClientCompany. <br> 
+. The same Organisation can play the partyRole of PartnerCompany. <br> 
+. Etc. <br> 
+ <br> 
+<br> 
 In addition, the PartyRoles are related through “PartyRoleAssociation”.  <br> 
 The PartyRoleAssociation concept is used to enable a direct relationship between Parties.  <br> 
 However, this is not to be taken literally since a relationship between parties should be more dynamic rather than static.  <br> 
