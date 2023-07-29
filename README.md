@@ -3,8 +3,8 @@ Database SQL schema design and data modelling guidelines
 
 <img src="./images/db-schema-design-guidelines.jpg" align="center" width=50% height=50%>
 
-* 1\. item 
-    * 1.1\. item 1.1
+* 1\. # item 
+    ## * 1.1\. item 1.1
     * 1.2\. item 1.2
 * 2\. item
   
