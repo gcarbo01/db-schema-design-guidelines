@@ -1204,14 +1204,14 @@ In the logical domain model, the entities identified as mastered in this data mo
 <br> <br> 
 <br> 
 
-# Party (data modelling standardization)
+# Party and PartyRole
 ## Category
 ## Description
 Cataloguing Parties is quite a big effort to have consistency across the whole company. <br> 
 After several years of data modelling, I adopted the following cataloguing of Parties, shown below.<br> 
 To understand the concept of a Party, it is necessary to understand the concept of PartyRole. Each Party will be playing a Role (PartyRole). The PartyRole is the actual referable entity in a scenario. The Party will be wrapped by one of the PartyRole to perform any action with a system or interact with the organisation. <br>
 <br> 
-Parties:<br>
+### Party (data modelling standardization)
 <br>
 ***Organization***<br>
 . ClientCompany <br> 
@@ -1235,9 +1235,8 @@ Parties:<br>
 ## References
 <br> <br> 
 <br> 
-# PartyRoles Relationships (modelling)
-## Category
-## Description
+
+### PartyRoles Relationships (modelling)
 Following the “Party” diagram above. <br> 
 The party are abstract entities that play a role in a scenario. The Party use a PartyRole as an envelope. The Party is recognised by the PartyRole name, and the PartyRoles are usually needed when the Party uses different channels to interact with the organisation. <br> 
 <br> 
@@ -1257,6 +1256,7 @@ For example: <br>
 . Etc. <br> 
  <br> 
 <br> 
+### PartyRoleAssociation
 In addition, the PartyRoles are related through “PartyRoleAssociation”.  <br> 
 The PartyRoleAssociation concept is used to enable a direct relationship between Parties.  <br> 
 However, this is not to be taken literally since a relationship between parties should be more dynamic rather than static.  <br> 
