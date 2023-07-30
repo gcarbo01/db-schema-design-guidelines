@@ -1268,7 +1268,7 @@ So that the two parties have a common ground of understanding and other meta-dat
 ## References
 <br> <br> 
 <br> 
-# Party Arrangement 
+# Arrangement 
 ## Category
 ## Description
 The Arrangement concept is a flexible entity representing the relationship between a customer and a product or service. It gives the model a flexible element in organising and managing customer products within a domain. <br> 
