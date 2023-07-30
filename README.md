@@ -1268,6 +1268,38 @@ So that the two parties have a common ground of understanding and other meta-dat
 ## References
 <br> <br> 
 <br> 
+# Party Arrangement 
+## Category
+## Description
+The Arrangement concept is a flexible entity representing the relationship between a customer and a product or service. It gives the model a flexible element in organising and managing customer products within a domain. <br> 
+An Arrangement typically captures the contractual relationship between a customer and a specific product or service offered by an institution. It connects the customer and the product, representing the association or agreement between the two parties. <br> 
+The Arrangement entity would contain attributes that describe the configurable conditions arranged when accepting the terms and conditions of the product or service, and all other data does not belong to the product or the customer. These data carried out in the Arrangement vary from case to case but can serve business and technical purposes at the same time. <br> 
+The Arrangement allows for managing with more proficiency the relationship with the customer, managing the product lifecycle, tracking the status and the product performance of the customer, and monitoring the status and performance of different products over time. Also, it helps to conduct any risk assessment, if these apply to the product, assisting with compliance and regulations. <br> 
+In addition, they are valuable sources of information for reporting and analytics, providing information about product usage, customer behaviour, and revenue generation. I also used cross-selling or upselling opportunities because understanding the arrangements held by each customer enables the organisation to identify cross-selling opportunities and offer tailored products or services based on individual needs. <br> 
+<br> 
+The Arrangement can be as follows: <br> 
+. Arrangement ID: A unique identifier for each Arrangement to distinguish it from others. <br> 
+. Customer ID: It Refers to the customer to whom the Arrangement is associated. <br> 
+. Product ID: A reference to the specific product or service that forms the basis of the Arrangement. <br> 
+. Contract Start Date and End Date: The dates that signify the beginning and termination of the Arrangement's contract period. <br> 
+. Arrangement Status: The current status of the Arrangement (e.g., active, inactive, expired, etc.). <br> 
+. Configurable Conditions: Specific conditions and configurations agreed upon between the customer and the institution as part of the Arrangement. <br> 
+. Terms and Conditions: The detailed terms and conditions of the product or service as accepted by the customer. <br> 
+. Product Lifecycle Information: Information about the product's lifecycle, including creation, modification, and termination dates. <br> 
+. Performance Metrics: Metrics and data related to the performance of the product or service, such as interest rates, fees, or other performance indicators. <br> 
+. Risk Assessment Data: Any data related to risk assessment, such as credit risk associated with the customer or product. <br> 
+. Compliance and Regulatory Information: Information related to compliance with regulations and requirements applicable to the Arrangement and product. <br> 
+. Cross-Selling Opportunities: Data indicating potential cross-selling or upselling opportunities based on the customer's current arrangements. <br> 
+. Revenue Generation Data: Information on the revenue generated from the product or service within the Arrangement. <br> 
+. Additional Custom Data: Any other business-specific or technical data relevant to the Arrangement and helps manage the customer relationship effectively. <br> 
+<br> 
+The Arrangement can be understood as a supertype of Contract, Master Service Agreement, Statement of Work, etc. 
+ <br> 
+Also, depending on the scenario, it can comprise other related agreement data such as Non-Disclosure Agreement (NDA), Memorandum of Understanding (MOU), Service Level Agreement (SLA), License Agreement, Lease Agreement, Employment Contract, Supply Agreement, Purchase Agreement, Distribution Agreement, Franchise Agreement, Reseller Agreement, Service Agreement, etc.
+## References
+<br> <br> 
+<br>
+
 # First Name – Last Name
 ## Category
 ## Description
