@@ -1212,8 +1212,7 @@ After several years of data modelling, I adopted the following cataloguing of Pa
 To understand the concept of a Party, it is necessary to understand the concept of PartyRole. Each Party will be playing a Role (PartyRole). The PartyRole is the actual referable entity in a scenario. The Party will be wrapped by one of the PartyRole to perform any action with a system or interact with the organisation. <br>
 <br> 
 ### Party (data modelling standardization)
-<br>
-***Organization***<br>
+#### Organization
 . ClientCompany <br> 
 . Tenant <br> 
 . Vendor <br> 
@@ -1221,13 +1220,13 @@ To understand the concept of a Party, it is necessary to understand the concept 
 . Supplier <br> 
 . Etc <br> 
  <br> 
-***Individual*** <br> 
+#### Individual
 . User <br> 
 . ClientIndividual <br> 
 . Customer <br> 
 . etc. <br> 
  <br> 
-***Other*** <br>
+#### Other
 . Application (Third-party application or system interacting with the organisation) <br> 
 . Etc.  <br> 
 #### Party and PartyRole diagram
@@ -1241,18 +1240,21 @@ Following the “Party” diagram above. <br>
 The party are abstract entities that play a role in a scenario. The Party use a PartyRole as an envelope. The Party is recognised by the PartyRole name, and the PartyRoles are usually needed when the Party uses different channels to interact with the organisation. <br> 
 <br> 
 For example: <br> 
-***Individual*** <br>
+#### Individual
 . An Individual is a physical Individual. It is a Party. <br> 
 . The Individual can play the partyRole of Prospect. <br> 
 . The same Individual can play the partyRole of Customer (who has a commercial relationship with the company). <br> 
 . The same Individual can play the partyRole of User (of an application). <br> 
 . Etc. <br> 
  <br> 
-***Organisation*** <br>
+#### Organisation
 . An Organisation is a physical Entity. It is a Party. <br> 
 . The same Organisation can play the partyRole of a Tenant. <br> 
 . The same Organisation can play the partyRole of ClientCompany. <br> 
 . The same Organisation can play the partyRole of PartnerCompany. <br> 
+. Etc. <br> 
+#### Application
+. An Application can play the role of an External-System <br> 
 . Etc. <br> 
  <br> 
 <br> 
