@@ -1136,7 +1136,7 @@ Or<br>
 
 #### Special Characters
 Don’t use special characters for table names or field names. Including Spaces, ``&``, ``*``, ``$``, ``@``, etc. Only alphanumeric characters. <br>
-Only underscore (``_``), or dash (``-``) if the conventions adopted permits it.<br>
+Only underscore (``_``) or dash (``-``) if the conventions adopted permits it.<br>
 The database or the application may have problems with these. Moreover, some database engines do not accept it and replace it automatically. This can cause strange characters to appear as part of the name replacing the space.<br>
 <br><br>
 
@@ -1149,7 +1149,7 @@ Object types can adopt the following prefix conventions: <br>
 . ``SP`` for stored procedures<br>
 . ``IX`` for indexes.<br>
 An index name should include the index type, the name of the indexed table, and indexed column names. It would look something like this:<br>
-``IX_TableName_ColumnName``<br>
+``IX``_``<TableName>``_``<ColumnName>`` <br>
 <br><br>
 #### Use database features consistently
 Consider using database properties for helping with data integrity<br>
