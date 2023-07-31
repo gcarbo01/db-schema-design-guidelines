@@ -290,7 +290,10 @@ In this hypothetical scenario, some customers send us information about Assets. 
 Therefore, these external identifiers are preserved separately from the Asset table. <br>
 You can see the External Identifier pattern in this document if you want more information. <br>
 ## References
-<br> <br><br>
+<br>
+<br>
+<br>
+
 # External Identifier
 ## Category
 ## Description
