@@ -271,10 +271,10 @@ A system keeping information about the entities mastered in CRMs,  <br>
 
 | #	| Column  Name	| Description |
 | --- | --- | --- |
-|1|		IdentificationId |	Business id. Unique identifier |
-|2|		originApplicationId	| Application id. Application mastering this business entity. This is a soft link, not a foreign key.|
-|3|		Name |	Name of the attribute as it is known in the origin application.|
-|4|		Value |	Value of the attribute. |
+|1|	identificationId |	Business id. Unique identifier |
+|2|	originApplicationId	| Application id. Application mastering this business entity. This is a soft link, not a foreign key.|
+|3|	name |	Name of the attribute as it is known in the origin application.|
+|4|	value |	Value of the attribute. |
  
 ### Hypothetical example scenarios
 #### Example 1
@@ -754,24 +754,24 @@ The relationship is complex with more metadata and is an InvolvementRoleAssociat
 For example: <br>
 |#|	Field Name|	Type|	Description|
 | --- | --- | --- | --- |
-|1| InvolvementRoleAssociationProductOwnerId|Unique Identifier|	Unique identifier. UUID.|
-|2| Name | varchar(50)|Name of the InvolvementRoleAssociation
-|3|Description |String|Description of the InvolvementRoleAssociation|
-|4|Type|varchar(50) | Qualifier. Type or relationship is. For example: 'Legal', 'Binding', 'Formal', 'Professional'etc|
-|5|Start_Date|DateTime| From what date time this relationship is active|
-|6| End_Date |DateTime| Until what date time this relationship is active|
-|7| Status |varchar(50)| What status this relationship is. For example, 'Acvtive', 'Suspended', 'Dormant', etc.|
-|8|Context | varchar(50)|Qualifier. Names of the context where this association can be used. For example, 'Online', 'Back-office', 'Chatboot', etc |
-|9| Category |varchar(50)| Qualifier. For example: 'Social Media', 'Email Marketing', 'Online Advertising', 'Online Forums', etc.|
-|10| Direction |varchar(50)| What direction this relationship must be read. For example: 'Product-to-User', 'User-to-Product', 'Bidirectional'|
+|1| involvementRoleAssociationProductOwnerId|Unique Identifier|	Unique identifier. UUID.|
+|2| name | varchar(50)|Name of the InvolvementRoleAssociation
+|3|description |String|Description of the InvolvementRoleAssociation|
+|4|type|varchar(50) | Qualifier. Type or relationship is. For example: 'Legal', 'Binding', 'Formal', 'Professional'etc|
+|5|start_date|DateTime| From what date time this relationship is active|
+|6| end_date |DateTime| Until what date time this relationship is active|
+|7| status |varchar(50)| What status this relationship is. For example, 'Acvtive', 'Suspended', 'Dormant', etc.|
+|8|context | varchar(50)|Qualifier. Names of the context where this association can be used. For example, 'Online', 'Back-office', 'Chatboot', etc |
+|9| category |varchar(50)| Qualifier. For example: 'Social Media', 'Email Marketing', 'Online Advertising', 'Online Forums', etc.|
+|10| direction |varchar(50)| What direction this relationship must be read. For example: 'Product-to-User', 'User-to-Product', 'Bidirectional'|
  <br>
 Other attributes for more complex scenarios where the relationship belongs to another system, so a new set of attributes may be convenient to be stored for reference:<br>
 
 |#|	Field Name|	Type|	Description|
 | --- | --- | --- | --- |
-|1|Alias|varchar(50)|Other names applicable to the relationship. For example: "Purchased Subscription"|
-|2|ApplicationOriginName |varchar(50)| This relationship is mastered in another system, and this system only has a copy. Application name|
-|3|ApplicationOriginValue |varchar(50)|This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
+|1|alias|varchar(50)|Other names applicable to the relationship. For example: "Purchased Subscription"|
+|2|applicationOriginName |varchar(50)| This relationship is mastered in another system, and this system only has a copy. Application name|
+|3|applicationOriginValue |varchar(50)|This relationship is mastered in another system, and this system only has a copy. Relationship original name on the external Application. For example: 'Anual Subscription'|
 ## References
 <br> <br> <br> 
 
@@ -1522,13 +1522,13 @@ The version can have the following attributes: <br>
 |#|Field Name|	Type|	Description|
 | --- | --- | --- | --- |
 |1|``versionId`` | Unique Id. UUID| Unique identifier.| 
-|2|``CreationDate`` | dateTime| Creation date time.|
-|3|``Major``|String| version Major.|
-|4|``Minor``|String| version Minor.
-|5|``Patch`` |String| version Patch.|
-|6|``Name``|String| version Name.|
-|7|``ShortDescription``|String| Short description.|
-|8|``LongDescription``|String| Long description.|
+|2|``creationDate`` | dateTime| Creation date time.|
+|3|``major``|String| version Major.|
+|4|``minor``|String| version Minor.
+|5|``patch`` |String| version Patch.|
+|6|``name``|String| version Name.|
+|7|``shortDescription``|String| Short description.|
+|8|``longDescription``|String| Long description.|
 <br>
 
 <br><img src="./images/Version2.jpg" align="center" width=80% height=80%> <br> <br> 
