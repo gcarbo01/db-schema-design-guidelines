@@ -415,10 +415,10 @@ This type of Ids has similarities with <br>
  <br>
 They can be adopted for Restful APIs as Resource ids. For example: <br>
 From this type of ids:<br>
-/customer/``Contoso``/account/``npb5YA4Dep3yMqAP7rRN``<br>
+/customer/``Contoso``/account/``npb5-YA4D``<br>
 <br>
 Transformed to:<br>
-/customer/``C0n7050``/account/``npb5Y44D3p3yMq4P7rRN``
+/customer/``C0n7050``/account/``npb5-Y44D``
 <br>
 ### Randomness and Uniqueness
 If extra randomness is required, each letter transformation can also be transformed randomly.  <br>
@@ -605,26 +605,27 @@ Example: <br>
 This example is inspired by the Codeproject-Bitemporal-Database-Table-Design-The-Basics article. Please take a look at the reference below.
 This is a regular Product table:<br>
 
-| productId | Name | Price_USD |
+| productId | name | price_USD |
 | --- | --- | --- |
-|430bf27a3a5c|	Eggs	|1.20|
-|a303a8269976|	Milk	|0.45|
-|faa9eb81e162|	Bread	|0.30|
+|430b-f27a|	Eggs	|1.20|
+|a303-a826|	Milk	|0.45|
+|faa9-eb81|	Bread	|0.30|
 <br>
 This is the Product table with the ``Valid_time`` dimension. <br>
+Product_Valid_Time table: <br>
 
-|productId|	versionId|	Name|	Price_USD|	ValidFrom|  	ValidTo|
-| --- | --- | --- | --- | --- | --- |
-|430bf27a3a5c|	b4a8f53f7185|	Eggs|	1.20|	20/01/2006|	13/06/2006|
-|430bf27a3a5c|	8ce5f997507e|	Eggs|	1.25|	``13/06/2006``|	``31/12/9999``|
-|a303a8269976|	61ac4228f9e3|	Milk| 	0.45|	20/01/2006|	01/01/2007|
-|faa9eb81e162|	d26c89e922aa|	Bread| 	0.28|	18/06/2005|	20/01/2006|
-|faa9eb81e162|	44d37fa3fc2c|	Bread|	0.30|	``20/01/2006``|	``31/12/9999``|
+|ProductValidTimeId|productId|	versionId|	name|	price_USD|	validFrom|  	validTo|
+| --- | --- | --- | --- | --- | --- | --- |
+|nkL8-MB7h|430b-f27a|	b4a8f53f7185|	Eggs|	1.20|	20/01/2006|	13/06/2006|
+|6Gf3-NhYc|430b-f27a|	8ce5f997507e|	Eggs|	1.25|	``13/06/2006``|	``31/12/9999``|
+|M2Jn-5bVx|a303-a826|	61ac4228f9e3|	Milk| 	0.45|	20/01/2006|	01/01/2007|
+|9y6S-pL7W|faa9-eb81|	d26c89e922aa|	Bread| 	0.28|	18/06/2005|	20/01/2006|
+|qj71-0IKt|faa9-eb81|	44d37fa3fc2c|	Bread|	0.30|	``20/01/2006``|	``31/12/9999``|
 
 Note the following:<br>
 . The Milk does not have a current active price. This means that the Milk is not being sold any more. <br>
-. The lines with the ``ValidFrom``and ``ValidTo`` in bold are the current active rows for these items.<br>
-. The productId is not unique. So, another strategy must be designed for the foreign keys to this table. Or productId may be filled only when the row is the active one. But in this case, it cannot be nominated as the SQL primary key because SQL primary keys cannot have empty values.<br>
+. The lines with the ``validFrom`` and ``validTo`` in bold are the current active rows for these items.<br>
+. The productId is not unique; therefore, it cannot be marked as ``UNIQUE``. So, another strategy must be designed for the foreign keys to this table. Or productId may be filled only when the row is the active one. But in this case, it cannot be nominated as the SQL primary key because SQL primary keys cannot have empty values.<br>
 
 ## References
 Codeproject-Bitemporal-Database-Table-Design-The-Basics article <br>
