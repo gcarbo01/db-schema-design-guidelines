@@ -614,7 +614,7 @@ This is a regular Product table:<br>
 This is the Product table with the ``Valid_time`` dimension. <br>
 Product_Valid_Time table: <br>
 
-|ProductValidTimeId|productId|	versionId|	name|	price_USD|	validFrom|  	validTo|
+|productValidTimeId|productId|	versionId|	name|	price_USD|	validFrom|  	validTo|
 | --- | --- | --- | --- | --- | --- | --- |
 |nkL8-MB7h|430b-f27a|	b4a8f53f7185|	Eggs|	1.20|	20/01/2006|	13/06/2006|
 |6Gf3-NhYc|430b-f27a|	8ce5f997507e|	Eggs|	1.25|	``13/06/2006``|	``31/12/9999``|
