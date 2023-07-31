@@ -1503,16 +1503,17 @@ Increment the: <br>
 . ``PATCH`` version: When you make backwards-compatible bug fixes. <br>
  <br>
 The version can have the following attributes: <br>
-. ``versionId`` (UUID) <br>
-. ``CreationDate`` (Audit Field) <br>
-. ``Major`` <br>
-. ``Minor`` <br>
-. ``Patch`` <br>
-. ``Name`` <br>
-. ``ShortDescription`` <br>
-. ``LongDescription`` <br>
- <br>
-Example:  <br>
+|#|Field Name|	Type|	Description|
+| --- | --- | --- | --- |
+|1|``versionId`` | Unique Id. UUID| Unique identifier.| 
+|2|``CreationDate`` | dateTime| Creation date time.|
+|3|``Major``|String| version Major.|
+|4|``Minor``|String| version Minor.
+|5|``Patch`` |String| version Patch.|
+|6|``Name``|String| version Name.|
+|7|``ShortDescription``|String| Short description.|
+|8|``LongDescription``|String| Long description.|
+<br>
 
 <br><img src="./images/Version2.jpg" align="center" width=100% height=100%> <br> <br> 
 
