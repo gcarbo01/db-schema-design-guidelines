@@ -1531,7 +1531,7 @@ The version can have the following attributes: <br>
 |8|``LongDescription``|String| Long description.|
 <br>
 
-<br><img src="./images/Version2.jpg" align="center" width=100% height=100%> <br> <br> 
+<br><img src="./images/Version2.jpg" align="center" width=80% height=80%> <br> <br> 
 
 ## References
 Semantic Versioning Standard <br>
