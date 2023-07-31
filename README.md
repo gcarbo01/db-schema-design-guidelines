@@ -927,7 +927,7 @@ These repositories can be designed with two different approaches, and I will use
 . A TenantId field can be placed at the aggregate root level only. <br>
 . A TenantId field can be placed in every database table, not just the domain root entity. Despite the data evident data redundancy, this option is valid because it clarifies the data models and avoids making silly mistakes when querying or manipulating datasets.<br>
 <br>
-About how to propagate the TenantIds in a distributed environment, it could be assumed that the ``TenantId`` concept fit into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
+About how to propagate the TenantIds in a distributed environment, it could be assumed that the ``TenantId`` concept fits into the reference data category. So, there should be a master table with all the reference data somewhere in the eco-system, and it will be used as the source of truth to propagate all new data or changes to any reference data dataset, to all microservices through the reference-data-propagation-rails whatever this has been decided to be. So, it could be treated as any other reference data set. <br>
 
 ### Infrastructure and platform  Multi-tenancy design
 From the infrastructure design perspective, these designs have been evolving and being discussed on the open in later years. Building large scalable SaaS applications was only a thing of big players. But increasingly, more architects confront this scenario and develop patterns and best practices. So, I analysed the best articles available when writing this (cited below in the reference section, which is from Microsoft and other sources); these are the variations proposed.<br>
@@ -1199,7 +1199,7 @@ Avoid and challenge if you find a business entity is mastered in more than one d
  <br> 
 For example:
 In the logical domain model, the entities identified as mastered in this data model are coloured Gold. <br> 
-<br><img src="./images/Source-of-truth1.jpg" align="center" width=80% height=80%> <br> <br> 
+<br><img src="./images/Source-of-truth1.jpg" align="center" width=90% height=90%> <br> <br> 
 ## References
 <br> <br> 
 <br> 
@@ -1231,9 +1231,6 @@ To understand the concept of a Party, it is necessary to understand the concept 
 . Etc.  <br> 
 #### Party and PartyRole diagram
 <br><img src="./images/Party-PartyRole-diagram1.jpg" align="center" width=100% height=100%> <br> <br>
-## References
-<br> <br> 
-<br> 
 
 ### PartyRoles Relationships (modelling)
 Following the “Party” diagram above. <br> 
