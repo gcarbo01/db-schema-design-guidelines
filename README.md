@@ -1303,23 +1303,25 @@ Also, depending on the scenario, it can comprise other related agreement data su
 <br> <br> 
 <br>
 
-# First Name – Last Name
+# Individual – First Name – Last Name
 ## Category
 ## Description
+It is important to design the Individual’s name carefully.  <br> 
 There are several considerations for designing First Name, Last Name, Middle Name, Suffix etc.  <br> 
 Firstly, avoid storing a person’s name in a single field. <br> 
-Secondly, consider all possible applicable conditions to the names for the culture the application is being designed. <br> 
-It is important to design the Individual’s name carefully. The names are modelled differently depending on the country. <br> 
-These are some of the fields used for Individual names: <br> 
+Secondly, consider all possible applicable conditions to the names for the county or countries and the cultural background. <br> 
+These are some of the fields to be considered when designing Individuals' names: <br> 
 . First Given Name <br> 
+. Middle Name<br> 
 . Preferred Name <br> 
 . Given Name  <br> 
-. Preferred Name <br> 
 . Nickname <br> 
 . Surname  <br> 
+. Title  <br> 
 . Prefixes <br> 
 . Suffixes <br> 
 . Nicknames <br> 
+. Surname Prefixes <br> 
 . Surname Prefixes <br> 
 . Etc. <br> 
 ## References
@@ -1329,6 +1331,20 @@ Individual names checklist <br>
 https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/ <br> 
 Suffix Name <br> 
 https://en.wikipedia.org/wiki/Suffix_(name) <br> 
+<br> <br> <br> 
+
+# Individual – Diversity - Equity - Inclusion
+## Category
+## Description
+Other fields may be applicable when collecting Individual data.<br> 
+. Nationality. <br> 
+. Gender Identification. <br> 
+. Pronouns.<br> 
+. Veteran status.<br> 
+. Ethnic minorities (e.g., Aboriginal identification).   <br> 
+. Ethnical background. <br> 
+. Etc. <br> 
+## References
 <br> <br> <br> 
 
 # Address, Place, Location
