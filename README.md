@@ -1300,7 +1300,12 @@ The Arrangement can be understood as a supertype of Contract, Master Service Agr
  <br> 
 Also, depending on the scenario, it can comprise other related agreement data such as Non-Disclosure Agreement (NDA), Memorandum of Understanding (MOU), Service Level Agreement (SLA), License Agreement, Lease Agreement, Employment Contract, Supply Agreement, Purchase Agreement, Distribution Agreement, Franchise Agreement, Reseller Agreement, Service Agreement, etc.
 ## References
-<br> <br> 
+Best Practices Models For Banking: IBM Software Group - Industry Models and Assets Lab <br> 
+https://www.scribd.com/document/460191290/1213230785713-pdf#  <br> 
+IBM Industry Models for Financial Services - The Information FrameWork (IFW)  <br> 
+http://ftpmirror.your.org/pub/misc/ftp.software.ibm.com/software/data/mdm/pdf/BDW_GIM_2006.pdf
+<br> 
+<br> 
 <br>
 
 # Individual – First Name – Last Name
